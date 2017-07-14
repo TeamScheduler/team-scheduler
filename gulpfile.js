@@ -13,7 +13,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 
 gulp.task('sass', function() {
-  return gulp.src('public/css/main.scss')
+  return gulp.src('public/css/sass/main.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
@@ -47,7 +47,7 @@ gulp.task('vendor', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('public/css/**/*.scss', ['sass']);
+  gulp.watch('public/css/sass/**/*.scss', ['sass']);
   gulp.watch('app/partials/**/*.html', ['templates']);
   gulp.watch('app/**/*.js', ['angular']);
 });

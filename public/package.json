@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "angular": "^1.6.5",
-    "angular-ui-router": "^1.0.3"
+    "angular-ui-router": "^1.0.3",
+    "bulma": "^0.4.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",

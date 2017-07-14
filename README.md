@@ -8,6 +8,7 @@ This project requires a number of open source projects to work properly:
 
 * [Bulma] - modern css framework based on flexbox
 * [Sass] - css with superpowers!
+* [Concurrently] - run multiple commands in one terminal window
 * [Gulp] - the streaming build system
 * [Angular JS] - frontend javascript framework
 * [Mongo DB] - NOSQL database
@@ -26,16 +27,13 @@ $ npm install
 ```
 
 ### DEV
-For dev porpouses, in one terminal window type:
+The start script will run concurrently mongod, gulp and the node server commands.
 ```sh
-$ npm run watch
+$ npm start
 ```
-On other terminal window:
-```sh
-$ mongod
-```
+
 ### Build
-To build the aplication simply do:
+Build the application by simply typing:
 
 ```sh
 $ npm run build
@@ -64,3 +62,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
    [Node]: <https://nodejs.org/en/>
    [Express]: <http://expressjs.com>
    [Mocha]: <https://mochajs.org>
+   [Concurrently]: <https://www.npmjs.com/package/concurrently>
