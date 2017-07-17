@@ -5987,3 +5987,19 @@ label.panel-block {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
+
+#find-team-partial .hero {
+  background-color: #212121; }
+  #find-team-partial .hero .hero-body .box {
+    width: 40%;
+    margin-left: 30%; }
+    #find-team-partial .hero .hero-body .box #find-team-btn {
+      background-color: #4DA1FF;
+      border-bottom-color: #C2DEFF;
+      padding: 10px;
+      font-size: 14px;
+      color: #FFF; }
+    #find-team-partial .hero .hero-body .box #create-team-btn {
+      background-color: #EF9D05;
+      border-bottom-color: #F2CE8A;
+      color: #FFF; }
