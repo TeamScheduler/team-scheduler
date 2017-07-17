@@ -11,51 +11,51 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
 
             .state('home', {
                 url: '/home',
-                templateUrl: 'partials/home.html'
+                templateUrl: 'components/home/home.html'
             })
 
             .state('find-team', {
                 url: '/find-team',
-                templateUrl: 'partials/find-team.html'
+                templateUrl: 'components/find-team/find-team.html'
             })
 
 
             .state('contact', {
                 url: '/contact',
-                templateUrl: 'partials/contact.html',
+                templateUrl: 'components/contact/contact.html',
                 controller: 'ContactCtrl'
             })
 
             .state('login', {
                 url: '/login',
-                templateUrl: 'partials/login.html',
+                templateUrl: 'components/login/login.html',
                 controller: 'LoginCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
 
             .state('signup', {
                 url: '/signup',
-                templateUrl: 'partials/signup.html',
+                templateUrl: 'components/signup/signup.html',
                 controller: 'SignupCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
 
             .state('account', {
                 url: '/account',
-                templateUrl: 'partials/profile.html',
+                templateUrl: 'components/profile/profile.html',
                 controller: 'ProfileCtrl',
                 resolve: { loginRequired: loginRequired }
             })
 
             .state('reset', {
                 url: '/reset/:token',
-                templateUrl: 'partials/reset.html',
+                templateUrl: 'components/reset/reset.html',
                 controller: 'ResetCtrl'
             })
 
             .state('forgot', {
                 url: '/forgot',
-                templateUrl: 'partials/forgot.html',
+                templateUrl: 'components/forgot/forgot.html',
                 controller: 'ForgotCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
@@ -117,23 +117,6 @@ angular.module('MyApp')
             error: Array.isArray(response.data) ? response.data : [response.data]
           };
         });
-    };
-  }]);
-
-angular.module('MyApp')
-  .controller('HeaderCtrl', ["$scope", "$state", "$window", "$auth", function($scope, $state, $window, $auth) {
-    $scope.isActive = function (viewLocation) {
-      return viewLocation === $state.href();
-    };
-    
-    $scope.isAuthenticated = function() {
-      return $auth.isAuthenticated();
-    };
-    
-    $scope.logout = function() {
-      $auth.logout();
-      delete $window.localStorage.user;
-      $state.go('home');
     };
   }]);
 
@@ -250,20 +233,20 @@ angular.module('MyApp')
     };
   }]);
 angular.module('MyApp')
-  .controller('ResetCtrl', ["$scope", "Account", function($scope, Account) {
-    $scope.resetPassword = function() {
-      Account.resetPassword($scope.user)
-        .then(function(response) {
-          $scope.messages = {
-            success: [response.data]
-          };
-        })
-        .catch(function(response) {
-          $scope.messages = {
-            error: Array.isArray(response.data) ? response.data : [response.data]
-          };
-        });
-    }
+  .controller('HeaderCtrl', ["$scope", "$state", "$window", "$auth", function($scope, $state, $window, $auth) {
+    $scope.isActive = function (viewLocation) {
+      return viewLocation === $state.href();
+    };
+    
+    $scope.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
+    
+    $scope.logout = function() {
+      $auth.logout();
+      delete $window.localStorage.user;
+      $state.go('home');
+    };
   }]);
 
 angular.module('MyApp')
@@ -303,6 +286,23 @@ angular.module('MyApp')
         });
     };
   }]);
+angular.module('MyApp')
+  .controller('ResetCtrl', ["$scope", "Account", function($scope, Account) {
+    $scope.resetPassword = function() {
+      Account.resetPassword($scope.user)
+        .then(function(response) {
+          $scope.messages = {
+            success: [response.data]
+          };
+        })
+        .catch(function(response) {
+          $scope.messages = {
+            error: Array.isArray(response.data) ? response.data : [response.data]
+          };
+        });
+    }
+  }]);
+
 angular.module('MyApp')
   .factory('Account', ["$http", "$state", function($http, $state) {
     return {

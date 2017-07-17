@@ -24,7 +24,7 @@ gulp.task('sass', function() {
 gulp.task('angular', function() {
   return gulp.src([
     'app/app.js',
-    'app/controllers/*.js',
+    'app/components/**/*.js',
     'app/services/*.js'
   ])
     .pipe(concat('application.js'))
@@ -34,10 +34,10 @@ gulp.task('angular', function() {
 });
 
 gulp.task('templates', function() {
-  return gulp.src('app/partials/**/*.html')
-    .pipe(templateCache({ root: 'partials', module: 'MyApp' }))
-    .pipe(gulpif(argv.production, uglify()))
-    .pipe(gulp.dest('public/js'));
+    return gulp.src('app/components/**/*.html')
+        .pipe(templateCache({ root: 'components', module: 'MyApp' }))
+        .pipe(gulpif(argv.production, uglify()))
+        .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('vendor', function() {
@@ -48,7 +48,7 @@ gulp.task('vendor', function() {
 
 gulp.task('watch', function() {
   gulp.watch('public/css/sass/**/*.scss', ['sass']);
-  gulp.watch('app/partials/**/*.html', ['templates']);
+    gulp.watch('app/components/**/*.html', ['templates']);
   gulp.watch('app/**/*.js', ['angular']);
 });
 
