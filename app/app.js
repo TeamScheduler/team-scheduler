@@ -3,59 +3,101 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
 
     .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
 
-        $locationProvider.hashPrefix('');
-
         $stateProvider
 
-            .state('home', {
+            .state({
+                name: 'home',
                 url: '/home',
                 templateUrl: 'components/home/home.html'
             })
 
-            .state('find-team', {
+            .state({
+                name: 'find-team',
                 url: '/find-team',
-                templateUrl: 'components/find-team/find-team.html'
+                templateUrl: 'components/outer/find-team/find-team.html'
             })
 
 
-            .state('contact', {
+            .state({
+                name: 'contact',
                 url: '/contact',
                 templateUrl: 'components/contact/contact.html',
                 controller: 'ContactCtrl'
             })
 
-            .state('login', {
+            .state({
+                name: 'login',
                 url: '/login',
                 templateUrl: 'components/login/login.html',
                 controller: 'LoginCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
 
-            .state('signup', {
+            .state({
+                name: 'signup',
                 url: '/signup',
                 templateUrl: 'components/signup/signup.html',
                 controller: 'SignupCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
 
-            .state('account', {
+            .state({
+                name: 'account',
                 url: '/account',
                 templateUrl: 'components/profile/profile.html',
                 controller: 'ProfileCtrl',
                 resolve: { loginRequired: loginRequired }
             })
 
-            .state('reset', {
+            .state({
+                name: 'reset',
                 url: '/reset/:token',
                 templateUrl: 'components/reset/reset.html',
                 controller: 'ResetCtrl'
             })
 
-            .state('forgot', {
+            .state({
+                name: 'forgot',
                 url: '/forgot',
                 templateUrl: 'components/forgot/forgot.html',
                 controller: 'ForgotCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
+            })
+
+            .state({
+                name: 'dashboard',
+                url: '/dashboard',
+                templateUrl: 'components/dashboard/root/root.html'
+            })
+
+            .state({
+                name: 'all-users-schedule',
+                url: '/dashboard/all-users-schedule',
+                templateUrl: 'components/dashboard/all-users-schedule/all-users-schedule.html'
+            })
+
+            .state({
+                name: 'user-schedule',
+                url: '/dashboard/user-schedule',
+                templateUrl: 'components/dashboard/user-schedule/user-schedule.html'
+            })
+
+            .state({
+                name: 'members',
+                url: '/dashboard/members',
+                templateUrl: 'components/dashboard/members/members.html'
+            })
+
+            .state({
+                name: 'tags',
+                url: '/dashboard/tags',
+                templateUrl: 'components/dashboard/tags/tags.html'
+            })
+
+            .state({
+                name: 'config',
+                url: '/dashboard/config',
+                templateUrl: 'components/dashboard/config/config.html'
             })
 
             $urlRouterProvider.otherwise('/home');
