@@ -23,6 +23,11 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
                 templateUrl: 'components/create-team/create-team.html'
             })
 
+            .state('join-team', {
+                url: '/join-team',
+                templateUrl: 'components/join-team/join-team.html'
+            })
+
 
             .state('contact', {
                 url: '/contact',

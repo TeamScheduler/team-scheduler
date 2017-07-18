@@ -6,4 +6,8 @@ angular.module('MyApp').controller('FindTeamController', function ($scope, $stat
     $state.go('create-team');
   };
 
+  $scope.goToJoinTeam = function() {
+    $state.go('join-team');
+  };
+
 });
