@@ -20,6 +20,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
 
             .state('create-team', {
                 url: '/create-team',
+                controller: 'CreateTeamController',
                 templateUrl: 'components/create-team/create-team.html'
             })
 
