@@ -14,7 +14,21 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'find-team',
                 url: '/find-team',
+                controller: 'FindTeamController',
                 templateUrl: 'components/outer/find-team/find-team.html'
+            })
+
+            .state({
+                name: 'create-team',
+                url: '/create-team',
+                controller: 'CreateTeamController',
+                templateUrl: 'components/outer/create-team/create-team.html'
+            })
+
+            .state({
+                name: 'join-team',
+                url: '/join-team',
+                templateUrl: 'components/outer/join-team/join-team.html'
             })
 
 
@@ -119,9 +133,9 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
         }
     })
 
-  .run(function($rootScope, $window) {
-    if ($window.localStorage.user) {
-      $rootScope.currentUser = JSON.parse($window.localStorage.user);
-    }
+    .run(function ($rootScope, $window) {
+        if ($window.localStorage.user) {
+            $rootScope.currentUser = JSON.parse($window.localStorage.user);
+        }
 
-  });
+    });
