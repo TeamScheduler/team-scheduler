@@ -1,0 +1,8 @@
+@import 'normalize';
+@import "../../public/node_modules/bulma/bulma";
+@import "variables";
+
+//components
+@import "../components/find-team/find-team";
+@import "../components/create-team/create-team";
+@import "../components/join-team/join-team";

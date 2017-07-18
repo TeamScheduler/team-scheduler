@@ -1,0 +1,49 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+
+    <div class="create-team">
+      <div class="card">
+
+        <div class="card-content">
+
+          <div class="field">
+
+            <label class="label">NOME DO TIME</label>
+            <p class="control">
+              <input class="input" type="text" ng-model="team">
+            </p>
+
+            <label class="label">NOME DO USUÁRIO ADMIN</label>
+            <p class="control">
+              <input class="input" type="text" ng-model="user.login" placeholder="Nome pelo qual será chamado no time">
+            </p>
+
+            <label class="label">EMAIL DO ADMIN</label>
+            <p class="control">
+              <input class="input" type="email" ng-model="user.email" placeholder="admin@email.com">
+            </p>
+
+            <label class="label">SENHA</label>
+            <p class="control">
+              <input class="input" type="password" ng-model="user.password">
+            </p>
+
+            <label class="label">CONFIRMAR SENHA</label>
+            <p class="control">
+              <input class="input" type="password">
+            </p>
+
+            <div class="columns">
+              <div class="column is-2 is-offset-10">
+                <a class="button is-large" ng-click="submit()">CRIAR</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,28 @@
+.hero {
+  background-color: map-get($colors, login-background);
+}
+.create-team {
+  width: 500px;
+  margin: auto;
+
+  .card {
+    border-radius: 5px;
+  }
+
+  .label {
+    color: map-get($colors, default);
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 13px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+
+  a {
+    margin-top: 15px;
+    background: map-get($colors, confirm);
+    color: white; 
+  }
+}
