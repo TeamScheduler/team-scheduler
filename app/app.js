@@ -14,7 +14,13 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
 
             .state('find-team', {
                 url: '/find-team',
+                controller: 'FindTeamController',
                 templateUrl: 'components/find-team/find-team.html'
+            })
+
+            .state('create-team', {
+                url: '/create-team',
+                templateUrl: 'components/create-team/create-team.html'
             })
 
 
@@ -58,7 +64,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
 
-            $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/home');
 
         $authProvider.loginUrl = '/login';
         $authProvider.signupUrl = '/signup';
@@ -77,9 +83,9 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
         }
     })
 
-  .run(function($rootScope, $window) {
-    if ($window.localStorage.user) {
-      $rootScope.currentUser = JSON.parse($window.localStorage.user);
-    }
+    .run(function ($rootScope, $window) {
+        if ($window.localStorage.user) {
+            $rootScope.currentUser = JSON.parse($window.localStorage.user);
+        }
 
-  });
+    });
