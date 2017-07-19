@@ -1,0 +1,14 @@
+#navbar__directive{
+
+  background-color: map_get($colors, navbar-background);
+
+  .navbar-menu{
+    .is-logout{
+      background-color: map_get($colors, confirm);
+      color: #FFF;
+    }
+    .is-active{
+      border-bottom: 2px solid map_get($colors, confirm);
+    }
+  }
+}

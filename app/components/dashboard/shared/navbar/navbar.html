@@ -1,1 +1,33 @@
-<h1>Navbar</h1>
+<nav class="navbar" id="navbar__directive">
+
+    <div class="navbar-brand">
+        <p class="navbar-item">
+            Nome do Time
+        </p>
+    </div>
+
+    <div class="navbar-menu">
+
+        <div class="navbar-end">
+            <a class="navbar-item" ui-sref="dashboard.all-users-schedule" ui-sref-active="is-active">
+                <i class="lnr lnr-calendar-full"></i>
+            </a>
+            <a class="navbar-item" ui-sref="dashboard.user-schedule" ui-sref-active="is-active">
+                <i class="lnr lnr-clock"></i>
+            </a>
+            <a class="navbar-item" ui-sref="dashboard.members" ui-sref-active="is-active">
+                <i class="lnr lnr-users"></i>
+            </a>
+            <a class="navbar-item" ui-sref="dashboard.tags" ui-sref-active="is-active">
+                <i class="lnr lnr-tag"></i>
+            </a>
+            <a class="navbar-item" ui-sref="dashboard.config" ui-sref-active="is-active">
+                <i class="lnr lnr-cog"></i>
+            </a>
+            <a class="navbar-item is-logout" href="#">
+                <i class="lnr lnr-exit"></i>
+            </a>
+        </div>
+
+    </div>
+</nav>
