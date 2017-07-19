@@ -1,0 +1,5 @@
+#root_component{
+  .content{
+    background-color: map_get($colors, main-background);
+  }
+}
