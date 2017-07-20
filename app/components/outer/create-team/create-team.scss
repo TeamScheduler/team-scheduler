@@ -20,6 +20,12 @@
     font-size: 14px;
   }
 
+  input {
+    box-shadow: map_get($input-defs, input-box-shadow);
+    border-color: map_get($input-defs, input-border-color);
+    border-radius: map_get($input-defs, input-border-radius);
+  }
+
   a {
     margin-top: 15px;
     background: map-get($colors, confirm);

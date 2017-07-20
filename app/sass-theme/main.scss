@@ -1,9 +1,12 @@
 //Vendor
 @import 'normalize';
+
+//Bulma
 @import "../../public/node_modules/bulma/bulma";
 
 //Definitions
 @import "variables";
+@import "global";
 
 //Components
 @import "../components/outer/find-team/find-team";
@@ -13,3 +16,4 @@
 @import "../components/dashboard/shared/schedule-table/schedule-table";
 @import "../components/dashboard/all-users-schedule/all-users-schedule";
 @import "../components/dashboard/root/root";
+@import "../components/dashboard/members/members";

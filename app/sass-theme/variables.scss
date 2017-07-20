@@ -11,7 +11,13 @@ $colors: (
         danger-hue: #E79090,
 
         main-background:    #F4F8F9,
-        card-backgrount:    #FFF,
+        card-background:    #FFF,
         navbar-background: #FAFBFC,
-        login-background: #212121
+        login-background: #212121,
 );
+
+$input-defs: (
+        input-border-color: #979797,
+        input-border-radius: 8px,
+        input-box-shadow: none
+)

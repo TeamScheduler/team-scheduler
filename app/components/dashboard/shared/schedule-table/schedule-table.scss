@@ -8,7 +8,7 @@
   padding: 3rem;
   margin: 0;
   box-sizing: border-box;
-  height: 100vh;
+  height: 91vh;
 
   .offset {
 
@@ -22,63 +22,42 @@
     margin: 0 auto;
     max-width: 1280px;
     min-width: 500px;
-
-    box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.2) ,0px 3px 7px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
   }
-  .wrap {
 
+  .wrap {
     overflow-x: hidden;
     overflow-y: scroll;
     max-width: 1280px;
     height: 500px;
-    border-radius: 8px;
   }
 
   thead {
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    background: white;
+    border-bottom: 2px solid #ddd;
+
+    & th{
+      text-align: center;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+    }
   }
 
-  thead th {
-
-    text-align: center;
-    width: 100%;
-
-  }
-
-  header {
-    background: #fff;
-    padding: 1rem;
-    color: rgba(0, 0, 0, 0.7);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px 8px 0px 0px;
-  }
-
-  header h1 {
-    font-size: 1.25rem;
-    text-align: center;
-    font-weight: normal;
-
-  }
   tbody {
     position: relative;
     top: 100px;
   }
+
   table {
     background: #fff;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-
   }
-
-
 
   .headcol {
     width: 60px;
@@ -91,20 +70,6 @@
     position: relative;
     top: -12px;
     border-bottom: 1px solid transparent;
-  }
-
-  thead th {
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.9);
-    padding: 1rem;
-  }
-
-  thead {
-    z-index: 2;
-    background: white;
-    border-bottom: 2px solid #ddd;
-
   }
 
   tr, tr td {
@@ -189,23 +154,6 @@
     height: 100%;
   }
 
-  /**
-  thead {
-      tr {
-        display: block;
-        position: relative;
-      }
-    }
-  tbody {
-      display: block;
-      overflow: auto;
-      width: 800px;
-      height: 100%;
-    }
-  */
-
-
-
   td:hover:after {
     content: "+";
     vertical-align: middle;
@@ -213,40 +161,6 @@
     font-weight: 100;
     color: rgba(0, 0, 0, 0.5);
     position: absolute;
-  }
-
-  button.secondary {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: white;
-    padding: 0.5rem 0.75rem;
-    font-size: 14px;
-    border-radius: 2px;
-    color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-weight: 500;
-  }
-
-  button.secondary:hover {
-    background: #fafafa;
-  }
-  button.secondary:active {
-    box-shadow: none;
-  }
-  button.secondary:focus {
-    outline: 0;
-  }
-
-  tr td:nth-child(2), tr td:nth-child(3), .past {
-    background: #fafafa;
-  }
-
-  .today {
-    color: red;
-  }
-
-  .now {
-    box-shadow: 0px -1px 0px 0px red;
   }
 
   .icon {

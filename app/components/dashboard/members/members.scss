@@ -1,0 +1,29 @@
+#members__component {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-family: "DINPro", "Helvetica Neue", sans-serif;
+  padding: 3rem;
+  margin: 0;
+  box-sizing: border-box;
+  height: 91vh;
+
+  .search-filter-bar {
+    background-color: map_get($colors, card-background);
+    width: 100%;
+    height: 50px;
+    padding: 6px;
+    border-radius: 8px;
+
+    input {
+      box-shadow: map_get($input-defs, input-box-shadow);
+      border-color: map_get($input-defs, input-border-color);
+      border-radius: map_get($input-defs, input-border-radius);
+    }
+
+    i{
+      font-size: 25px;
+    }
+  }
+}
