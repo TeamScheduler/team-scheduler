@@ -86,31 +86,31 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
 
             .state({
                 name: 'dashboard.all-users-schedule',
-                url: '/dashboard/all-users-schedule',
+                url: '/all-users-schedule',
                 templateUrl: 'components/dashboard/all-users-schedule/all-users-schedule.html'
             })
 
             .state({
                 name: 'dashboard.user-schedule',
-                url: '/dashboard/user-schedule',
+                url: '/user-schedule',
                 templateUrl: 'components/dashboard/user-schedule/user-schedule.html'
             })
 
             .state({
                 name: 'dashboard.members',
-                url: '/dashboard/members',
+                url: '/members',
                 templateUrl: 'components/dashboard/members/members.html'
             })
 
             .state({
                 name: 'dashboard.tags',
-                url: '/dashboard/tags',
+                url: '/tags',
                 templateUrl: 'components/dashboard/tags/tags.html'
             })
 
             .state({
                 name: 'dashboard.config',
-                url: '/dashboard/config',
+                url: '/config',
                 templateUrl: 'components/dashboard/config/config.html'
             })
 

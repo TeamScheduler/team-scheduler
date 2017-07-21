@@ -30,14 +30,56 @@
                     </tr>
 
                     <tr ng-repeat="hour in hours">
-                        <td class="headcol">{{hour}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="headcol">{{hour.hour}}</td><!--Hour-->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.mon">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Monday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.tue">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Tuesday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.wed">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Wednesday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.thu">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Thursday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.fri">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Friday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.sat">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Saturday -->
+                        <td>
+                            <div class="event" ng-repeat="user in hour.sun">
+                                <input id="check" type="checkbox" class="checkbox" />
+                                <label for="check"></label>
+                                {{user}}
+                            </div>
+                        </td><!-- Sunday -->
                     </tr>
 
                     </tbody>

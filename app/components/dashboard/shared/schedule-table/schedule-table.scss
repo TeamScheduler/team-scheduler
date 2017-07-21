@@ -1,14 +1,4 @@
 #schedule-table__directive {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  font-family: "DINPro", "Helvetica Neue", sans-serif;
-  padding: 3rem;
-  margin: 0;
-  box-sizing: border-box;
-  height: 91vh;
 
   .offset {
 
@@ -133,7 +123,7 @@
   }
 
   .event {
-    background: #00B4FC;
+    background: map_get($colors, confirm);
     color: white;
     border-radius: 2px;
     text-align: left;
@@ -143,6 +133,7 @@
     overflow-x: hidden;
     transition: all 0.2s;
     cursor: pointer;
+    margin: .2rem;
   }
 
   .event:hover {
