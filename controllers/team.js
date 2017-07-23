@@ -62,3 +62,26 @@ exports.teamPost = function(req, res, next) {
         });
     });
 };
+
+
+/**
+ * GET /team/find
+ */
+
+exports.findTeam= function(req, res, next) {
+    req.assert('teamId', 'Team name cannot be blank').notEmpty();
+    var errors = req.validationErrors();
+
+    if (errors) {
+        return res.status(400).send(errors);
+    }
+    Team.findOne({_id: team._id}).exec(function (err, team) {
+        if(team){
+            res.status(200).send({team: team});
+        }
+        else if(err){
+            return res.status(200).send({error: err});
+        }
+
+    })
+};
