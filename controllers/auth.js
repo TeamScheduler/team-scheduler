@@ -1,6 +1,7 @@
 var jwt = require('jsonwebtoken');
 var moment = require('moment');
 var User = require('../models/User');
+var mongoose = require('mongoose');
 
 var generateToken = function (user) {
     var payload = {
@@ -33,6 +34,7 @@ exports.loginPost = function(req, res, next) {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('email', 'Email cannot be blank').notEmpty();
     req.assert('password', 'Password cannot be blank').notEmpty();
+    req.assert('teamId', 'Team Id cannot be blank').notEmpty();
     req.sanitize('email').normalizeEmail({ remove_dots: false });
 
     var errors = req.validationErrors();
@@ -41,7 +43,11 @@ exports.loginPost = function(req, res, next) {
         return res.status(400).send(errors);
     }
 
-    User.findOne({ email: req.body.email }, function(err, user) {
+    if(! mongoose.Types.ObjectId.isValid(req.body.teamId)){
+        return res.status(400).send({msg: "Team id is not valid."});
+    }
+
+    User.findOne({ email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) }, function(err, user) {
         if (!user) {
             return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any account. ' +
             'Double-check your email address and try again.'
