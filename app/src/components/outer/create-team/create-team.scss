@@ -6,29 +6,17 @@
   margin: auto;
 
   .card {
-    border-radius: 5px;
+    border-radius: 8px;
   }
 
-  .label {
-    color: map-get($colors, default);
-    font-size: 14px;
-    margin-bottom: 0px;
-    margin-top: 13px;
-  }
+  .field{
 
-  .button {
-    font-size: 14px;
-  }
+    .button {
+      @extend .ts-confirm-btn;
+    }
 
-  input {
-    box-shadow: map_get($input-defs, input-box-shadow);
-    border-color: map_get($input-defs, input-border-color);
-    border-radius: map_get($input-defs, input-border-radius);
-  }
-
-  a {
-    margin-top: 15px;
-    background: map-get($colors, confirm);
-    color: white; 
+    input{
+      @extend .ts-input;
+    }
   }
 }

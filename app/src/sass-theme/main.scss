@@ -2,11 +2,12 @@
 @import 'normalize';
 
 //Bulma
-@import "../../public/node_modules/bulma/bulma";
+@import "../../../public/node_modules/bulma/bulma";
 
 //Definitions
 @import "variables";
 @import "global";
+@import "ts-elements/all";
 
 //Components
 @import "../components/outer/find-team/find-team";

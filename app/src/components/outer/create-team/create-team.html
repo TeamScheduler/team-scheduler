@@ -6,36 +6,51 @@
 
         <div class="card-content">
 
+          <br>
+          <h2 class="title has-text-centered">Criar time</h2>
+          <br>
+          <br>
+
           <div class="field">
 
-            <label class="label">NOME DO TIME</label>
+            <p class="ts-label">NOME DO TIME</p>
             <p class="control">
               <input class="input" type="text" ng-model="team">
             </p>
 
-            <label class="label">NOME DO USUÁRIO ADMIN</label>
+            <br>
+
+            <p class="ts-label">NOME DO USUÁRIO ADMIN</p>
             <p class="control">
               <input class="input" type="text" ng-model="admin.name" placeholder="Nome pelo qual será chamado no time">
             </p>
 
-            <label class="label">EMAIL DO ADMIN</label>
+            <br>
+
+            <p class="ts-label">EMAIL DO ADMIN</p>
             <p class="control">
               <input class="input" type="email" ng-model="admin.email" placeholder="admin@email.com">
             </p>
 
-            <label class="label">SENHA</label>
+            <br>
+
+            <p class="ts-label">SENHA</p>
             <p class="control">
               <input class="input" type="password" ng-model="admin.password">
             </p>
 
-            <label class="label">CONFIRMAR SENHA</label>
+            <br>
+
+            <p class="ts-label">CONFIRMAR SENHA</p>
             <p class="control">
               <input class="input" type="password">
             </p>
 
+            <br>
+
             <div class="columns">
-              <div class="column is-2 is-offset-10">
-                <a class="button is-large" ng-click="submit(team, admin)">CRIAR</a>
+              <div class="column">
+                <a class="button is-pulled-right" ng-click="submit(team, admin)">Criar</a>
               </div>
             </div>
 

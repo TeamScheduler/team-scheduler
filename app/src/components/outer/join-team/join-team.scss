@@ -16,6 +16,10 @@
     margin-top: 13px;
   }
 
+  input{
+    @extend .ts-input;
+  }
+
   a {
     margin-top: 15px;
   }

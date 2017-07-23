@@ -4,14 +4,14 @@
             <div class="box">
 
                 <div class="field">
-                    <label class="label">ID DO TIME:</label>
+                    <p class="ts-label">ID DO TIME:</p>
                     <p class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input class="input" type="text">
                     </p>
                 </div>
 
-                <a class="button is-fullwidth is-primary" id="find-team-btn" ng-click="goToJoinTeam()">ENCONTRAR TIME</a>
-                <a class="button is-fullwidth is-primary" id="create-team-btn" ng-click="goToCreateTeam()">CRIAR NOVO TIME</a>
+                <a class="button is-fullwidth ts-confirm-btn" ng-click="goToJoinTeam()">Encontrar time</a>
+                <a class="button is-fullwidth ts-alert-btn" ng-click="goToCreateTeam()" style="margin-top: 5px">Criar novo time</a>
 
             </div>
 
