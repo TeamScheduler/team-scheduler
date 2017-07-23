@@ -14,7 +14,7 @@ var plumber = require('gulp-plumber');
 var Server = require('karma').Server;
 
 gulp.task('sass', function() {
-  return gulp.src('app/sass-theme/main.scss')
+  return gulp.src('app/src/sass-theme/main.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
@@ -24,9 +24,9 @@ gulp.task('sass', function() {
 
 gulp.task('angular', function() {
   return gulp.src([
-    'app/app.js',
-    'app/components/**/*.js',
-    'app/services/*.js'
+    'app/src/app.js',
+    'app/src/components/**/*.js',
+    'app/src/services/*.js'
   ])
     .pipe(concat('application.js'))
     .pipe(ngAnnotate())
@@ -35,24 +35,23 @@ gulp.task('angular', function() {
 });
 
 gulp.task('templates', function() {
-    return gulp.src('app/components/**/*.html')
+    return gulp.src('app/src/components/**/*.html')
         .pipe(templateCache({ root: 'components', module: 'MyApp' }))
         .pipe(gulpif(argv.production, uglify()))
         .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('vendor', function() {
-  return gulp.src('app/vendor/*.js')
+  return gulp.src('app/src/vendor/*.js')
     .pipe(gulpif(argv.production, uglify()))
     .pipe(gulp.dest('public/js/lib'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['app/sass-theme/**/*.scss', 'app/components/**/*.scss'], ['sass']);
-  gulp.watch('app/components/**/*.html', ['templates']);
-  gulp.watch('app/**/*.js', ['angular']);
+  gulp.watch(['app/src/sass-theme/**/*.scss', 'app/components/**/*.scss'], ['sass']);
+  gulp.watch('app/src/components/**/*.html', ['templates']);
+  gulp.watch('app/src/**/*.js', ['angular']);
 });
-
 
 /**
  * Run test once and exit

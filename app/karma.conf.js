@@ -4,13 +4,8 @@ module.exports = function(config) {
             // Third-party vendor files
             '../public/node_modules/angular/angular.js',
             '../public/node_modules/angular-ui-router/release/angular-ui-router.js',
-            'vendor/satellizer.js',
-            'vendor/angular-mocks.js',
-            // App entry point
-            'app.js',
-            // App services, controllers, directives, filters, etc.
-            'components/**/*.js',
-            'services/*.js',
+            'src/app.js',
+            'src/**/*.js',
             // Unit tests
             'test/unit/**/*.test.js'
         ],
@@ -35,9 +30,10 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
 
         preprocessors: {
-            'app.js': ['coverage'],
-            'controllers/*.js': ['coverage'],
-            'services/*.js': ['coverage']
+            'src/app.js': ['coverage'],
+            'src/controllers/*.js': ['coverage'],
+            'src/services/*.js': ['coverage'],
+            'src/components/**/*.js': ['coverage']
         },
 
         coverageReporter: {
