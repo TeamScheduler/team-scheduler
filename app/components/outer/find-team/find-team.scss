@@ -15,6 +15,10 @@
           color: #FFF;
         }
 
+        input{
+          @extend .ts-input;
+        }
+
         #create-team-btn{
           background-color: map-get($colors, alert);
           border-bottom-color: map-get($colors, alert-hue);
