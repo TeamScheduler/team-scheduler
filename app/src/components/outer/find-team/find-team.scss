@@ -6,24 +6,10 @@
         width: 40%;
         margin-left: 30%;
 
-        #find-team-btn{
-
-          background-color: map-get($colors, confirm);
-          border-bottom-color: map-get($colors, confirm-hue);
-          padding: 10px;
-          font-size: 14px;
-          color: #FFF;
-        }
-
         input{
           @extend .ts-input;
         }
 
-        #create-team-btn{
-          background-color: map-get($colors, alert);
-          border-bottom-color: map-get($colors, alert-hue);
-          color: #FFF;
-        }
       }
     }
   }

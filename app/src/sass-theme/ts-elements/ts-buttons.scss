@@ -1,0 +1,59 @@
+.button-shape{
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 1rem 2rem 1rem 2rem;
+  color: white;
+  &:hover{
+    color: #212121;
+  }
+}
+
+.ts-confirm-btn{
+  @extend .button-shape;
+  background-color: map_get($colors, confirm);
+  border-color: map_get($colors, confirm-hue);
+  &:hover{
+    background-color: map_get($colors, confirm-hue);
+    border-color: map_get($colors, confirm);
+  }
+}
+
+.ts-positive-btn{
+  @extend .button-shape;
+  background-color: map_get($colors, positive);
+  border-color: map_get($colors, positive-hue);
+  &:hover{
+    background-color: map_get($colors, positive-hue);
+    border-color: map_get($colors, positive);
+  }
+}
+
+.ts-alert-btn{
+  @extend .button-shape;
+  background-color: map_get($colors, alert);
+  border-color: map_get($colors, alert-hue);
+  &:hover{
+    background-color: map_get($colors, alert-hue);
+    border-color: map_get($colors, alert);
+  }
+}
+
+.ts-default-btn{
+  @extend .button-shape;
+  background-color: map_get($colors, default);
+  border-color: map_get($colors, default-hue);
+  &:hover{
+    background-color: map_get($colors, default-hue);
+    border-color: map_get($colors, default);
+  }
+}
+
+.ts-danger-btn{
+  @extend .button-shape;
+  background-color: map_get($colors, danger);
+  border-color: map_get($colors, danger-hue);
+  &:hover{
+    background-color: map_get($colors, danger-hue);
+    border-color: map_get($colors, danger);
+  }
+}
