@@ -15,17 +15,17 @@
 
             <label class="label">NOME DO USUÁRIO ADMIN</label>
             <p class="control">
-              <input class="input" type="text" ng-model="user.name" placeholder="Nome pelo qual será chamado no time">
+              <input class="input" type="text" ng-model="admin.name" placeholder="Nome pelo qual será chamado no time">
             </p>
 
             <label class="label">EMAIL DO ADMIN</label>
             <p class="control">
-              <input class="input" type="email" ng-model="user.email" placeholder="admin@email.com">
+              <input class="input" type="email" ng-model="admin.email" placeholder="admin@email.com">
             </p>
 
             <label class="label">SENHA</label>
             <p class="control">
-              <input class="input" type="password" ng-model="user.password">
+              <input class="input" type="password" ng-model="admin.password">
             </p>
 
             <label class="label">CONFIRMAR SENHA</label>
@@ -35,7 +35,7 @@
 
             <div class="columns">
               <div class="column is-2 is-offset-10">
-                <a class="button is-large" ng-click="submit()">CRIAR</a>
+                <a class="button is-large" ng-click="submit(team, admin)">CRIAR</a>
               </div>
             </div>
 

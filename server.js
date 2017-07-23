@@ -21,12 +21,17 @@ var User = require('./models/User');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 var authController = require('./controllers/auth');
+var teamController = require('./controllers/team');
 
 var app = express();
 
+function dropDB() {
+    console.log("drop DB");
+    mongoose.connection.db.dropDatabase();
+}
 
 mongoose.connect(process.env.MONGODB, function () {
-    //mongoose.connection.db.dropDatabase();
+    //dropDB();
 });
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
@@ -63,6 +68,7 @@ app.use(function(req, res, next) {
 });
 
 app.post('/contact', contactController.contactPost);
+app.post('/team', teamController.teamPost);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
 app.post('/signup', userController.signupPost);

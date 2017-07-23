@@ -11,6 +11,7 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
+var Server = require('karma').Server;
 
 gulp.task('sass', function() {
   return gulp.src('app/sass-theme/main.scss')
@@ -50,6 +51,17 @@ gulp.task('watch', function() {
   gulp.watch(['app/sass-theme/**/*.scss', 'app/components/**/*.scss'], ['sass']);
   gulp.watch('app/components/**/*.html', ['templates']);
   gulp.watch('app/**/*.js', ['angular']);
+});
+
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    new Server({
+        configFile: __dirname + '/app/karma.conf.js',
+        singleRun: true
+    }, done).start();
 });
 
 gulp.task('build', ['sass', 'angular', 'vendor', 'templates']);
