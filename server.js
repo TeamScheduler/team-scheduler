@@ -75,7 +75,7 @@ app.post('/signup', userController.signupPost);
 app.post('/login', authController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
-app.get('/unlink/:provider', authController.ensureAuthenticated, userController.unlink);
+//app.get('/unlink/:provider', authController.ensureAuthenticated, userController.unlink);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'app', 'index.html'));

@@ -1,32 +1,180 @@
 #all-users-schedule__component{
   flex-direction: column;
   display: flex;
+
   align-items: center;
   align-content: center;
   justify-content: center;
+
   font-family: "DINPro", "Helvetica Neue", sans-serif;
   padding: 3rem;
-  margin: 0;
-  box-sizing: border-box;
-  height: 91vh;
+  height: 100%;
 
+  .search-filter-bar {
+    background-color: map_get($colors, card-background);
+    width: 100%;
+    height: 50px;
+    padding: 7px;
+    border-radius: 8px;
 
-}
+    input {
+      box-shadow: map_get($input-defs, input-box-shadow);
+      border-color: map_get($input-defs, input-border-color);
+      border-radius: map_get($input-defs, input-border-radius);
+    }
 
-.search-filter-bar {
-  background-color: map_get($colors, card-background);
-  width: 95%;
-  height: 50px;
-  padding: 6px;
-  border-radius: 8px;
-
-  input {
-    box-shadow: map_get($input-defs, input-box-shadow);
-    border-color: map_get($input-defs, input-border-color);
-    border-radius: map_get($input-defs, input-border-radius);
+    i{
+      font-size: 25px;
+    }
   }
 
-  i{
-    font-size: 25px;
+
+  .all-schedule-table {
+
+    padding-top: 30px;
+
+    .outer {
+      position:relative;
+    }
+
+    .calendar {
+      max-width: 1920px;
+      min-width: 500px;
+      margin-bottom: 50px;
+    }
+
+    .wrap {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      max-width: 1920px;
+      height: 600px;
+    }
+
+    thead {
+      z-index: 2;
+      background: white;
+      border-bottom: 2px solid #ddd;
+
+      & th{
+        text-align: center;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+      }
+    }
+
+    tbody {
+      position: relative;
+      top: 100px;
+    }
+
+    table {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .headcol {
+      width: 60px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.5);
+      padding: 0.25rem 0;
+      text-align: center;
+      border: 0;
+      position: relative;
+      top: -12px;
+      border-bottom: 1px solid transparent;
+    }
+
+    tr, tr td {
+      height: 20px;
+    }
+    td {
+      text-align: center;
+    }
+    tr:nth-child(odd) td:not(.headcol) {
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    tr:nth-child(even) td:not(.headcol) {
+      border-bottom: 1px solid #eee;
+    }
+
+    tr td {
+      border-right: 1px solid #eee;
+      padding: 0;
+      white-space: none;
+      word-wrap: nowrap;
+    }
+
+    tbody tr td {
+      position: relative;
+      vertical-align: top;
+      height: 40px;
+      padding: 0.25rem 0.25rem 0 0.25rem;
+      width: auto;
+
+    }
+
+    .secondary {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    .checkbox {
+      display: none;
+    }
+
+    .checkbox + label {
+      border: 0;
+      outline: 0;
+      width: 100px;
+      heigth: 100px;
+      background: white;
+      color: transparent;
+      display:block;
+      display: none;
+    }
+
+    .checkbox:checked + label {
+      border: 0;
+      outline: 0;
+      width: 100%;
+      heigth: 100%;
+      background: red;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .event {
+      background: map_get($colors, confirm);
+      color: white;
+      border-radius: 2px;
+      text-align: left;
+      font-size: 0.875rem;
+      z-index: 2;
+      padding: 0.5rem;
+      overflow-x: hidden;
+      transition: all 0.2s;
+      cursor: pointer;
+      margin: .2rem;
+    }
+
+    .event:hover {
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      background: #00B4FC;
+    }
+
+    .event.double {
+      height: 100%;
+    }
+
+
   }
 }
+

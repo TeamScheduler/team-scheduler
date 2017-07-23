@@ -1,1 +1,90 @@
-<h1>User Schedule</h1>
+<div id="user-schedule__component">
+    <!-- FILTER BAR -->
+    <div class="schedule-table">
+        <div class="calendar">
+            <div class="outer">
+                <!--Days of week-->
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="headcol"></th>
+                        <th ng-repeat="day in days">{{day}}</th>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div class="wrap">
+                    <table class="offset">
+                        <tbody>
+
+                        <tr>
+                            <td class="headcol"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr ng-repeat="hour in hours">
+                            <td class="headcol">{{hour.hour}}</td><!--Hour-->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.mon">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Monday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.tue">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Tuesday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.wed">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Wednesday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.thu">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Thursday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.fri">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Friday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.sat">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Saturday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.sun">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Sunday -->
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
