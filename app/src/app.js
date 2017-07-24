@@ -125,7 +125,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
         function skipIfAuthenticated($state, $auth) {
             console.log("skip if is auth");
             if ($auth.isAuthenticated()) {
-                $state.go('home')
+                $state.go('dashboard')
             }
         }
 

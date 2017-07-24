@@ -6,11 +6,11 @@
                 <div class="field">
                     <p class="ts-label">ID DO TIME:</p>
                     <p class="control">
-                        <input class="input" type="text">
+                        <input class="input" type="text" ng-model="teamId">
                     </p>
                 </div>
 
-                <a class="button is-fullwidth ts-confirm-btn" ng-click="goToJoinTeam()">Encontrar time</a>
+                <a class="button is-fullwidth ts-confirm-btn" ng-click="goToJoinTeam(teamId)">Encontrar time</a>
                 <a class="button is-fullwidth ts-alert-btn" ng-click="goToCreateTeam()" style="margin-top: 5px">Criar novo time</a>
 
             </div>

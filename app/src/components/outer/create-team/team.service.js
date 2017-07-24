@@ -5,10 +5,14 @@
 
     var API = 'http://localhost:3000/team';
 
+    var team;
+
     function Service($http, $q) {
         var service = {};
 
         service.createTeam = createTeam;
+        service.findTeamById = findTeamById;
+        service.getTeam = getTeam;
 
         return service;
 
@@ -28,11 +32,30 @@
                         deferred.resolve(response.data);
                     },
                     function err(response){
-                        deferred.reject(response)
+                        deferred.reject(response);
                     }
                 );
             }
             return deferred.promise;
+        }
+
+        function findTeamById(teamId) {
+            var deferred = $q.defer();
+
+            $http.get(API + '/' + teamId).then(
+                function success(response) {
+                    team = response.data;
+                    deferred.resolve(team);
+                },
+                function err(response) {
+                    deferred.reject(response);
+                }
+            );
+            return deferred.promise;
+        }
+
+        function getTeam() {
+            return team;
         }
     }
 })();

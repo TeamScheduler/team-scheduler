@@ -11,6 +11,6 @@ angular.module('MyApp')
     $scope.logout = function() {
       $auth.logout();
       delete $window.localStorage.user;
-      $state.go('home');
+      $state.go('find-team');
     };
   });
