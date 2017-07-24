@@ -69,13 +69,13 @@ app.use(function(req, res, next) {
 
 app.post('/contact', contactController.contactPost);
 app.post('/team', teamController.teamPost);
+app.get('/team/:id', teamController.getTeamById);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
 app.post('/signup', userController.signupPost);
 app.post('/login', authController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
-app.get('/unlink/:provider', authController.ensureAuthenticated, userController.unlink);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'app', 'index.html'));

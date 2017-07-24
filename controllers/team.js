@@ -1,5 +1,6 @@
 var Team = require('../models/Team');
-var userController = require('./user')
+var userController = require('./user');
+var mongoose = require('mongoose');
 
 /**
  * POST /team
@@ -56,9 +57,34 @@ exports.teamPost = function(req, res, next) {
                             }
 
                             res.status(200).send({team: team});
-                        })
-                })
+                        });
+                });
             });
         });
     });
 };
+
+/**
+ * GET team/:id
+ */
+exports.getTeamById = function(req, res, next) {
+    var teamId = req.params.id;
+
+    if(! mongoose.Types.ObjectId.isValid(teamId)) {
+        return res.status(400).send({error: "Team id is not valid."});
+    }
+
+    Team.findOne({_id: teamId}, function(err, team) {
+
+        if(err) {
+            return res.status(400).send({error: err});
+        }
+
+        if(team) {
+            return res.status(200).send(team);
+        }else {
+            res.status(404).send({msg: "Team not found."})
+        }
+
+    });
+}
