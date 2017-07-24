@@ -7,7 +7,7 @@ angular.module('MyApp').controller('FindTeamController', function ($scope, $stat
   };
 
   $scope.goToJoinTeam = function() {
-    $state.go('join-team');
+    $state.go('login');
   };
 
 });

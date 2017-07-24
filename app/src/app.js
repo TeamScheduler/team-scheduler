@@ -42,7 +42,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'login',
                 url: '/login',
-                templateUrl: 'components/login/login.html',
+                templateUrl: 'components/outer/login/login.html',
                 controller: 'LoginCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
