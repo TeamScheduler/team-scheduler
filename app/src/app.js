@@ -42,7 +42,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'login',
                 url: '/login',
-                templateUrl: 'components/login/login.html',
+                templateUrl: 'components/outer/login/login.html',
                 controller: 'LoginCtrl',
                 resolve: { skipIfAuthenticated: skipIfAuthenticated }
             })
@@ -81,19 +81,22 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'dashboard',
                 url: '/dashboard',
-                templateUrl: 'components/dashboard/root/root.html'
+                templateUrl: 'components/dashboard/root/root.html',
+                //resolve: { loginRequired: loginRequired }
             })
 
             .state({
                 name: 'dashboard.all-users-schedule',
                 url: '/all-users-schedule',
-                templateUrl: 'components/dashboard/all-users-schedule/all-users-schedule.html'
+                templateUrl: 'components/dashboard/all-users-schedule/all-users-schedule.html',
+                controller: 'AllUsersScheduleController'
             })
 
             .state({
                 name: 'dashboard.user-schedule',
                 url: '/user-schedule',
-                templateUrl: 'components/dashboard/user-schedule/user-schedule.html'
+                templateUrl: 'components/dashboard/user-schedule/user-schedule.html',
+                controller: 'UserScheduleController'
             })
 
             .state({

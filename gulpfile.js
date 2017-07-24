@@ -48,7 +48,7 @@ gulp.task('vendor', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['app/src/sass-theme/**/*.scss', 'app/components/**/*.scss'], ['sass']);
+  gulp.watch(['app/src/sass-theme/**/*.scss', 'app/src/components/**/*.scss'], ['sass']);
   gulp.watch('app/src/components/**/*.html', ['templates']);
   gulp.watch('app/src/**/*.js', ['angular']);
 });

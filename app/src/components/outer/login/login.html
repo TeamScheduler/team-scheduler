@@ -1,0 +1,90 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+
+    <div class="login__component">
+
+      <div ng-if="messages.error" role="alert" class="text-danger">
+        <div ng-repeat="error in messages.error">{{error.msg}}</div>
+      </div>
+
+      <div class="card">
+
+        <div class="card-content">
+
+          <br>
+          <h2 class="title has-text-centered">Nome do time</h2>
+          <br>
+          <br>
+
+          <form class="field" ng-submit="login()">
+
+            <p class="ts-label">EMAIL</p>
+            <p class="control">
+              <input class="input" type="email" id="email" placeholder="usuario@email.com" name="email" ng-model="user.email" autofocus>
+            </p>
+
+            <br>
+
+            <p class="ts-label">SENHA</p>
+            <p class="control">
+              <input class="input" type="password" name="password" id="password" placeholder="Senha" ng-model="user.password">
+            </p>
+
+            <br>
+
+            <p class="ts-label">ID DO TIME</p>
+            <p class="control">
+              <input class="input" type="text" name="teamId" id="teamId" placeholder="Id do Time" ng-model="user.teamId">
+            </p>
+
+            <br>
+
+            <br>
+
+            <div class="columns">
+              <div class="column">
+                <button type="submit" class="button is-fullwidth ts-confirm-btn">LOGAR</button>
+              </div>
+            </div>
+
+            <div class="columns">
+              <div class="column">
+                <p style="font-size: 10px; color: #c0c0c0" class="has-text-centered">Não está cadastrado no time ?</p>
+                <button type="submit" class="button is-fullwidth ts-alert-btn" ng-click="goToJoinTeam()">INSCREVER-SE NO TIME</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--
+<div class="container">
+  <div ng-if="messages.error" role="alert" class="text-danger">
+    <div ng-repeat="error in messages.error">{{error.msg}}</div>
+  </div>
+
+  <h4>Log In</h4>
+
+  <form ng-submit="login()">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Email" ng-model="user.email" autofocus>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Senha" ng-model="user.password">
+    <label for="password">Id do Time</label>
+    <input type="text" name="teamId" id="teamId" placeholder="Id do Time" ng-model="user.teamId">
+    <p><a href="/forgot">Forgot your password?</a></p>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <hr>
+
+
+  <p>Não possui uma conta? <a href="/signup">Cadastre-se</a></p>
+</div>
+-->

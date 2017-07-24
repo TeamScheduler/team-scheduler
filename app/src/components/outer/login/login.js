@@ -1,5 +1,10 @@
 angular.module('MyApp')
   .controller('LoginCtrl', function($scope, $rootScope, $state, $window, $auth) {
+
+      $scope.goToJoinTeam = function() {
+          $state.go('join-team');
+      };
+
     $scope.login = function() {
       $auth.login($scope.user)
         .then(function(response) {

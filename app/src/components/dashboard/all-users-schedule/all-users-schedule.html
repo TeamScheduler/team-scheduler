@@ -1,19 +1,121 @@
 <div id="all-users-schedule__component">
-    <!--<div class="search-filter-bar has-text-centered">
+    <!-- FILTER BAR -->
+    <div class="search-filter-bar has-text-centered">
         <div class="columns">
             <div class="column is-1">
                 <i class="lnr lnr-magnifier"></i>
             </div>
 
-            <div class="column is-11">
+            <div class="column is-7">
                 <div class="field">
                     <p class="control">
-                        <input class="input" type="text">
+                        <input class="input" type="text" ng-model="searchName">
                     </p>
                 </div>
             </div>
-        </div>
-    </div>-->
 
-    <schedule-table></schedule-table>
+            <div class="column is-1">
+                <i class="lnr lnr-funnel"></i>
+            </div>
+
+            <div class="column is-3">
+                <div class="select is-fullwidth">
+                    <select>
+                        <option>Tag</option>
+                        <option>Tag1</option>
+                        <option>Tag2</option>
+                        <option>Tag3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-schedule-table">
+        <div class="calendar">
+            <div class="outer">
+                <!--Days of week-->
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="headcol"></th>
+                        <th ng-repeat="day in days">{{day}}</th>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div class="wrap">
+                    <table class="offset">
+                        <tbody>
+
+                        <tr>
+                            <td class="headcol"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr ng-repeat="hour in hours">
+                            <td class="headcol">{{hour.hour}}</td><!--Hour-->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.mon | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Monday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.tue | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Tuesday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.wed | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Wednesday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.thu | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Thursday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.fri | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Friday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.sat | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Saturday -->
+                            <td>
+                                <div class="event" ng-repeat="user in hour.sun | filter:searchName">
+                                    <input id="check" type="checkbox" class="checkbox" />
+                                    <label for="check"></label>
+                                    {{user}}
+                                </div>
+                            </td><!-- Sunday -->
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

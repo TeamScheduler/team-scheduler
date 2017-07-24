@@ -1,0 +1,19 @@
+.hero {
+  background-color: map-get($colors, login-background);
+}
+
+.login__component {
+  width: 500px;
+  margin:auto;
+
+  .card {
+    border-radius: 8px;
+  }
+
+  .field{
+
+    input{
+      @extend .ts-input;
+    }
+  }
+}
