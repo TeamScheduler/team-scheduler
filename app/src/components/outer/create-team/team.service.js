@@ -29,6 +29,7 @@
 
                 $http.post(API, teamBody).then(
                     function success(response){
+                        team = response.data.team;
                         deferred.resolve(response.data);
                     },
                     function err(response){
