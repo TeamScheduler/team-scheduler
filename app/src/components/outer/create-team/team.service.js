@@ -25,7 +25,7 @@
                 var teamBody  = {
                     name: teamName,
                     admin: admin
-                }
+                };
 
                 $http.post(API, teamBody).then(
                     function success(response){

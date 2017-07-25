@@ -28,6 +28,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'join-team',
                 url: '/join-team',
+                controller: 'JoinTeamController',
                 templateUrl: 'components/outer/join-team/join-team.html'
             })
 

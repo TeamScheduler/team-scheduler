@@ -9,7 +9,7 @@ angular.module('MyApp').controller('FindTeamController', function ($scope, $stat
   $scope.goToJoinTeam = function(teamId) {
     TeamService.findTeamById(teamId).then(
       function success() {
-        $state.go('login');
+        $state.go('join-team');
       },
       function err() {
         //exibir mensagem de erro
