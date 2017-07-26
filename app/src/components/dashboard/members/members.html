@@ -1,17 +1,68 @@
 <div id="members__component">
+    <!--Filter bar-->
     <div class="search-filter-bar has-text-centered">
         <div class="columns">
             <div class="column is-1">
                 <i class="lnr lnr-magnifier"></i>
             </div>
 
-            <div class="column is-11">
+            <div class="column is-7">
                 <div class="field">
                     <p class="control">
                         <input class="input" type="text">
                     </p>
                 </div>
             </div>
+
+            <div class="column is-1">
+                <i class="lnr lnr-funnel"></i>
+            </div>
+
+            <div class="column is-3">
+                <div class="select is-fullwidth">
+                    <select>
+                        <option>Tag</option>
+                        <option>Tag1</option>
+                        <option>Tag2</option>
+                        <option>Tag3</option>
+                    </select>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!--Cards Section-->
+    <div class="cards-section ">
+        <div class="columns is-centered" ng-repeat="member in members" ng-if="$index % 2 == 0">
+
+            <div class="member-card column is-5">
+                <p class="member-name">{{members[$index].name}}</p>
+                <p class="member-email"><strong>email:</strong>{{members[$index].email}}</p>
+                <div class="tag-line is-pulled-right">
+                    <p class="tag" ng-repeat="tag in members[$index].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                </div>
+            </div>
+
+            <!-- Align adjust-->
+            <div class="column is-1"></div>
+
+            <!-- Ng if is for avoid empty cards-->
+            <div class="member-card column is-5" ng-if="members.length > ($index + 1)">
+                <p class="member-name">{{members[$index+1].name}}</p>
+                <p class="member-email"><strong>email:</strong>{{members[$index+1].email}}</p>
+                <div class="tag-line is-pulled-right">
+                    <p class="tag" ng-repeat="tag in members[$index+1].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                </div>
+            </div>
+
+            <!--Correct align when data number is odd-->
+            <div class="column is-5" ng-if="$index+1 === members.length && members.length % 2 !== 0"></div>
+
+            <br>
+        </div>
+
     </div>
 </div>

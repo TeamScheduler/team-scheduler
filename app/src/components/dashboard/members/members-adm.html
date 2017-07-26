@@ -1,0 +1,123 @@
+<div id="members__component">
+    <!--Filter bar-->
+    <div class="search-filter-bar has-text-centered">
+        <div class="columns">
+            <div class="column is-1">
+                <i class="lnr lnr-magnifier"></i>
+            </div>
+
+            <div class="column is-5">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text">
+                    </p>
+                </div>
+            </div>
+
+            <div class="column is-1">
+                <i class="lnr lnr-funnel"></i>
+            </div>
+
+            <div class="column is-2">
+                <div class="select is-fullwidth">
+                    <select>
+                        <option>Tag</option>
+                        <option>Tag1</option>
+                        <option>Tag2</option>
+                        <option>Tag3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column is-3">
+                <div class="tabs is-toggle">
+                    <ul>
+                        <li ng-class="{ 'is-active': toggle}">
+                            <a ng-click="showMembers()">
+                                <span class="icon is-small"><i class="lnr lnr-users"></i></span>
+                                <span>Membros</span>
+                            </a>
+                        </li>
+                        <li ng-class="{ 'is-active': !toggle}">
+                            <a ng-click="showInvites()">
+                                <span class="icon is-small"><i class="lnr lnr-envelope"></i></span>
+                                <span>Solicitações</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!--Cards Section-->
+    <div class="cards-section " ng-show="toggle">
+        <div class="columns is-centered" ng-repeat="member in members" ng-if="$index % 2 == 0">
+
+            <div class="member-card column is-5">
+                <p class="member-name">{{members[$index].name}}</p>
+                <p class="member-email"><strong>email:</strong>{{members[$index].email}}</p>
+                <div class="tag-line is-pulled-right">
+                    <p class="tag" ng-repeat="tag in members[$index].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                </div>
+            </div>
+
+            <!-- Align adjust-->
+            <div class="column is-1"></div>
+
+            <!-- Ng if is for avoid empty cards-->
+            <div class="member-card column is-5" ng-if="members.length > ($index + 1)">
+                <p class="member-name">{{members[$index+1].name}}</p>
+                <p class="member-email"><strong>email:</strong>{{members[$index+1].email}}</p>
+                <div class="tag-line is-pulled-right">
+                    <p class="tag" ng-repeat="tag in members[$index+1].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                </div>
+            </div>
+
+            <!--Correct align when data number is odd-->
+            <div class="column is-5" ng-if="$index+1 === members.length && members.length % 2 !== 0"></div>
+
+            <br>
+        </div>
+    </div>
+
+
+    <!--User Requests-->
+    <div class="requests-section" ng-hide="toggle">
+        <div class="columns is-centered" ng-repeat="request in requests" ng-if="$index % 2 == 0">
+
+            <div class="request-card column is-5">
+                <p class="member-name">Nova Solicitação</p>
+                <p class="member-email"><strong>email:</strong>{{requests[$index].email}}</p>
+                <div class="actions is-pulled-right">
+                    <a class="accept-action">Aceitar</a>
+                    <a class="reject-action">Rejeitar</a>
+                    <a class="block-action">Bloquear</a>
+                </div>
+            </div>
+
+            <!-- Align adjust-->
+            <div class="column is-1"></div>
+
+            <!-- Ng if is for avoid empty cards-->
+            <div class="request-card column is-5" ng-if="requests.length > ($index + 1)">
+                <p class="member-name">Nova Solicitação</p>
+                <p class="member-email"><strong>email:</strong>{{requests[$index+1].email}}</p>
+                <div class="actions is-pulled-right">
+                    <a class="accept-action">Aceitar</a>
+                    <a class="reject-action">Rejeitar</a>
+                    <a class="block-action">Bloquear</a>
+                </div>
+            </div>
+
+            <!--Correct align when data number is odd-->
+            <div class="column is-5" ng-if="$index+1 === requests.length && requests.length % 2 !== 0"></div>
+
+            <br>
+        </div>
+    </div>
+
+</div>

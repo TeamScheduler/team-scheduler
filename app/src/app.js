@@ -102,7 +102,15 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'dashboard.members',
                 url: '/members',
-                templateUrl: 'components/dashboard/members/members.html'
+                templateUrl: 'components/dashboard/members/members.html',
+                controller: 'MembersController'
+            })
+
+            .state({
+                name: 'dashboard.members-adm',
+                url: '/members-adm',
+                templateUrl: 'components/dashboard/members/members-adm.html',
+                controller: 'MembersController'
             })
 
             .state({

@@ -1,13 +1,9 @@
 #members__component {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  font-family: "DINPro", "Helvetica Neue", sans-serif;
-  padding: 3rem;
-  margin: 0;
-  box-sizing: border-box;
-  height: 91vh;
+
+  height: 86vh;
+  margin-top: 5vh;
+  margin-left: 5%;
+  margin-right: 5%;
 
   .search-filter-bar {
     background-color: map_get($colors, card-background);
@@ -25,5 +21,51 @@
     i{
       font-size: 25px;
     }
+    
+    .tabs{
+      .is-active{
+        a{
+          background-color: map_get($colors, confirm);
+          border-color: map_get($colors, confirm-hue);
+        }
+      }
+    }
+  }
+
+
+
+  .cards-section{
+    .member-card{
+      background-color: white;
+      border-radius: 8px;
+      margin-bottom: 1%;
+    }
+
+    .tag{
+      color: white;
+      margin: 1px;
+    }
+  }
+
+  .requests-section{
+    .request-card{
+      background-color: white;
+      border-radius: 8px;
+      margin-bottom: 1%;
+    }
+
+    .actions{
+      .accept-action{
+        color: map_get($colors, positive);
+      }
+      .reject-action{
+        color: map_get($colors, danger);
+      }
+
+      .block-action{
+        color: map_get($colors, default);
+      }
+    }
+
   }
 }
