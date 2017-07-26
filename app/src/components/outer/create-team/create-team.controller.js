@@ -11,7 +11,7 @@ angular.module('MyApp').controller('CreateTeamController', function($scope, $sta
         function success(response){
             //exibe mensagem de sucesso para o usuario
             $state.go('login'); //????
-            console.log(response)
+            console.log(response);
         }
 
         function err(response) {

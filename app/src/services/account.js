@@ -16,6 +16,10 @@ angular.module('MyApp')
       resetPassword: function(data) {
         console.log($state.params);
         return $http.post('/reset/'+$state.params.token, data);
+      },
+      joinTeam: function(data) {
+          console.log($state.params);
+          return $http.post('/signup', data);
       }
     };
   });

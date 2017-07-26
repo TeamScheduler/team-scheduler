@@ -22,7 +22,7 @@ var createUser = function(user, callback){
         });
 
     });
-}
+};
 
 exports.createUser  = createUser;
 
