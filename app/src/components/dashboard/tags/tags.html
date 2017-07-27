@@ -1,38 +1,63 @@
 <div id="tags__component">
-
-    <div class="card">
-
-        <div class="card-content">
-
-            <div class="field">
-
-                <div class="columns">
-                    <div class="column">
-                        <p class="ts-label">NOME DO TIME</p>
-                        <p class="control">
-                            <input class="input ts-input" type="text" ng-model="team" value="Time exemplo">
-                        </p>
-                    </div>
-
-                    <div class="column">
-                        <p class="ts-label">QUANTIDADE DE HORAS SEMANAIS</p>
-                        <p class="control">
-                            <input class="input ts-input" type="text" value="20">
-                        </p>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="columns">
-                    <div class="column">
-                        <a class="button is-pulled-right ts-confirm-btn">Salvar</a>
-                    </div>
-                </div>
-
+    <!--Filter bar-->
+    <div class="search-filter-bar has-text-centered">
+        <div class="columns">
+            <div class="column is-1">
+                <i class="lnr lnr-magnifier"></i>
             </div>
 
+            <div class="column is-11">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text">
+                    </p>
+                </div>
+            </div>
         </div>
+
     </div>
 
+    <br>
+    <br>
+
+    <!--Cards Section-->
+    <div class="cards-section ">
+        <div class="columns is-centered" ng-repeat="tag in tags" ng-if="$index % 2 == 0">
+
+            <div class="tags-card column is-5">
+                <div class="tag-action is-pulled-right">
+                    <a ng-click="showUsers = !showUsers"><i class="lnr lnr-users"></i></a>
+                </div>
+
+                <p class="tag-name">{{tags[$index].name}}</p>
+                <div class="tag-color" style="background-color: {{tags[$index].color}}"></div>
+
+                <div ng-if="showUsers" class="user-list" ng-repeat="user in tags[$index].users">
+                    <p class="user-item">{{user.email}}</p>
+                </div>
+            </div>
+
+            <!-- Align adjust-->
+            <div class="column is-1"></div>
+
+            <!-- Ng if is for avoid empty cards-->
+            <div class="tags-card column is-5" ng-if="tags.length > ($index + 1)">
+                <div class="tag-action is-pulled-right">
+                    <a ng-click="showUsers1 = !showUsers1"><i class="lnr lnr-users"></i></a>
+                </div>
+                <p class="tag-name">{{tags[$index+1].name}}</p>
+                <div class="tag-color" style="background-color: {{tags[$index+1].color}}">
+                </div>
+
+                <div ng-if="showUsers1" class="user-list" ng-repeat="user in tags[$index+1].users">
+                    <p class="user-item">{{user.email}}</p>
+                </div>
+            </div>
+
+            <!--Correct align when data number is odd-->
+            <div class="column is-5" ng-if="$index+1 === tags.length && tags.length % 2 !== 0"></div>
+
+        </div>
+
+    </div>
 </div>
