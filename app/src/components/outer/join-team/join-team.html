@@ -14,7 +14,7 @@
 
             <label class="label">NOME DO USUÁRIO</label>
             <p class="control">
-              <input class="input" type="text" ng-model="user.login" placeholder="Nome pelo qual será chamado no time">
+              <input class="input" type="text" ng-model="user.name" placeholder="Nome pelo qual será chamado no time">
             </p>
 
             <label class="label">SENHA</label>
@@ -27,7 +27,7 @@
               <input class="input" type="password">
             </p>
 
-            <a class="button is-fullwidth is-info" ng-click="submit()">CRIAR</a>
+            <a class="button is-fullwidth is-info" ng-click="submit(user)">CRIAR</a>
 
           </div>
 

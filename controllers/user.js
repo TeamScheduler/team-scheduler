@@ -2,26 +2,20 @@ var async = require('async');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var request = require('request');
+var mongoose = require('mongoose');
 var authController = require('./auth');
 var User = require('../models/User');
+var Team = require('../models/Team');
 
 
 var createUser = function(user, callback){
 
-    User.findOne({ email: user.email }, function(err, userFound) {
+    var newUser = new User(user);
 
-        var newUser = new User({
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            team: user.team
-        });
-
-        newUser.save(function(err) {
-            callback(false, newUser);
-        });
-
+    newUser.save(function(err) {
+        callback(false, newUser);
     });
+
 };
 
 exports.createUser  = createUser;
@@ -34,6 +28,7 @@ exports.signupPost = function(req, res, next) {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('email', 'Email cannot be blank').notEmpty();
     req.assert('password', 'Password must be at least 4 characters long').len(4);
+    req.assert('team', 'TeamId cannot be blank').notEmpty();
     req.sanitize('email').normalizeEmail({ remove_dots: false });
 
     var errors = req.validationErrors();
@@ -42,14 +37,39 @@ exports.signupPost = function(req, res, next) {
         return res.status(400).send(err);
     }
 
-    createUser(req.body, function (err, user) {
-        console.log(err);
-        if(err){
-            console.log("Deu merda");
-        }else{
-            res.send({ token: authController.generateToken(user), user: user });
+    if(! mongoose.Types.ObjectId.isValid(req.body.team)){
+        return res.status(400).send({msg: "Team id is not valid."});
+    }
+
+    User.findOne({ email: req.body.email, team: mongoose.Types.ObjectId(req.body.team) }, function(err, user) {
+        if (user) {
+            return res.status(400).send({msg: 'The email address ' + req.body.email
+                + ' is already associated with an account in this team '});
         }
+
+        req.body.isAdmin = false;
+
+        createUser(req.body, function (err, user) {
+            if(err){
+                return res.status(400).send(err);
+            }
+
+            Team.findOneAndUpdate(req.body.team, {$addToSet:{pending_members : user._id}}, {safe: true, new:true}, function(err, team){
+
+                if(!team){
+                    User.remove({_id:user._id}, function() {
+                        res.status(400).send({error: 'Team not fount'});
+                    })
+                }else{
+                    res.send({ token: authController.generateToken(user), user: user });
+                }
+
+            });
+
+        });
+
     });
+
 };
 
 /**

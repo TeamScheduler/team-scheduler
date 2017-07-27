@@ -1,17 +1,25 @@
 angular.module('MyApp').controller('JoinTeamController', function($scope, $state, Account, TeamService) {
 
     $scope.user = {};
-    $scope.team = TeamService.getTeam().name;//Fica undefined depois de um reload//Cache?
+
+    (function main(){
+        var team = TeamService.getTeam();
+
+        if(! team) {
+            $state.go('find-team');
+        }
+        $scope.team = team;
+    })();
 
     $scope.submit = function(user) {
-        console.log(user);
-        var promise = Account.joinTeam(team, user);
+        user.team = $scope.team._id;
+        var promise = Account.joinTeam(user);
         promise.then(success, err);
 
         function success(response){
             //exibe mensagem de sucesso para o usuario
-            $state.go('login'); //Se foi cadastrado vai para a tela de login(Aguardar ser aceito)
             console.log(response);
+            $state.go('login');
         }
 
         function err(response) {
