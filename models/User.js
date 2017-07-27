@@ -13,6 +13,7 @@ var userSchema = new mongoose.Schema({
     name: String,
     email: { type: String},
     password: String,
+    isAdmin: { type: Boolean, default: false },
     team: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
     passwordResetToken: String,
     passwordResetExpires: Date
@@ -20,6 +21,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.pre('save', function(next) {
     var user = this;
+    console.log(user.isAdmin);
     if (!user.isModified('password')) { return next(); }
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(user.password, salt, null, function(err, hash) {

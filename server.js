@@ -69,7 +69,6 @@ app.use(function(req, res, next) {
 
 app.post('/contact', contactController.contactPost);
 app.post('/team', teamController.teamPost);
-app.post('/team/join', teamController.joinTeamPost);
 app.get('/team/:id', teamController.getTeamById);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
