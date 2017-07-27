@@ -3,7 +3,7 @@
   border-color: map_get($input-defs, input-border-color);
   border-radius: map_get($input-defs, input-border-radius);
   font-size: 14px;
-  padding: 20px;
+  //padding: 20px;
   &:focus{
     border-color: map_get($colors, confirm);
   }

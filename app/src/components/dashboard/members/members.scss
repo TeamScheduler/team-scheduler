@@ -5,6 +5,15 @@
   margin-left: 5%;
   margin-right: 5%;
 
+  .tabs{
+    .is-active{
+      a{
+        background-color: map_get($colors, confirm);
+        border-color: map_get($colors, confirm-hue);
+      }
+    }
+  }
+
   .search-filter-bar {
     background-color: map_get($colors, card-background);
     width: 100%;
@@ -21,15 +30,6 @@
     i{
       font-size: 25px;
     }
-    
-    .tabs{
-      .is-active{
-        a{
-          background-color: map_get($colors, confirm);
-          border-color: map_get($colors, confirm-hue);
-        }
-      }
-    }
   }
 
 
@@ -45,6 +45,14 @@
       color: white;
       margin: 1px;
     }
+
+    .top-actions{
+      a{
+        font-size: 12px;
+        color: map_get($colors, danger);
+        font-weight: bold;
+      }
+    }
   }
 
   .requests-section{
@@ -55,6 +63,11 @@
     }
 
     .actions{
+      a{
+        font-size: 12px;
+        font-weight: bold;
+        padding-right: 2px;
+      }
       .accept-action{
         color: map_get($colors, positive);
       }
