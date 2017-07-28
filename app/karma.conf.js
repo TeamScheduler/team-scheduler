@@ -8,6 +8,8 @@ module.exports = function(config) {
             'src/**/*.js',
             // Unit tests
             'test/unit/**/*.test.js'
+            //interface
+            //'test/interface/tests/*.js'
         ],
 
         autoWatch: true,

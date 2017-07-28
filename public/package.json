@@ -9,7 +9,7 @@
     "postinstall": "npm run build:production",
     "start": "node server.js",
     "test": "npm run test:server && npm run test:client",
-    "test:client": "karma start app/karma.conf.js --single-run",
+    "test:client": "karma start ../app/karma.conf.js --single-run",
     "test:server": "mocha --recursive",
     "watch": "gulp"
   },
