@@ -14,7 +14,7 @@ module.exports = function(config) {
 
         autoWatch: true,
 
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai', 'jasmine', 'sinon'],
 
         browsers: ['PhantomJS'],
 
@@ -22,7 +22,9 @@ module.exports = function(config) {
             'karma-phantomjs-launcher',
             'karma-mocha',
             'karma-chai',
-            'karma-coverage'
+            'karma-coverage',
+            'karma-jasmine',
+            'karma-sinon'
         ],
 
         reporters: ['progress', 'coverage'],
