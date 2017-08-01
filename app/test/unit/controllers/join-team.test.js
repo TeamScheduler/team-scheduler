@@ -5,13 +5,16 @@ describe("JoinTeamController", function() {
 
   beforeEach(
     inject(function($state, $controller, TeamService, Account) {
-      scope = {
-          team: {}
-      };
+      scope = {};
 
       state = $state;
       teamService = TeamService;
-      account = Account; 
+
+      teamService.getTeam = function() {
+        return { name: "projetoes" };
+      };
+
+      account = Account;
 
       controller = $controller("JoinTeamController", {
         $scope: scope,
@@ -22,12 +25,11 @@ describe("JoinTeamController", function() {
     })
   );
 
-//   it("should exist", function() {
-//     expect(controller).to.be.ok;
-//   });
+  it("should exist", function() {
+    expect(controller).to.be.ok;
+  });
 
-//   it("should have a function submit", function() {
-//     expect(scope.submit).to.be.ok;
-//   });
-
+  it("should have a function submit", function() {
+    expect(scope.submit).to.be.ok;
+  });
 });
