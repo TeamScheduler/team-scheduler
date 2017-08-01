@@ -147,7 +147,7 @@ exports.getTeamPendingMembers = function (req, res, next) {
         }
 
         if (! team) {
-            return res.status(404).send({msg: "Team not found."})
+            return res.status(404).send({msg: "Team not found."});
         }
 
         return res.status(200).send(team.pending_members);

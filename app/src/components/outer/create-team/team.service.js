@@ -13,6 +13,8 @@
         service.createTeam = createTeam;
         service.findTeamById = findTeamById;
         service.getTeam = getTeam;
+        service.getTeamMembers = getTeamMembers;
+        service.getTeamPendingMembers = getTeamPendingMembers;
 
         return service;
 
@@ -47,6 +49,36 @@
                 function success(response) {
                     team = response.data;
                     deferred.resolve(team);
+                },
+                function err(response) {
+                    deferred.reject(response);
+                }
+            );
+            return deferred.promise;
+        }
+
+        function getTeamMembers(teamId) {
+            var deferred = $q.defer();
+
+            $http.get(API + '/' + teamId + '/members').then(
+                function success(response) {
+                    var members = response.data;
+                    deferred.resolve(members);
+                },
+                function err(response) {
+                    deferred.reject(response);
+                }
+            );
+            return deferred.promise;
+        }
+
+        function getTeamPendingMembers(teamId) {
+            var deferred = $q.defer();
+
+            $http.get(API + '/' + teamId + '/pending-members').then(
+                function success(response) {
+                    var members = response.data;
+                    deferred.resolve(members);
                 },
                 function err(response) {
                     deferred.reject(response);

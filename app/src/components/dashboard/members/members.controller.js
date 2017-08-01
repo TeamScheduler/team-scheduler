@@ -1,8 +1,37 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('MembersController', function($scope) {
+angular.module('MyApp').controller('MembersController', function($scope, $rootScope, TeamService) {
 
-    $scope.members = [
+    var currentUser = $rootScope.currentUser;
+    var teamId = currentUser.team;
+
+    (function main() {
+
+        TeamService.getTeamMembers(teamId).then(
+            function succecss(response) {
+                $scope.members = response;
+            },
+            function err(response) {
+                //TODO: tratar erro.
+                console.log(err);
+            }
+        );
+
+        if(currentUser.isAdmin) {
+            TeamService.getTeamPendingMembers(teamId).then(
+                function succecss(response) {
+                    $scope.requests = response;
+                },
+                function err(response) {
+                    //TODO: tratar erro.
+                    console.log(err);
+                }
+            );
+        }
+
+    })();
+
+    /*$scope.members = [
         {
             name: 'Gustavo Diniz',
             email: 'gustavo@email.com',
@@ -47,9 +76,9 @@ angular.module('MyApp').controller('MembersController', function($scope) {
                 }
             ]
         }
-    ];
+    ];*/
 
-    $scope.requests = [
+ /*   $scope.requests = [
         {
             email: 'joaoartur@email.com'
         },
@@ -69,7 +98,7 @@ angular.module('MyApp').controller('MembersController', function($scope) {
             email: 'thiagomassoni@email.com'
         }
     ];
-
+*/
     $scope.toggle = true;
 
     $scope.showMembers = function () {
