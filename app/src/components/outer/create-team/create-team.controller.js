@@ -10,7 +10,7 @@ angular.module('MyApp').controller('CreateTeamController', function($scope, $sta
 
         function success(response){
             //exibe mensagem de sucesso para o usuario
-            $state.go('login'); //????
+            $state.go('team-info'); //????
             console.log(response);
         }
 
