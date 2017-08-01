@@ -19,6 +19,13 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             })
 
             .state({
+                name: 'team-info',
+                url: '/team-info',
+                controller: 'TeamInfoController',
+                templateUrl: 'components/outer/team-info/team-info.html'
+            })
+
+            .state({
                 name: 'create-team',
                 url: '/create-team',
                 controller: 'CreateTeamController',
