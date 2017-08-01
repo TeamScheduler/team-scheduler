@@ -78,7 +78,7 @@ exports.getTeamById = function (req, res, next) {
         return res.status(400).send({error: "Team id is not valid."});
     }
 
-    Team.findOne({_id: teamId}).populate('members').populate('pending_members').exec(function (err, team) {
+    Team.findOne({_id: teamId}).exec(function (err, team) {
 
         if (err) {
             return res.status(400).send({error: err});
@@ -89,6 +89,68 @@ exports.getTeamById = function (req, res, next) {
         } else {
             res.status(404).send({msg: "Team not found."})
         }
+
+    });
+};
+
+/**
+ * GET team/:id/members
+ */
+exports.getTeamMembers = function (req, res, next) {
+    var teamId = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(teamId)) {
+        return res.status(400).send({error: "Team id is not valid."});
+    }
+
+    Team.findOne({_id: teamId}).populate('members').exec(function (err, team) {
+
+        if(! team.isTeamMember(req.user._id)){
+            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
+        }
+
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+
+        if (! team) {
+            return res.status(404).send({msg: "Team not found."})
+        }
+
+        return res.status(200).send(team.members);
+
+    });
+};
+
+/**
+ * GET team/:id/pending-members
+ */
+exports.getTeamPendingMembers = function (req, res, next) {
+    var teamId = req.params.id;
+
+    if(! req.user.isAdmin) {
+        return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(teamId)) {
+        return res.status(400).send({error: "Team id is not valid."});
+    }
+
+    Team.findOne({_id: teamId}).populate('pending_members').exec(function (err, team) {
+
+        if(! team.isTeamMember(req.user._id)){
+            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
+        }
+
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+
+        if (! team) {
+            return res.status(404).send({msg: "Team not found."})
+        }
+
+        return res.status(200).send(team.pending_members);
 
     });
 };

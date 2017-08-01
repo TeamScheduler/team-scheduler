@@ -67,9 +67,10 @@ app.use(function(req, res, next) {
   }
 });
 
-app.post('/contact', contactController.contactPost);
 app.post('/team', teamController.teamPost);
 app.get('/team/:id', teamController.getTeamById);
+app.get('/team/:id/members', authController.ensureAuthenticated, teamController.getTeamMembers);
+app.get('/team/:id/pending-members', authController.ensureAuthenticated, teamController.getTeamPendingMembers);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
 app.post('/signup', userController.signupPost);
