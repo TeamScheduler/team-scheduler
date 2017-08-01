@@ -12,7 +12,31 @@ describe("LoginController", function() {
       $controller,
       TeamService
     ) {
-      scope = {};
+      scope = {
+        user: {
+          teamId: ''
+        },
+        team: {
+          _id: "597fe34b776f5610f713e09a",
+          updatedAt: "2017-08-01T02:11:23.484Z",
+          createdAt: "2017-08-01T02:11:23.056Z",
+          name: "time",
+          __v: 0,
+          admin: {
+            _id: "597fe34b776f5610f713e09b",
+            updatedAt: "2017-08-01T02:11:23.144Z",
+            createdAt: "2017-08-01T02:11:23.144Z",
+            name: "loram",
+            email: "fake@g.com",
+            team: "597fe34b776f5610f713e09a",
+            __v: 0
+          },
+          tags: [],
+          blocked_users: [],
+          members: [],
+          id: "597fe34b776f5610f713e09a"
+        }
+      };
 
       state = $state;
       rootScope = $rootScope;
@@ -43,5 +67,11 @@ describe("LoginController", function() {
 
   it("should have a function autheticate", function() {
     expect(scope.authenticate).to.be.ok;
+  });
+
+  it("shold make transition to join-team state", function() {
+    var spy = sinon.spy(state, "go");
+    scope.goToJoinTeam();
+    assert(spy.calledWith("join-team"));
   });
 });

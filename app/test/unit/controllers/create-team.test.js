@@ -36,7 +36,7 @@ describe("CreateTeamController", function() {
     expect(scope.submit).to.be.ok;
   });
 
-  describe("pdwps", function() {
+  describe("should accept values", function() {
 
     beforeEach(function() {
       backend.whenPOST(API).respond(200, {
@@ -71,7 +71,7 @@ describe("CreateTeamController", function() {
     });
   });
 
-  describe("eror", function() {
+  describe("should not accept values", function() {
     beforeEach(function() {
       backend.whenPOST(API).respond(400, {});
     });
