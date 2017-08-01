@@ -26,6 +26,31 @@ teamSchema.methods.isEmailBlocked = function(email) {
     return false;
 };
 
+teamSchema.methods.isTeamMember = function(userId) {
+
+    var team = this;
+    var teamPopulated = !!team.populated('members');
+    var isTeamMember = false;
+
+    team.members.forEach(function(member){
+        var memberId;
+
+        if(teamPopulated){
+            memberId = member._id;
+        }else{
+            memberId = member;
+        }
+
+        if(''+userId === ''+memberId){
+            isTeamMember = true;
+        }
+
+    });
+
+    return isTeamMember;
+
+};
+
 var User = mongoose.model('Team', teamSchema);
 
 

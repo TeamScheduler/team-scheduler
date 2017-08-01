@@ -19,7 +19,7 @@ exports.generateToken = generateToken;
  * Login required middleware
  */
 exports.ensureAuthenticated = function(req, res, next) {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated() && req.user) {
         next();
     } else {
         res.status(401).send({ msg: 'Unauthorized' });
@@ -49,7 +49,7 @@ exports.loginPost = function(req, res, next) {
 
     User.findOne({ email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) }, function(err, user) {
         if (!user) {
-            return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any account. ' +
+            return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any team member. ' +
             'Double-check your email address and try again.'
             });
         }
