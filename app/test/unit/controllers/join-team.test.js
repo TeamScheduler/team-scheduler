@@ -46,7 +46,7 @@ describe("JoinTeamController", function() {
     expect(scope.submit).to.be.ok;
   });
 
-  it("", function() {
+  it("shoul have transition to login state", function() {
     var spy = sinon.spy(state, "go");
     scope.submit(user);
     backend.flush();

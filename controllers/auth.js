@@ -47,6 +47,7 @@ exports.loginPost = function(req, res, next) {
         return res.status(400).send({msg: "Team id is not valid."});
     }
 
+    //FIXME: Usuarios pendentes não devem poder logar no sistema.
     User.findOne({ email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) }, function(err, user) {
         if (!user) {
             return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any team member. ' +
