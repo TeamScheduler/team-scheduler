@@ -15,6 +15,7 @@
         service.getTeam = getTeam;
         service.getTeamMembers = getTeamMembers;
         service.getTeamPendingMembers = getTeamPendingMembers;
+        service.updateTeamPendingMembers = updateTeamPendingMembers;
 
         return service;
 
@@ -76,6 +77,21 @@
             var deferred = $q.defer();
 
             $http.get(API + '/' + teamId + '/pending-members').then(
+                function success(response) {
+                    var members = response.data;
+                    deferred.resolve(members);
+                },
+                function err(response) {
+                    deferred.reject(response);
+                }
+            );
+            return deferred.promise;
+        }
+
+        function updateTeamPendingMembers(teamId, body) {
+            var deferred = $q.defer();
+
+            $http.patch(API + '/' + teamId + '/pending-members', body).then(
                 function success(response) {
                     var members = response.data;
                     deferred.resolve(members);
