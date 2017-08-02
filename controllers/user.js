@@ -54,6 +54,7 @@ exports.signupPost = function(req, res, next) {
                 return res.status(400).send(err);
             }
 
+            //FIXME: Validar emails bloqueados no time.
             Team.findOneAndUpdate(req.body.team, {$addToSet:{pending_members : user._id}}, {safe: true, new:true}, function(err, team){
 
                 if(!team){
