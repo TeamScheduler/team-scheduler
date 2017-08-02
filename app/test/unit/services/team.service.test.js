@@ -22,7 +22,7 @@ describe('ContactCtrl', function() {
             var promise = TeamService.createTeam('', {});
             //promise.should.not.been.fulfilled()
             done();
-        })
+        });
     });
 
 });
