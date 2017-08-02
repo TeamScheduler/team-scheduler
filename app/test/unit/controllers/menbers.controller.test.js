@@ -37,6 +37,10 @@ describe("MembersController", function() {
       backend
         .whenGET("/team/597fe34b776f5610f713e09a/pending-members")
         .respond(200, [fake]);
+
+      backend
+        .whenPATCH("/team/597fe34b776f5610f713e09a/pending-members")
+        .respond(200, [fake]);
     })
   );
 
@@ -70,5 +74,13 @@ describe("MembersController", function() {
     backend.flush();
     expect(scope.requests).to.be.ok;
     assert.equal(JSON.stringify(scope.requests), JSON.stringify([fake]));
+  });
+
+  it("should load pending members", function() {
+    backend.flush();
+    scope.resolvePendingMembers(undefined, undefined);
+    backend.flush();
+    expect(scope.members).to.be.ok;
+    assert.equal(JSON.stringify(scope.members), JSON.stringify([fake]));
   });
 });
