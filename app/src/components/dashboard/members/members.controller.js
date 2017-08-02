@@ -6,7 +6,6 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
     var teamId = currentUser.team;
 
     (function main() {
-
         TeamService.getTeamMembers(teamId).then(
             function succecss(response) {
                 $scope.members = response;
@@ -16,7 +15,7 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
                 console.log(err);
             }
         );
-
+        console.log(currentUser);
         if(currentUser.isAdmin) {
             TeamService.getTeamPendingMembers(teamId).then(
                 function succecss(response) {
