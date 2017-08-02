@@ -8,11 +8,13 @@ module.exports = function(config) {
             'src/**/*.js',
             // Unit tests
             'test/unit/**/*.test.js'
+            //interface
+            //'test/interface/tests/*.js'
         ],
 
         autoWatch: true,
 
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai', 'jasmine', 'sinon'],
 
         browsers: ['PhantomJS'],
 
@@ -20,7 +22,9 @@ module.exports = function(config) {
             'karma-phantomjs-launcher',
             'karma-mocha',
             'karma-chai',
-            'karma-coverage'
+            'karma-coverage',
+            'karma-jasmine',
+            'karma-sinon'
         ],
 
         reporters: ['progress', 'coverage'],
@@ -32,8 +36,8 @@ module.exports = function(config) {
         preprocessors: {
             'src/app.js': ['coverage'],
             'src/controllers/*.js': ['coverage'],
-            'src/services/*.js': ['coverage'],
-            'src/components/**/*.js': ['coverage']
+            'src/components/dashboard/**/*.js': ['coverage'],
+            'src/components/outer/**/*.js': ['coverage']            
         },
 
         coverageReporter: {

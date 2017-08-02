@@ -3,7 +3,7 @@
 
     angular.module('MyApp').factory('TeamService', Service);
 
-    var API = 'http://localhost:3000/team';
+    var API = '/team';
 
     var team;
 
