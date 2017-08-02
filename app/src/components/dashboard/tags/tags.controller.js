@@ -1,6 +1,22 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('TagsController', function($scope) {
+angular.module('MyApp').controller('TagsController', function($scope, $state, TeamService) {
+
+
+    (function main() {
+
+        TeamService.getTeamMembers(teamId).then(
+            function succecss(response) {
+                $scope.members = response;
+            },
+            function err(response) {
+                //TODO: tratar erro.
+                console.log(err);
+            }
+        );
+
+    })();
+
 
     $scope.tags = [
         {
@@ -42,5 +58,30 @@ angular.module('MyApp').controller('TagsController', function($scope) {
             ]
         }
     ];
+
+    $scope.goToCreateTag = function () {
+        $state.go('dashboard.create-tag');
+    };
+
+    $scope.goBackToTags = function () {
+        $state.go('dashboard.tags-adm')
+    };
+
+    $scope.membersAutocomplete = function(search){
+
+        if (search === ""){
+
+            $scope.completing = false;
+
+        }else{
+
+            $scope.completing = true;
+            $scope.completes = forEach()
+            { search : $scope.members.email};
+
+        }
+    };
+
+
 
 });
