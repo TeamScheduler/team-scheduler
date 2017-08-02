@@ -63,11 +63,11 @@ describe("CreateTeamController", function() {
       });
     });
 
-    it("should have a transition to login", function() {
+    it("should have a transition to team-info", function() {
       var spy = sinon.spy(state, "go");
       scope.submit(teamName, admin);
       backend.flush();
-      assert(spy.calledWith("login"));
+      assert(spy.calledWith("team-info"));
     });
   });
 
