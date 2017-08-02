@@ -105,9 +105,9 @@
                 <p class="member-name">Nova Solicitação</p>
                 <p class="member-email"><strong>email:</strong>{{requests[$index].email}}</p>
                 <div class="actions is-pulled-right">
-                    <a class="accept-action">Aceitar</a>
-                    <a class="reject-action">Rejeitar</a>
-                    <a class="block-action">Bloquear</a>
+                    <a class="accept-action" ng-click="resolvePendingMembers(requests[$index]._id, 'accept')">Aceitar</a>
+                    <a class="reject-action" ng-click="resolvePendingMembers(requests[$index]._id, 'reject')">Rejeitar</a>
+                    <a class="block-action" ng-click="resolvePendingMembers(requests[$index]._id, 'block')">Bloquear</a>
                 </div>
             </div>
 

@@ -5,8 +5,8 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
     var currentUser = $rootScope.currentUser;
     var teamId = currentUser.team;
 
-    (function main() {
 
+    function init() {
         TeamService.getTeamMembers(teamId).then(
             function succecss(response) {
                 $scope.members = response;
@@ -16,7 +16,6 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
                 console.log(err);
             }
         );
-
         if(currentUser.isAdmin) {
             TeamService.getTeamPendingMembers(teamId).then(
                 function succecss(response) {
@@ -28,7 +27,10 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
                 }
             );
         }
+    }
 
+    (function main() {
+        init();
     })();
 
     /*$scope.members = [
@@ -78,27 +80,21 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
         }
     ];*/
 
- /*   $scope.requests = [
-        {
-            email: 'joaoartur@email.com'
-        },
-        {
-            email: 'jorgefigueiredo@email.com'
-        },
-        {
-            email: 'daltonserey@email.com'
-        },
-        {
-            email: 'rohitgheyi@email.com'
-        },
-        {
-            email: 'franklin@email.com'
-        },
-        {
-            email: 'thiagomassoni@email.com'
-        }
-    ];
-*/
+    $scope.resolvePendingMembers = function (userId, action) {
+        TeamService.updateTeamPendingMembers(teamId, {
+            userId: userId,
+            action: action
+        }).then(
+            function success(response) {
+                init();
+            },
+            function err(response) {
+                //TODO: Tratar erro
+                console.log(err);
+            }
+        )
+    }
+    
     $scope.toggle = true;
 
     $scope.showMembers = function () {

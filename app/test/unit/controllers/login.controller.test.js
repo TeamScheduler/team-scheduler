@@ -67,10 +67,6 @@ describe("LoginController", function() {
     expect(scope.login).to.be.ok;
   });
 
-  it("should have a function autheticate", function() {
-    expect(scope.authenticate).to.be.ok;
-  });
-
   it("shold make transition to join-team state", function() {
     var spy = sinon.spy(state, "go");
     scope.goToJoinTeam();
