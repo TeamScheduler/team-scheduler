@@ -10,7 +10,7 @@ exports.teamPost = function (req, res, next) {
     req.assert('name', 'Team name cannot be blank').notEmpty();
     req.assert('admin', 'The team most have an admin.').notEmpty();
     req.assert('admin.email', 'Admin email is not valid').isEmail();
-    req.assert('admin.password', 'Admin password must be at least 4 characters long').len(4);
+    req.assert('admin.password', 'Admin password must be at least 6 characters long').len(6);
     req.sanitize('admin.email').normalizeEmail({remove_dots: false});
 
     var errors = req.validationErrors();
