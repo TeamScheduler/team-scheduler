@@ -6,28 +6,41 @@
 
         <div class="card-content">
 
+          <br>
+          <h2 class="title has-text-centered">Inscrever-se em {{team.name}}</h2>
+          <br>
+          <br>
+
           <div class="field">
-            <label class="label">EMAILL</label>
+            <p class="ts-label">EMAILL</p>
             <p class="control">
-              <input class="input" type="email" ng-model="user.email" placeholder="name@email.com">
+              <input class="input ts-input" type="email" ng-model="user.email" placeholder="name@email.com">
             </p>
 
-            <label class="label">NOME DO USUÁRIO</label>
+            <br>
+
+            <p class="ts-label">NOME DO USUÁRIO</p>
             <p class="control">
-              <input class="input" type="text" ng-model="user.name" placeholder="Nome pelo qual será chamado no time">
+              <input class="input ts-input" type="text" ng-model="user.name" placeholder="Nome pelo qual será chamado no time">
             </p>
 
-            <label class="label">SENHA</label>
+            <br>
+
+            <p class="ts-label">SENHA</p>
             <p class="control">
-              <input class="input" type="password" ng-model="user.password">
+              <input class="input ts-input" type="password" ng-model="user.password">
             </p>
 
-            <label class="label">CONFIRMAR SENHA</label>
+            <br>
+
+            <p class="ts-label">CONFIRMAR SENHA</p>
             <p class="control">
-              <input class="input" type="password">
+              <input class="input ts-input" type="password">
             </p>
 
-            <a class="button is-fullwidth is-info" ng-click="submit(user)">CRIAR</a>
+            <br>
+
+            <a class="button is-fullwidth ts-confirm-btn" ng-click="submit(user)">Cadastrar-se</a>
 
           </div>
 

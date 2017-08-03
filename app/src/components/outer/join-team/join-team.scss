@@ -1,7 +1,11 @@
-.hero {
-  background-color: map-get($colors, login-background);
-}
+
 .join-team {
+
+  .hero {
+    background-color: map-get($colors, login-background);
+  }
+
+
   width: 500px;
   margin: auto;
 

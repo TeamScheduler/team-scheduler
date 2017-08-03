@@ -2,7 +2,19 @@
 
   background-color: map_get($colors, navbar-background);
 
+  .navbar-brand{
+    .navbar-item{
+      color: map_get($colors, confirm);
+    }
+  }
+
   .navbar-menu{
+    .navbar-item{
+      color: map_get($colors, nav-itens-color);
+      &:hover{
+        background-color: map_get($colors, main-background-to);
+      }
+    }
     .is-logout{
       background-color: map_get($colors, confirm);
       color: #FFF;

@@ -1,0 +1,4 @@
+.hero{
+  //@include gradient-background(map-get($colors, login-background), map_get($colors, main-background-from));
+  background-image: url("/img/background.jpg");
+}

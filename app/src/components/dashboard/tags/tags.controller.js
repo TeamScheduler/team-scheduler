@@ -1,21 +1,6 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('TagsController', function($scope, $state, TeamService) {
-
-
-    (function main() {
-
-        TeamService.getTeamMembers(teamId).then(
-            function succecss(response) {
-                $scope.members = response;
-            },
-            function err(response) {
-                //TODO: tratar erro.
-                console.log(err);
-            }
-        );
-
-    })();
+angular.module('MyApp').controller('TagsController', function($scope, $state) {
 
 
     $scope.tags = [
@@ -74,10 +59,6 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
             $scope.completing = false;
 
         }else{
-
-            $scope.completing = true;
-            $scope.completes = forEach()
-            { search : $scope.members.email};
 
         }
     };

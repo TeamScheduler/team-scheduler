@@ -10,14 +10,29 @@ $colors: (
         danger:   #F11616,
         danger-hue: #E79090,
 
-        main-background:    #F4F8F9,
+        //main-background:    #F4F8F9,
+        //navbar-background: #FAFBFC,
+        main-background-from:    #2A2D35,
+        main-background-to: #444955,
         card-background:    #FFF,
-        navbar-background: #FAFBFC,
+        navbar-background: #293041,
         login-background: #212121,
+
+
+        logo-text-color: #01C9FF,
+        nav-itens-color: #7F9BCB
 );
 
 $input-defs: (
         input-border-color: #EEF2F6,
         input-border-radius: 4px,
         input-box-shadow: none
-)
+);
+
+@mixin gradient-background($from, $to){
+  background: $from; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($from, $to); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($from, $to); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($from, $to); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($from, $to); /* Standard syntax */
+}

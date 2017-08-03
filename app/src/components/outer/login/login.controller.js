@@ -7,6 +7,7 @@ angular.module('MyApp')
         if(! team) {
             $state.go('find-team');
         }
+
         $scope.team = team;
       })();
 

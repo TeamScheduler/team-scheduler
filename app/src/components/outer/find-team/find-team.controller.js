@@ -6,13 +6,24 @@ angular.module('MyApp').controller('FindTeamController', function ($scope, $stat
     $state.go('create-team');
   };
 
+  $scope.err = {
+    exists: false,
+    msg: ''
+  };
+
+  $scope.clearErr = function () {
+    $scope.err.exists = false;
+    $scope.err.msg = '';
+  };
+
   $scope.goToJoinTeam = function(teamId) {
     TeamService.findTeamById(teamId).then(
       function success() {
         $state.go('login');
       },
       function err() {
-        //exibir mensagem de erro
+        $scope.err.exists = true;
+        $scope.err.msg = 'Time não encontrado!';
       }
     );
   };
