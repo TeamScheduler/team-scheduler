@@ -22,7 +22,7 @@ angular.module('MyApp')
         .then(function(response) {
           $rootScope.currentUser = response.data.user;
           $window.localStorage.user = JSON.stringify(response.data.user);
-          $state.go('account');
+          $state.go('dashboard.all-users-schedule');
         })
         .catch(function(response) {
           $scope.messages = {
