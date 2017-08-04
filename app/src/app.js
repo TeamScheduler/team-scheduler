@@ -1,6 +1,5 @@
+"use strinct";
 angular.module('MyApp', ['ui.router', 'satellizer'])
-
-
     .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
 
         $stateProvider
@@ -145,7 +144,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
                 name: 'dashboard.config',
                 url: '/config',
                 templateUrl: 'components/dashboard/config/config.html'
-            })
+            });
 
             $urlRouterProvider.otherwise('/home');
 
@@ -155,7 +154,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
         function skipIfAuthenticated($state, $auth) {
             console.log("skip if is auth");
             if ($auth.isAuthenticated()) {
-                $state.go('dashboard')
+                $state.go('dashboard');
             }
         }
 
