@@ -1,5 +1,31 @@
+
 <div id="user-schedule__component">
-    <!-- FILTER BAR -->
+
+
+    <div class="columns" style="width: 100%">
+        <div class="column is-5">
+
+            <p class="title" style="color: #FFF" ng-show="!isEditMode">
+                Clique nos campos da tabela para adicionar horários
+            </p>
+
+            <p class="title" style="color: #FFF" ng-show="isEditMode">
+                Clique em um horário já preenchido para removê-lo
+            </p>
+
+        </div>
+
+        <div class="column is-5"></div>
+
+        <div class="column is-2 ">
+            <a class="button ts-confirm-btn is-fullwidth is-pulled-right" ng-click="isEditMode = !isEditMode" ng-class="{'ts-alert-btn': isEditMode}">
+                <p ng-show="isEditMode">Finalizar Edição</p>
+                <p ng-hide="isEditMode">Editar Horários</p>
+            </a>
+        </div>
+    </div>
+
+
     <div class="schedule-table">
         <div class="calendar">
             <div class="outer">
@@ -12,7 +38,7 @@
                     </tr>
                     </thead>
                 </table>
-
+                {{hours}}
                 <div class="wrap">
                     <table class="offset">
                         <tbody>
@@ -30,50 +56,50 @@
 
                         <tr ng-repeat="hour in hours">
                             <td class="headcol">{{hour.hour}}</td><!--Hour-->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.mon">
+                            <td ng-click="addHour(hour, 'mon')">
+                                <div class="event" ng-repeat="user in hour.mon" ng-click="removeHour(hour, 'mon', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Monday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.tue">
+                            <td ng-click="addHour(hour, 'tue')">
+                                <div class="event" ng-repeat="user in hour.tue" ng-click="removeHour(hour, 'tue', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Tuesday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.wed">
+                            <td ng-click="addHour(hour, 'wed')">
+                                <div class="event" ng-repeat="user in hour.wed" ng-click="removeHour(hour, 'wed', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Wednesday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.thu">
+                            <td ng-click="addHour(hour, 'thu')">
+                                <div class="event" ng-repeat="user in hour.thu" ng-click="removeHour(hour, 'thu', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Thursday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.fri">
+                            <td ng-click="addHour(hour, 'fri')">
+                                <div class="event" ng-repeat="user in hour.fri" ng-click="removeHour(hour, 'fri', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Friday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.sat">
+                            <td ng-click="addHour(hour, 'sat')">
+                                <div class="event" ng-repeat="user in hour.sat" ng-click="removeHour(hour, 'sat', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}
                                 </div>
                             </td><!-- Saturday -->
-                            <td>
-                                <div class="event" ng-repeat="user in hour.sun">
+                            <td ng-click="addHour(hour, 'sun')">
+                                <div class="event" ng-repeat="user in hour.sun" ng-click="removeHour(hour, 'sun', user)">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user}}

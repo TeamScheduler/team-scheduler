@@ -6,100 +6,273 @@ angular.module('MyApp').controller('UserScheduleController', function($scope) {
     $scope.days = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'];
 
     //Lines
-    /*$scope.hours = ['5:30', '6:00', '6:30', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30',
-     '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30',
-     '17:00', '17:30', '18:00', '18:30', '19:00'];*/
-
     $scope.hours =[
-        {
-            hour: '5:30',
-            mon: ['Matheus', 'Gustavo'],
-            tue: ['Vinicius', 'Daniyel'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
+         {
+             hour: '5:30',
+             mon: [],
+             tue: [],
+             wed: [],
+             thu: [],
+             fri: [],
+             sat: [],
+             sun: []
         },
         {
             hour: '6:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Maia', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
-            thu: ['Luis'],
+            thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '6:30',
-            mon: ['Maia', 'Luis'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '7:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '7:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '8:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '8:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '9:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
             sun: []
         },
         {
             hour: '9:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
+            mon: [],
+            tue: [],
             wed: [],
             thu: [],
             fri: [],
-            sat: ['Vinicius', 'Matheus'],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '10:00',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '10:30',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '11:00',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '11:30',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '12:00',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '12:30',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '13:00',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '13:30',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '14:00',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: []
+        },
+        {
+            hour: '14:30',
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
             sun: []
         }
-    ]
+    ];
+
+    $scope.isEditMode = false;
+
+    $scope.addHour = function (hour, dayFlag) {
+
+        if($scope.isEditMode){
+            temp = $scope.hours[getIndex(hour)];
+
+            if(dayFlag === 'mon')
+                temp.mon.push('USERNAME!');
+
+            if(dayFlag === 'tue')
+                temp.tue.push('USERNAME!');
+
+            if(dayFlag === 'wed')
+                temp.wed.push('USERNAME!');
+
+            if(dayFlag === 'thu')
+                temp.thu.push('USERNAME!');
+
+            if(dayFlag === 'fri')
+                temp.fri.push('USERNAME!');
+
+            if(dayFlag === 'sat')
+                temp.sat.push('USERNAME!');
+
+            if(dayFlag === 'sun')
+                temp.sun.push('USERNAME!');
+        }
+    };
+
+    function getIndex(hour) {
+      return $scope.hours.indexOf(hour);
+    };
+
+    $scope.removeHour = function (hour, dayFlag, user) {
+
+        if($scope.isEditMode){
+
+            temp = $scope.hours[getIndex(hour)];
+
+            if(dayFlag === 'mon'){
+                var index = temp.mon.indexOf(user);
+                temp.mon.splice(index, 1);
+            }
+
+            if(dayFlag === 'tue'){
+                var index = temp.tue.indexOf(user);
+                temp.tue.splice(index, 1);
+            }
+
+            if(dayFlag === 'wed'){
+                var index = temp.wed.indexOf(user);
+                temp.wed.splice(index, 1);
+            }
+
+            if(dayFlag === 'thu'){
+                var index = temp.thu.indexOf(user);
+                temp.thu.splice(index, 1);
+            }
+
+            if(dayFlag === 'fri'){
+                var index = temp.fri.indexOf(user);
+                temp.fri.splice(index, 1);
+            }
+
+            if(dayFlag === 'sat'){
+                var index = temp.sat.indexOf(user);
+                temp.sat.splice(index, 1);
+            }
+
+            if(dayFlag === 'sun'){
+                var index = temp.sun.indexOf(user);
+                temp.sun.splice(index, 1);
+            }
+        }
+    };
 });
