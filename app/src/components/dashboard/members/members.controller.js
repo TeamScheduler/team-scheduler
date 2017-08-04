@@ -11,7 +11,7 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
             function succecss(response) {
                 $scope.members = response;
             },
-            function err(response) {
+            function err(err) {
                 //TODO: tratar erro.
                 console.log(err);
             }
@@ -21,7 +21,7 @@ angular.module('MyApp').controller('MembersController', function($scope, $rootSc
                 function succecss(response) {
                     $scope.requests = response;
                 },
-                function err(response) {
+                function err(err) {
                     //TODO: tratar erro.
                     console.log(err);
                 }

@@ -6,6 +6,7 @@
     "build": "gulp build",
     "build:production": "gulp build --production",
     "deploy": "npm test && git push heroku master",
+    "lint": "jshint --config ./.jshintrc --extract=auto --exclude /node_modules,app/test/interface/node_modules,public/node_modules,public/js,app/src/vendor,app/test/coverage  .; exit 0",
     "postinstall": "npm run build:production",
     "start": "concurrently \"mongod\" \"node server.js\" \"gulp\"",
     "test": "npm run test:server && npm run test:client",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.1.0",
+    "jshint": "^2.9.5",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.5.5",
