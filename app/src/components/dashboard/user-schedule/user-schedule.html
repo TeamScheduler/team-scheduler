@@ -5,12 +5,9 @@
     <div class="columns" style="width: 100%">
         <div class="column is-5">
 
-            <p class="title" style="color: #FFF" ng-show="!isEditMode">
-                Clique nos campos da tabela para adicionar horários
-            </p>
-
             <p class="title" style="color: #FFF" ng-show="isEditMode">
-                Clique em um horário já preenchido para removê-lo
+                Clique em um campo vazio para adicionar um horário,
+                ou em um campo já preenchido para removê-lo
             </p>
 
         </div>
@@ -38,7 +35,6 @@
                     </tr>
                     </thead>
                 </table>
-                {{hours}}
                 <div class="wrap">
                     <table class="offset">
                         <tbody>
@@ -55,56 +51,72 @@
                         </tr>
 
                         <tr ng-repeat="hour in hours">
-                            <td class="headcol">{{hour.hour}}</td><!--Hour-->
-                            <td ng-click="addHour(hour, 'mon')">
-                                <div class="event" ng-repeat="user in hour.mon" ng-click="removeHour(hour, 'mon', user)">
+
+                            <!--Hour-->
+                            <td class="headcol">{{hour.hour}}</td>
+
+                            <!-- Monday -->
+                            <td ng-click="editTableHour(hour, 'mon')">
+                                <div class="event" ng-show="hour.mon" ng-click="removeHour(hour, 'mon')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Monday -->
-                            <td ng-click="addHour(hour, 'tue')">
-                                <div class="event" ng-repeat="user in hour.tue" ng-click="removeHour(hour, 'tue', user)">
+                            </td>
+
+                            <!-- Tuesday -->
+                            <td ng-click="editTableHour(hour, 'tue')">
+                                <div class="event" ng-show="hour.tue" ng-click="removeHour(hour, 'tue')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Tuesday -->
-                            <td ng-click="addHour(hour, 'wed')">
-                                <div class="event" ng-repeat="user in hour.wed" ng-click="removeHour(hour, 'wed', user)">
+                            </td>
+
+                            <!-- Wednesday -->
+                            <td ng-click="editTableHour(hour, 'wed')">
+                                <div class="event" ng-show="hour.wed" ng-click="removeHour(hour, 'wed')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Wednesday -->
-                            <td ng-click="addHour(hour, 'thu')">
-                                <div class="event" ng-repeat="user in hour.thu" ng-click="removeHour(hour, 'thu', user)">
+                            </td>
+
+                            <!-- Thursday -->
+                            <td ng-click="editTableHour(hour, 'thu')">
+                                <div class="event" ng-show="hour.thu" ng-click="removeHour(hour, 'thu')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Thursday -->
-                            <td ng-click="addHour(hour, 'fri')">
-                                <div class="event" ng-repeat="user in hour.fri" ng-click="removeHour(hour, 'fri', user)">
+                            </td>
+
+                            <!-- Friday -->
+                            <td ng-click="editTableHour(hour, 'fri')">
+                                <div class="event" ng-show="hour.fri" ng-click="removeHour(hour, 'fri')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Friday -->
-                            <td ng-click="addHour(hour, 'sat')">
-                                <div class="event" ng-repeat="user in hour.sat" ng-click="removeHour(hour, 'sat', user)">
+                            </td>
+
+                            <!-- Saturday -->
+                            <td ng-click="editTableHour(hour, 'sat')">
+                                <div class="event" ng-show="hour.sat" ng-click="removeHour(hour, 'sat')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Saturday -->
-                            <td ng-click="addHour(hour, 'sun')">
-                                <div class="event" ng-repeat="user in hour.sun" ng-click="removeHour(hour, 'sun', user)">
+                            </td>
+
+                            <!-- Sunday -->
+                            <td ng-click="editTableHour(hour, 'sun')">
+                                <div class="event" ng-show="hour.sun" ng-click="removeHour(hour, 'sun')">
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
                                 </div>
-                            </td><!-- Sunday -->
+                            </td>
                         </tr>
 
                         </tbody>
