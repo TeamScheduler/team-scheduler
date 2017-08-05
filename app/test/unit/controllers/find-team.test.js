@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("FindTeamController", function () {
   var state, controller, scope, teamService;
 

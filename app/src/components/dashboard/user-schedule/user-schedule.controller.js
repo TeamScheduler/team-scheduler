@@ -202,21 +202,35 @@ angular.module("MyApp").controller("UserScheduleController", function($scope) {
 
   $scope.addHour = function(hour, dayFlag) {
     if ($scope.isEditMode) {
-      temp = $scope.hours[getIndex(hour)];
+      var temp = $scope.hours[getIndex(hour)];
 
-      if (dayFlag === "mon") temp.mon.push("USERNAME!");
+      if (dayFlag === "mon") {
+        temp.mon.push("USERNAME!");
+      }
 
-      if (dayFlag === "tue") temp.tue.push("USERNAME!");
+      if (dayFlag === "tue") {
+        temp.tue.push("USERNAME!");
+      }
 
-      if (dayFlag === "wed") temp.wed.push("USERNAME!");
+      if (dayFlag === "wed") {
+        temp.wed.push("USERNAME!");
+      }
 
-      if (dayFlag === "thu") temp.thu.push("USERNAME!");
+      if (dayFlag === "thu") {
+        temp.thu.push("USERNAME!");
+      }
 
-      if (dayFlag === "fri") temp.fri.push("USERNAME!");
+      if (dayFlag === "fri") {
+        temp.fri.push("USERNAME!");
+      }
 
-      if (dayFlag === "sat") temp.sat.push("USERNAME!");
+      if (dayFlag === "sat") {
+        temp.sat.push("USERNAME!");
+      }
 
-      if (dayFlag === "sun") temp.sun.push("USERNAME!");
+      if (dayFlag === "sun") {
+        temp.sun.push("USERNAME!");
+      }
     }
   };
 
@@ -226,7 +240,7 @@ angular.module("MyApp").controller("UserScheduleController", function($scope) {
 
   $scope.removeHour = function(hour, dayFlag, user) {
     if ($scope.isEditMode) {
-      temp = $scope.hours[getIndex(hour)];
+      var temp = $scope.hours[getIndex(hour)];
       var index;
       if (dayFlag === "mon") {
         index = temp.mon.indexOf(user);

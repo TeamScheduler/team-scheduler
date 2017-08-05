@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("TeamInfoController", function() {
   var scope, controller, state, backend, teamService;
   beforeEach(module("MyApp"));

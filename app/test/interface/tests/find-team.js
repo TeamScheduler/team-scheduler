@@ -2,9 +2,9 @@
 var test = require('../selenium.js');
 var assert = require('assert');
 var driver = test.driver.build();
-var by= test.by;
+var by = test.by;
 
-const host = 'http://localhost:3000/#!/';
+var host = 'http://localhost:3000/#!/';
 
 driver.get(host.concat('find-team'));
 driver.findElement(by.linkText('Criar novo time')).click().then(function() {

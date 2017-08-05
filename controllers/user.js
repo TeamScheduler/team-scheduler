@@ -144,7 +144,7 @@ exports.accountDelete = function(req, res) {
 /**
  * POST /forgot
  */
-exports.forgotPost = function(req, res, next) {
+exports.forgotPost = function(req, res) {
   req.assert("email", "Email is not valid").isEmail();
   req.assert("email", "Email cannot be blank").notEmpty();
   req.sanitize("email").normalizeEmail({ remove_dots: false });
@@ -267,7 +267,9 @@ exports.resetPost = function(req, res) {
           " has just been changed.\n"
       };
       transporter.sendMail(mailOptions, function(err) {
-        res.send({ msg: "Your password has been changed successfully." });
+        if (!err) {
+          res.send({ msg: "Your password has been changed successfully." });
+        }
       });
     }
   ]);

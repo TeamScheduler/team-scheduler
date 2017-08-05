@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe('ContactCtrl', function() {
     var httpBackend, TeamService;
 
@@ -18,11 +19,11 @@ describe('ContactCtrl', function() {
             expect(TeamService.createTeam).to.be.ok;
         });
 
-        it('should return a rejected promise', function(done){
-            var promise = TeamService.createTeam('', {});
-            //promise.should.not.been.fulfilled()
-            done();
-        });
+        // it('should return a rejected promise', function(done){
+        //     //var promise = TeamService.createTeam('', {});
+        //     //promise.should.not.been.fulfilled()
+        //     done();
+        // });
     });
 
 });

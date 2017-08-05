@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("MembersController", function() {
   var scope, root, teamService, controller, backend;
 

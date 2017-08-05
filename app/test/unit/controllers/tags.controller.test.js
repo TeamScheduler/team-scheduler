@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("TagsController", function() {
   var scope, controller;
   beforeEach(module("MyApp"));

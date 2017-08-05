@@ -86,9 +86,10 @@ angular
         action: action
       }).then(
         function success(response) {
+          console.log(response);
           init();
         },
-        function err(response) {
+        function err(err) {
           //TODO: Tratar erro
           console.log(err);
         }

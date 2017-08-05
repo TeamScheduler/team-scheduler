@@ -101,5 +101,5 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             sat: ['Vinicius', 'Matheus'],
             sun: []
         }
-    ]
+    ];
 });

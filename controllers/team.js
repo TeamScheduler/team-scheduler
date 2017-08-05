@@ -54,7 +54,7 @@ exports.teamPost = function(req, res) {
       userController.createUser(admin, function(err, user) {
         if (err) {
           Team.remove({ _id: teamId }, function(err2) {
-            return res.status(400).send({ error: err });
+            return res.status(400).send({ error: err2 });
           });
         }
 

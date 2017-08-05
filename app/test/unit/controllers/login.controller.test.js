@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("LoginController", function() {
   var state, backend, controller, scope, rootScope, window, auth, teamService;
 

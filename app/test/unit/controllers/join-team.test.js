@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("JoinTeamController", function() {
   var state, controller, backend, scope, account, teamService;
 

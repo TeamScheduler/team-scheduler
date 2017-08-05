@@ -49,7 +49,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $state) {
     };
 
     $scope.goBackToTags = function () {
-        $state.go('dashboard.tags-adm')
+        $state.go('dashboard.tags-adm');
     };
 
     $scope.membersAutocomplete = function(search){
@@ -58,11 +58,6 @@ angular.module('MyApp').controller('TagsController', function($scope, $state) {
 
             $scope.completing = false;
 
-        }else{
-
         }
     };
-
-
-
 });
