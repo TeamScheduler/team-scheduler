@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var test = require('../selenium.js');
 var assert = require('assert');
 var driver = test.driver.build();

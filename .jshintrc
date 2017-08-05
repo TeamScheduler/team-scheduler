@@ -98,6 +98,7 @@
       "__dirname": true,
       "process": true,
       "next": true,
-      "exports": true
+      "exports": true,
+      "sinon": true
     }        
 }

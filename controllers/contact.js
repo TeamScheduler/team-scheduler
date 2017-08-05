@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'Mailgun',
