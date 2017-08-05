@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("CreateTeamController", function() {
   var state, controller, scope, teamService, admin, teamName, backend;
   var API = "/team";

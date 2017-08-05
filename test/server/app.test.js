@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var request = require('supertest');
 var server = require('../../server');
 

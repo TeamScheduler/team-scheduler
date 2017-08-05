@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var mongoose = require('mongoose');
 
 var schemaOptions = {

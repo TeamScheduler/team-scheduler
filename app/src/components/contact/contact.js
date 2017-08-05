@@ -1,3 +1,4 @@
+/*jshint strict:false */
 angular.module("MyApp").controller("ContactCtrl", function($scope, Contact) {
   $scope.sendContactForm = function() {
     Contact.send($scope.contact)

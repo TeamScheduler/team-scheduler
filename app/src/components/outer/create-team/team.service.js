@@ -23,7 +23,7 @@
             var deferred = $q.defer();
 
             if( teamName === '' || admin.name === undefined ){
-                deferred.reject({error:'validation error'})
+                deferred.reject({error:'validation error'});
             }else{
                 var teamBody  = {
                     name: teamName,

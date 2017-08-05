@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -19,16 +20,15 @@ var User = require('./models/User');
 
 // Controllers
 var userController = require('./controllers/user');
-var contactController = require('./controllers/contact');
 var authController = require('./controllers/auth');
 var teamController = require('./controllers/team');
 
 var app = express();
 
-function dropDB() {
-    console.log("drop DB");
-    mongoose.connection.db.dropDatabase();
-}
+// function dropDB() {
+//     console.log("drop DB");
+//     mongoose.connection.db.dropDatabase();
+// }
 
 mongoose.connect(process.env.MONGODB, function () {
     //dropDB();
@@ -46,7 +46,7 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res) {
+app.use(function(req, res, next) {
   req.isAuthenticated = function() {
     var token = (req.headers.authorization && req.headers.authorization.split(' ')[1]) || req.cookies.token;
     try {

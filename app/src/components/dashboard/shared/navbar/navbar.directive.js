@@ -1,3 +1,4 @@
+/*jshint strict:false */
 angular.module('MyApp').directive('navbar', function($state, $window, $auth, $rootScope) {
     return {
         templateUrl: 'components/dashboard/shared/navbar/navbar.html',
@@ -8,7 +9,7 @@ angular.module('MyApp').directive('navbar', function($state, $window, $auth, $ro
                 $auth.logout();
                 delete $window.localStorage.user;
                 $state.go('find-team');
-            }
+            };
 
             scope.goToMembers = function() {
                 console.log(currentUser.isAdmin);
@@ -17,7 +18,7 @@ angular.module('MyApp').directive('navbar', function($state, $window, $auth, $ro
                 }else{
                     $state.go('dashboard.members');
                 }
-            }
+            };
         }
     };
 });

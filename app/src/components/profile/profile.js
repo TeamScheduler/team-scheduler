@@ -48,7 +48,7 @@ angular.module('MyApp')
     };
     $scope.unlink = function(provider) {
       $auth.unlink(provider)
-        .then(function() {
+        .then(function(response) {
           $scope.messages = {
             success: [response.data]
           };
