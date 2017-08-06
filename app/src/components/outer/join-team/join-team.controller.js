@@ -1,3 +1,4 @@
+/*jshint strict:false */
 angular.module('MyApp').controller('JoinTeamController', function($scope, $state, Account, TeamService) {
 
     $scope.user = {};
@@ -26,5 +27,5 @@ angular.module('MyApp').controller('JoinTeamController', function($scope, $state
             //exibe mensagem de erro para o usuario
             console.log(response);
         }
-    }
+    };
 });

@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("UserScheduleController", function() {
   var scope, controller;
   beforeEach(module("MyApp"));

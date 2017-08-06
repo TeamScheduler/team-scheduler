@@ -1,5 +1,5 @@
+/*jshint strict:false */
 var Tag = require('../models/Tag');
-var mongoose = require('mongoose');
 
 /**
  *

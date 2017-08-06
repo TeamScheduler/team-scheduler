@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var async = require('async');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');

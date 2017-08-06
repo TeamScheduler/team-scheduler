@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe('ContactCtrl', function() {
   var httpBackend, controller, scope;
 

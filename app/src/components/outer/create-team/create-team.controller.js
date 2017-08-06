@@ -18,5 +18,5 @@ angular.module('MyApp').controller('CreateTeamController', function($scope, $sta
             //exibe mensagem de erro para o usuario
             console.log(response);
         }
-    }
+    };
 });

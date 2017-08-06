@@ -1,3 +1,4 @@
+/*jshint strict:false */
 var Team = require('../models/Team');
 var userController = require('./user');
 var tagController = require('./tag');

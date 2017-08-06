@@ -1,3 +1,4 @@
+/*jshint strict:false */
 describe("LoginController", function() {
   var state, backend, controller, scope, rootScope, window, auth, teamService;
 
@@ -101,7 +102,7 @@ describe("LoginController", function() {
       var spy = sinon.spy(state, "go");
       scope.login();
       backend.flush();
-      assert(spy.calledWith("account"));
+      assert(spy.calledWith("dashboard.all-users-schedule"));
     });
   });
 
@@ -114,7 +115,7 @@ describe("LoginController", function() {
       var spy = sinon.spy(state, "go");
       scope.login();
       backend.flush();
-      assert.isFalse(spy.calledWith("account"));
+      assert.isFalse(spy.calledWith("dashboard.all-users-schedule"));
     });
   });
 });
