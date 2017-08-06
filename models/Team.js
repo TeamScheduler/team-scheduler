@@ -52,6 +52,31 @@ teamSchema.methods.isTeamMember = function(userId) {
 
 };
 
+teamSchema.methods.isTeamTag = function(otherTagId) {
+
+    var team = this;
+    var teamPopulated = !!team.populated('tags');
+    var isTeamTag = false;
+
+    team.tags.forEach(function(tag){
+        var tagId;
+
+        if(teamPopulated){
+            tagId = tag._id;
+        }else{
+            tagId = tag;
+        }
+
+        if(''+otherTagId === ''+tagId){
+            isTeamTag = true;
+        }
+
+    });
+
+    return isTeamTag;
+
+};
+
 var Team = mongoose.model('Team', teamSchema);
 
 

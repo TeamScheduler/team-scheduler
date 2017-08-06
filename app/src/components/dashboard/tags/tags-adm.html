@@ -36,7 +36,7 @@
                 <p class="tag-name">{{tags[$index].name}}</p>
                 <div class="tag-color" style="background-color: {{tags[$index].color}}"></div>
 
-                <div ng-if="showUsers" class="user-list" ng-repeat="user in tags[$index].users">
+                <div ng-if="showUsers" class="user-list" ng-repeat="user in tags[$index].members">
                     <p class="user-item">{{user.email}}</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="tag-color" style="background-color: {{tags[$index+1].color}}">
                 </div>
 
-                <div ng-if="showUsers1" class="user-list" ng-repeat="user in tags[$index+1].users">
+                <div ng-if="showUsers1" class="user-list" ng-repeat="user in tags[$index+1].members">
                     <p class="user-item">{{user.email}}</p>
                 </div>
             </div>

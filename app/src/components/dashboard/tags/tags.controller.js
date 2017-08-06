@@ -3,7 +3,18 @@
 angular.module('MyApp').controller('TagsController', function($scope, $state, TeamService) {
 
 
-    $scope.tags = [
+    (function main() {
+        TeamService.getTeamTags().then(
+            function success(tags) {
+                $scope.tags = tags;
+            },
+            function err(err) {
+                //TODO: tratar erros
+            }
+        )
+    })();
+
+    /*$scope.tags = [
         {
             name: 'DEV',
             color: '#212121',
@@ -42,7 +53,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
                 }
             ]
         }
-    ];
+    ];*/
 
     $scope.goToCreateTag = function () {
         $state.go('dashboard.create-tag');

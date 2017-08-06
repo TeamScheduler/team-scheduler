@@ -166,6 +166,8 @@ exports.getTeamPendingMembers = function (req, res, next) {
  * PATCH team/pending_members
  *
  * must be authenticated.
+ *
+ * FIXME: Refatorar essa coisa horrenda.
  */
 exports.patchTeamPendingMembers = function (req, res, next) {
     var teamId = req.user.team;
@@ -175,19 +177,11 @@ exports.patchTeamPendingMembers = function (req, res, next) {
         return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
     }
 
-    if (!mongoose.Types.ObjectId.isValid(teamId)) {
-        return res.status(400).send({error: "Team id is not valid."});
-    }
-
     if (!mongoose.Types.ObjectId.isValid(userId)) {
         return res.status(400).send({error: "User id is not valid."});
     }
 
     Team.findOne({_id: teamId}).exec(function (err, team) {
-
-        if(! team.isTeamMember(req.user._id)){
-            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
-        }
 
         if (err) {
             return res.status(400).send({error: err});
@@ -303,7 +297,7 @@ exports.postTeamTag = function (req, res, next) {
 exports.getTeamTags = function(req, res, next) {
     var teamId = req.user.team;
 
-    Team.findOne({_id:teamId}).populate('tags').exec(function(err, team){
+    Team.findOne({_id:teamId}).populate({path : 'tags', populate : {path : 'members'}}).exec(function(err, team){
         if (err) {
             return res.status(400).send({error: err});
         }
@@ -314,6 +308,37 @@ exports.getTeamTags = function(req, res, next) {
 
         return res.status(200).send(team.tags);
     });
+}
 
+exports.patchTeamTagMembers = function(req, res, next) {
+    var teamId = req.user.team;
+    var action = req.body.action;
+    var memberId = req.body.memberId;
+    var tagId = req.body.tagId;
+
+    Team.findOne({_id:teamId}).exec(function(err, team){
+
+        if(! team.isTeamMember(memberId)){
+            return res.status(400).send({msg: "Team member not found."});
+        }
+
+        if(! team.isTeamTag(tagId)){
+            return res.status(400).send({msg: "Team tag not found."});
+        }
+
+        if(action === 'add') {
+            tagController.addMember(tagId, memberId, function(err, tag) {
+                if (err) {
+                    return res.status(400).send({error: err});
+                }
+
+                return res.status(200).send(tag);
+            })
+        }else if(action === 'remove') {
+            //TODO: a implementação de remover tags foi deixado para um futuro breve.
+        }else{
+            return res.status(400).send({msg: "Invalid action"});
+        }
+    });
 
 }

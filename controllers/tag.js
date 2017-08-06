@@ -23,3 +23,9 @@ exports.deleteTag = function(tagId, callback) {
     });
 }
 
+
+exports.addMember = function(tagId, memberId, callback) {
+    Tag.findOneAndUpdate({_id:tagId}, { $addToSet:{members : memberId}}, {safe: true, new:true}, function(err, tag){
+        callback(err, tag);
+    });
+}
