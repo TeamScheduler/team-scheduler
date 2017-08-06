@@ -163,7 +163,7 @@ exports.getTeamPendingMembers = function (req, res, next) {
 };
 
 /**
- * PATCH team/:id/pending_members
+ * PATCH team/pending_members
  *
  * must be authenticated.
  */
@@ -261,6 +261,14 @@ exports.patchTeamPendingMembers = function (req, res, next) {
  */
 exports.postTeamTag = function (req, res, next) {
     var teamId = req.user.team;
+
+    req.checkBody('tag.color', 'Invalid tag color').isHexColor();
+
+    var errors = req.validationErrors();
+
+    if (errors) {
+        return res.status(400).send(errors);
+    }
 
     if(! req.user.isAdmin) {
         return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
