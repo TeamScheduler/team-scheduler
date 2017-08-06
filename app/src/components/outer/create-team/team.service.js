@@ -58,10 +58,10 @@
             return deferred.promise;
         }
 
-        function getTeamMembers(teamId) {
+        function getTeamMembers() {
             var deferred = $q.defer();
 
-            $http.get(API + '/' + teamId + '/members').then(
+            $http.get(API + '/members').then(
                 function success(response) {
                     var members = response.data;
                     deferred.resolve(members);
@@ -73,10 +73,10 @@
             return deferred.promise;
         }
 
-        function getTeamPendingMembers(teamId) {
+        function getTeamPendingMembers() {
             var deferred = $q.defer();
 
-            $http.get(API + '/' + teamId + '/pending-members').then(
+            $http.get(API + '/pending-members').then(
                 function success(response) {
                     var members = response.data;
                     deferred.resolve(members);
@@ -88,10 +88,10 @@
             return deferred.promise;
         }
 
-        function updateTeamPendingMembers(teamId, body) {
+        function updateTeamPendingMembers(body) {
             var deferred = $q.defer();
 
-            $http.patch(API + '/' + teamId + '/pending-members', body).then(
+            $http.patch(API + '/pending-members', body).then(
                 function success(response) {
                     var members = response.data;
                     deferred.resolve(members);

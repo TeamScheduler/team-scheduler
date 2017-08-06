@@ -4,10 +4,9 @@ angular
   .module("MyApp")
   .controller("MembersController", function($scope, $rootScope, TeamService) {
     var currentUser = $rootScope.currentUser;
-    var teamId = currentUser.team;
 
     function init() {
-      TeamService.getTeamMembers(teamId).then(
+      TeamService.getTeamMembers().then(
         function succecss(response) {
           $scope.members = response;
         },
@@ -17,7 +16,7 @@ angular
         }
       );
       if (currentUser.isAdmin) {
-        TeamService.getTeamPendingMembers(teamId).then(
+        TeamService.getTeamPendingMembers().then(
           function succecss(response) {
             $scope.requests = response;
           },
@@ -81,10 +80,11 @@ angular
     ];*/
 
     $scope.resolvePendingMembers = function(userId, action) {
-      TeamService.updateTeamPendingMembers(teamId, {
-        userId: userId,
-        action: action
-      }).then(
+      TeamService.updateTeamPendingMembers(
+        {
+            userId: userId,
+            action: action
+        }).then(
         function success(response) {
           console.log(response);
           init();
