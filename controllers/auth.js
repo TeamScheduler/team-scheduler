@@ -50,8 +50,9 @@ exports.loginPost = function(req, res) {
 
   //FIXME: Usuarios pendentes não devem poder logar no sistema.
   User.findOne(
-    { email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) },
-    function(err, user) {
+    { email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) })
+      .populate('team')
+      .exec(function(err, user) {
       if (!user) {
         return res.status(401).send({
           msg:

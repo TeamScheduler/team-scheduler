@@ -5,6 +5,8 @@ angular.module('MyApp').directive('navbar', function($state, $window, $auth, $ro
         link: function(scope, element, attrs) {
             var currentUser = $rootScope.currentUser;
 
+            scope.teamName = currentUser.team.name;
+
             scope.logout = function() {
                 $auth.logout();
                 delete $window.localStorage.user;
