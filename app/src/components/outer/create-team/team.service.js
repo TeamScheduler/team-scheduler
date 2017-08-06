@@ -16,6 +16,7 @@
         service.getTeamMembers = getTeamMembers;
         service.getTeamPendingMembers = getTeamPendingMembers;
         service.updateTeamPendingMembers = updateTeamPendingMembers;
+        service.createTag = createTag;
 
         return service;
 
@@ -105,6 +106,22 @@
 
         function getTeam() {
             return team;
+        }
+
+        function createTag(tag) {
+            var deferred = $q.defer();
+
+            $http.post(API + '/tag', tag).then(
+                function success(response){
+                    team = response.data.team;
+                    deferred.resolve(response.data);
+                },
+                function err(response){
+                    deferred.reject(response);
+                }
+            );
+
+            return deferred.promise;
         }
     }
 })();

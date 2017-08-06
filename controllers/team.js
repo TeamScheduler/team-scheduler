@@ -262,7 +262,7 @@ exports.patchTeamPendingMembers = function (req, res, next) {
 exports.postTeamTag = function (req, res, next) {
     var teamId = req.user.team;
 
-    req.checkBody('tag.color', 'Invalid tag color').isHexColor();
+    req.checkBody('color', 'Invalid tag color').isHexColor();
 
     var errors = req.validationErrors();
 
@@ -278,7 +278,7 @@ exports.postTeamTag = function (req, res, next) {
         return res.status(400).send({error: "Team id is not valid."});
     }
 
-    tagController.createTag(req.body.tag, function(err, tag){
+    tagController.createTag(req.body, function(err, tag){
 
         if (err) {
             return res.status(400).send({error: err});

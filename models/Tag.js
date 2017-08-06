@@ -11,6 +11,7 @@ var schemaOptions = {
 var tagSchema = new mongoose.Schema({
     name: String,
     color: String,
+    description: String,
     members: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 }, schemaOptions);
 

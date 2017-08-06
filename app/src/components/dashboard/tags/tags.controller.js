@@ -1,6 +1,6 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('TagsController', function($scope, $state) {
+angular.module('MyApp').controller('TagsController', function($scope, $state, TeamService) {
 
 
     $scope.tags = [
@@ -57,7 +57,17 @@ angular.module('MyApp').controller('TagsController', function($scope, $state) {
         if (search === ""){
 
             $scope.completing = false;
-
         }
     };
+
+    $scope.createTag  = function(tag) {
+        TeamService.createTag(tag).then(
+            function success() {
+                $state.go('dashboard.tags-adm');
+            },
+            function err() {
+                //TODO: tratar erro.
+            }
+        )
+    }
 });

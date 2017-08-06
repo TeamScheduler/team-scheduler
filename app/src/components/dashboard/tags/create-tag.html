@@ -23,7 +23,7 @@
                     <div class="column">
                         <p class="ts-label">NOME DA TAG</p>
                         <p class="control">
-                            <input class="input ts-input" type="text">
+                            <input class="input ts-input" type="text" ng-model="tag.name">
                         </p>
                     </div>
 
@@ -31,72 +31,23 @@
                     <div class="column">
                         <p class="ts-label">COR</p>
                         <p class="control">
-                            <input class="input ts-input" type="text" placeholder="Exemplo: #FFFFFF">
+                            <input class="input ts-input" type="text" placeholder="Exemplo: #FFFFFF" ng-model="tag.color">
                         </p>
-                    </div>
-                    <!--
-                    <div class="column is-2 nav-center">
-                        <div class="is-fullwidth" style="background-color: tagColor; border: 1px solid #212121;
-height: 80%; width: 100%; margin-top: 13px; border-radius: 4px">
-
-                        </div>
-                    </div>-->
-                </div>
-
-                <div class="columns">
-                    <div class="column is-10">
-                        <p class="ts-label">EMAIL DO MEMBRO</p>
-                        <p class="control">
-                            <input class="input ts-input" type="text" ng-keyup="membersAutocomplete(search)" ng-model="search" placeholder="O que você procura?" autofocus autocomplete="off">
-                        </p>
-
-                        <div class="autocomplete" ng-show="completing">
-                            <a class="link" href="pesquisa/empresa/" ng-repeat="complete in completes">
-                            </a></div>
-                    </div>
-                    <div class="column is-2" style="margin-top: 13px">
-                        <a class="button ts-default-btn is-fullwidth">Adicionar</a>
                     </div>
                 </div>
 
-                <br>
-
-                <div class="user-list">
-                    <div style="
-                        background-color: #FAFBFC;
-                        padding: 5px;
-                        border-radius: 4px;" class="columns">
-
-                        <div class="column">
-                            <p>membro-exemplo@email.com</p>
-                        </div>
-
-                        <div class="column">
-                            <a ng-click="" class="is-pulled-right"><i style="color: #F11616" class="lnr lnr-trash"></i></a>
-                        </div>
-                    </div>
-
-                    <div style="
-                        background-color: #FAFBFC;
-                        padding: 5px;
-                        border-radius: 4px;" class="columns">
-
-                        <div class="column">
-                            <p>membro-exemplo@email.com</p>
-                        </div>
-
-                        <div class="column">
-                            <a ng-click="" class="is-pulled-right"><i style="color: #F11616" class="lnr lnr-trash"></i></a>
-                        </div>
-                    </div>
-
+                <div class="column">
+                    <p class="ts-label">DESCRIÇÃO DA TAG</p>
+                    <p class="control">
+                        <input class="input ts-input" type="text" ng-model="tag.description">
+                    </p>
                 </div>
 
                 <br>
 
                 <div class="columns nav-right">
                     <div class="column is-1">
-                        <a class="button ts-confirm-btn is-fullwidth">Salvar</a>
+                        <a class="button ts-confirm-btn is-fullwidth" ng-click="createTag(tag)">Salvar</a>
                     </div>
                 </div>
 
