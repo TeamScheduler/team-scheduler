@@ -147,7 +147,7 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
                 templateUrl: 'components/dashboard/config/config.html'
             });
 
-            $urlRouterProvider.otherwise('/home');
+            $urlRouterProvider.otherwise('/find-team');
 
         $authProvider.loginUrl = '/login';
         $authProvider.signupUrl = '/signup';
