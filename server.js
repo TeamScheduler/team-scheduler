@@ -78,6 +78,7 @@ app.get('/team/members', authController.ensureAuthenticated, teamController.getT
 app.get('/team/pending-members', authController.ensureAuthenticated, teamController.getTeamPendingMembers);
 app.patch('/team/pending-members', authController.ensureAuthenticated, teamController.patchTeamPendingMembers);
 app.post('/team/tag', authController.ensureAuthenticated, teamController.postTeamTag);
+app.get('/team/tags', authController.ensureAuthenticated, teamController.getTeamTags);
 app.get('/team/:id', teamController.getTeamById);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);

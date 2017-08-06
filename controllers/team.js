@@ -298,7 +298,22 @@ exports.postTeamTag = function (req, res, next) {
             return res.status(200).send(team);
         });
     });
-
-
 };
 
+exports.getTeamTags = function(req, res, next) {
+    var teamId = req.user.team;
+
+    Team.findOne({_id:teamId}).populate('tags').exec(function(err, team){
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+
+        if (! team) {
+            return res.status(404).send({msg: "Team not found."});
+        }
+
+        return res.status(200).send(team.tags);
+    });
+
+
+}
