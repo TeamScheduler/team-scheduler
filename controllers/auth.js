@@ -48,26 +48,49 @@ exports.loginPost = function(req, res) {
     return res.status(400).send({ msg: "Team id is not valid." });
   }
 
-  //FIXME: Usuarios pendentes não devem poder logar no sistema.
+  function isPendingMember(team, memberId){
+      var isPendingMember = false;
+
+      team.pending_members.forEach(function(pendingMemberId){
+          if(''+memberId === ''+pendingMemberId){
+              isPendingMember = true;
+          }
+      });
+
+      return isPendingMember;
+  }
+
   User.findOne(
-    { email: req.body.email, team: mongoose.Types.ObjectId(req.body.teamId) })
+      {
+          email: req.body.email,
+          team: mongoose.Types.ObjectId(req.body.teamId)
+      })
       .populate('team')
       .exec(function(err, user) {
-      if (!user) {
-        return res.status(401).send({
-          msg:
-            "The email address " +
-            req.body.email +
-            " is not associated with any team member. " +
-            "Double-check your email address and try again."
-        });
-      }
-      user.comparePassword(req.body.password, function(err, isMatch) {
-        if (!isMatch) {
-          return res.status(401).send({ msg: "Invalid email or password" });
-        }
-        res.send({ token: generateToken(user), user: user.toJSON() });
-      });
+          if (!user) {
+            return res.status(401).send({
+              msg:
+                "The email address " +
+                req.body.email +
+                " is not associated with any team member. " +
+                "Double-check your email address and try again."
+            });
+          }
+
+          if(isPendingMember(user.team, user._id)){
+              return res.status(401).send({
+                  msg: "The user " + user.name + " is still a pending member " +
+                      "wait for the team admin approval to become a member."
+              });
+          }
+
+          user.comparePassword(req.body.password, function(err, isMatch) {
+            if (!isMatch) {
+              return res.status(401).send({ msg: "Invalid email or password" });
+            }
+
+            res.send({ token: generateToken(user), user: user.toJSON() });
+          });
     }
   );
 };

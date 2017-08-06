@@ -21,7 +21,10 @@
             <a ng-if="!isAdmin" class="navbar-item" ui-sref="dashboard.members" ui-sref-active="is-active">
                 <i class="lnr lnr-users"></i>
             </a>
-            <a class="navbar-item" ui-sref="dashboard.tags" ui-sref-active="is-active">
+            <a ng-if="isAdmin" class="navbar-item" ui-sref="dashboard.tags-adm" ui-sref-active="is-active">
+                <i class="lnr lnr-tag"></i>
+            </a>
+            <a ng-if="!isAdmin" class="navbar-item" ui-sref="dashboard.tags" ui-sref-active="is-active">
                 <i class="lnr lnr-tag"></i>
             </a>
             <a class="navbar-item" ui-sref="dashboard.config" ui-sref-active="is-active">
