@@ -69,9 +69,10 @@ app.use(function(req, res, next) {
 
 app.post('/team', teamController.teamPost);
 app.get('/team/:id', teamController.getTeamById);
-app.get('/team/:id/members', authController.ensureAuthenticated, teamController.getTeamMembers);
-app.get('/team/:id/pending-members', authController.ensureAuthenticated, teamController.getTeamPendingMembers);
-app.patch('/team/:id/pending-members', authController.ensureAuthenticated, teamController.patchTeamPendingMembers);
+app.get('/team/members', authController.ensureAuthenticated, teamController.getTeamMembers);
+app.get('/team/pending-members', authController.ensureAuthenticated, teamController.getTeamPendingMembers);
+app.patch('/team/pending-members', authController.ensureAuthenticated, teamController.patchTeamPendingMembers);
+app.post('/team/tag', authController.ensureAuthenticated, teamController.postTeamTag);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
 app.post('/signup', userController.signupPost);

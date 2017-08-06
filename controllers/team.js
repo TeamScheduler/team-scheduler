@@ -1,5 +1,6 @@
 var Team = require('../models/Team');
 var userController = require('./user');
+var tagController = require('./tag');
 var User = require('../models/User');
 var mongoose = require('mongoose');
 
@@ -95,20 +96,18 @@ exports.getTeamById = function (req, res, next) {
 };
 
 /**
- * GET team/:id/members
+ * GET team/members
+ *
+ * must be authenticated.
  */
 exports.getTeamMembers = function (req, res, next) {
-    var teamId = req.params.id;
+    var teamId = req.user.team;
 
     if (!mongoose.Types.ObjectId.isValid(teamId)) {
         return res.status(400).send({error: "Team id is not valid."});
     }
 
     Team.findOne({_id: teamId}).populate('members').exec(function (err, team) {
-
-        if(! team.isTeamMember(req.user._id)){
-            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
-        }
 
         if (err) {
             return res.status(400).send({error: err});
@@ -118,49 +117,22 @@ exports.getTeamMembers = function (req, res, next) {
             return res.status(404).send({msg: "Team not found."})
         }
 
+        if(! team.isTeamMember(req.user._id)){
+            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
+        }
+
         return res.status(200).send(team.members);
 
     });
 };
 
 /**
- * GET team/:id/pending-members
+ * GET team/pending-members
+ *
+ * must be authenticated.
  */
 exports.getTeamPendingMembers = function (req, res, next) {
-    var teamId = req.params.id;
-
-    if(! req.user.isAdmin) {
-        return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
-    }
-
-    if (!mongoose.Types.ObjectId.isValid(teamId)) {
-        return res.status(400).send({error: "Team id is not valid."});
-    }
-
-    Team.findOne({_id: teamId}).populate('pending_members').exec(function (err, team) {
-
-        if(! team.isTeamMember(req.user._id)){
-            return res.status(403).send({ msg: 'You have to be an team member to perform this action.' });
-        }
-
-        if (err) {
-            return res.status(400).send({error: err});
-        }
-
-        if (! team) {
-            return res.status(404).send({msg: "Team not found."});
-        }
-
-        return res.status(200).send(team.pending_members);
-
-    });
-};
-
-/**
- * GET team/:id/pending-members
- */
-exports.getTeamPendingMembers = function (req, res, next) {
-    var teamId = req.params.id;
+    var teamId = req.user.team;
 
     if(! req.user.isAdmin) {
         return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
@@ -191,9 +163,11 @@ exports.getTeamPendingMembers = function (req, res, next) {
 
 /**
  * PATCH team/:id/pending_members
+ *
+ * must be authenticated.
  */
 exports.patchTeamPendingMembers = function (req, res, next) {
-    var teamId = req.params.id;
+    var teamId = req.user.team;
     var userId = req.body.userId;
 
     if(! req.user.isAdmin) {
@@ -237,7 +211,7 @@ exports.patchTeamPendingMembers = function (req, res, next) {
         var action = req.body.action;
 
         if(action === 'accept') {
-            Team.findOneAndUpdate(teamId, {$pull:{pending_members : userId}, $addToSet:{members : userId}}, {safe: true, new:true}, function(err, team){
+            Team.findOneAndUpdate({_id:teamId}, {$pull:{pending_members : userId}, $addToSet:{members : userId}}, {safe: true, new:true}, function(err, team){
                 if (err) {
                     return res.status(400).send({error: err});
                 }
@@ -255,7 +229,7 @@ exports.patchTeamPendingMembers = function (req, res, next) {
                 }
 
                 if(action === 'reject') {
-                    Team.findOneAndUpdate(teamId, {$pull:{pending_members : userId}}, {safe: true, new:true}, function(err, team){
+                    Team.findOneAndUpdate({_id:teamId}, {$pull:{pending_members : userId}}, {safe: true, new:true}, function(err, team){
                         if (err) {
                             return res.status(400).send({error: err});
                         }
@@ -263,7 +237,7 @@ exports.patchTeamPendingMembers = function (req, res, next) {
                         return res.status(200).send(team);
                     });
                 }else if(action === 'block') {
-                    Team.findOneAndUpdate(teamId, {$pull:{pending_members : userId}, $addToSet:{blocked_users : user.email}}, {safe: true, new:true}, function(err, team){
+                    Team.findOneAndUpdate({_id:teamId}, {$pull:{pending_members : userId}, $addToSet:{blocked_users : user.email}}, {safe: true, new:true}, function(err, team){
                         if (err) {
                             return res.status(400).send({error: err});
                         }
@@ -280,3 +254,42 @@ exports.patchTeamPendingMembers = function (req, res, next) {
 
     });
 };
+
+/**
+ * POST team/tag
+ */
+exports.postTeamTag = function (req, res, next) {
+    var teamId = req.user.team;
+
+    if(! req.user.isAdmin) {
+        return res.status(403).send({ msg: 'You have to be the team admin to perform this action.' });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(teamId)) {
+        return res.status(400).send({error: "Team id is not valid."});
+    }
+
+    tagController.createTag(req.body.tag, function(err, tag){
+
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+
+        Team.findOneAndUpdate({_id:teamId}, {$push:{tags : tag._id}}, {new:true, safe: true}).populate('tags').exec(function(err, team){
+            if (err) {
+                tagController.deleteTag(tag._id, function() {});
+                return res.status(400).send({error: err});
+            }
+
+            if (! team) {
+                tagController.deleteTag(tag._id, function() {});
+                return res.status(404).send({msg: "Team not found."});
+            }
+
+            return res.status(200).send(team);
+        });
+    });
+
+
+};
+

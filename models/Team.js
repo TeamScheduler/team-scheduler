@@ -12,7 +12,7 @@ var teamSchema = new mongoose.Schema({
     members: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     pending_members: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     blocked_users: [{type: String}],
-    tags: [{type: String}]
+    tags: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tag'}]
 }, schemaOptions);
 
 
@@ -51,8 +51,8 @@ teamSchema.methods.isTeamMember = function(userId) {
 
 };
 
-var User = mongoose.model('Team', teamSchema);
+var Team = mongoose.model('Team', teamSchema);
 
 
 
-module.exports = User;
+module.exports = Team;
