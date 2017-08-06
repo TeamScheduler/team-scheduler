@@ -11,14 +11,7 @@ angular.module('MyApp').directive('navbar', function($state, $window, $auth, $ro
                 $state.go('find-team');
             };
 
-            scope.goToMembers = function() {
-                console.log(currentUser.isAdmin);
-                if(currentUser.isAdmin){
-                    $state.go('dashboard.members-adm');
-                }else{
-                    $state.go('dashboard.members');
-                }
-            };
+            scope.isAdmin = currentUser.isAdmin;
         }
     };
 });

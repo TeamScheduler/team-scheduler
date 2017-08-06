@@ -15,7 +15,10 @@
             <a class="navbar-item" ui-sref="dashboard.user-schedule" ui-sref-active="is-active">
                 <i class="lnr lnr-clock"></i>
             </a>
-            <a class="navbar-item" ng-click="goToMembers()" ui-sref-active="is-active">
+            <a ng-if="isAdmin" class="navbar-item" ui-sref="dashboard.members-adm" ui-sref-active="is-active">
+                <i class="lnr lnr-users"></i>
+            </a>
+            <a ng-if="!isAdmin" class="navbar-item" ui-sref="dashboard.members" ui-sref-active="is-active">
                 <i class="lnr lnr-users"></i>
             </a>
             <a class="navbar-item" ui-sref="dashboard.tags" ui-sref-active="is-active">
