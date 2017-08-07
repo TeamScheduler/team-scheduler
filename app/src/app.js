@@ -142,6 +142,13 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             })
 
             .state({
+                name: 'dashboard.tag-members',
+                url: '/tags/tag-members',
+                templateUrl: 'components/dashboard/tags/tag-members.html',
+                controller: 'TagsController'
+            })
+
+            .state({
                 name: 'dashboard.config',
                 url: '/config',
                 templateUrl: 'components/dashboard/config/config.html',

@@ -1,9 +1,13 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('TagsController', function($scope, $state, TeamService) {
+angular.module('MyApp').controller('TagsController', function($scope, $rootScope, $state, TeamService) {
 
 
     (function main() {
+
+        $scope.currentTag = $rootScope.currentTag;
+        $scope.currentUser = $rootScope.currentUser;
+
         TeamService.getTeamTags().then(
             function success(tags) {
                 $scope.tags = tags;
@@ -14,53 +18,16 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
         )
     })();
 
-    /*$scope.tags = [
-        {
-            name: 'DEV',
-            color: '#212121',
-            users: [
-                {
-                    email: 'vinicius@email.com'
-                },
-                {
-                    email: 'maia@email.com'
-                },
-                {
-                    email: 'matheus@email.com'
-                },
-                {
-                    email: 'gustavo@email.com'
-                }
-            ]
-        },
-
-        {
-            name: 'UX',
-            color: '#4179F4',
-            users: [
-                {
-                    email: 'matheus@email.com'
-                }
-            ]
-        },
-
-        {
-            name: 'QA',
-            color: '#F4424E',
-            users: [
-                {
-                    email: 'gustavo@email.com'
-                }
-            ]
-        }
-    ];*/
-
     $scope.goToCreateTag = function () {
         $state.go('dashboard.create-tag');
     };
 
     $scope.goBackToTags = function () {
-        $state.go('dashboard.tags-adm');
+        if($rootScope.currentUser.isAdmin){
+            $state.go('dashboard.tags-adm');
+        }else{
+            $state.go('dashboard.tags');
+        }
     };
 
     $scope.createTag  = function(tag) {
@@ -72,5 +39,10 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
                 //TODO: tratar erro.
             }
         )
-    }
+    };
+
+    $scope.goToTagMembers = function(tag) {
+        $rootScope.currentTag = tag;
+        $state.go('dashboard.tag-members');
+    };
 });

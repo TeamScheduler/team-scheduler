@@ -1,35 +1,23 @@
 #tags__component {
 
-  height: 86vh;
+  height: 87.5vh;
   margin-top: 5vh;
   margin-left: 5%;
   margin-right: 5%;
 
+  .card-tag-members{
+    margin-left: 10%;
+    margin-right: 10%;
 
-  .search-filter-bar {
-    background-color: #333741;
-    width: 100%;
-    height: 50px;
-    padding: 7px;
-    border-radius: 8px;
+    .user-list{
+      .user-item{
 
-    input {
-      border-color: map_get($colors, nav-itens-color);
-      color: #FFF;
-      border-radius: 8px;
-      background-color: #333741;
-    }
-
-    select{
-      border-radius: 8px;
-      border-color: map_get($colors, nav-itens-color);
-      background-color: #333741;
-      color: #FFF;
-    }
-
-    i{
-      font-size: 25px;
-      color: map_get($colors, nav-itens-color);
+        background-color: #c8c8c8;
+        padding: 5px;
+        margin-top: 5px;
+        padding-left: 10px;
+        border-radius: 4px;
+      }
     }
   }
 
@@ -38,9 +26,18 @@
       background-color: #fcfcfc;
       border-radius: 8px;
       margin-bottom: 1%;
+      cursor: pointer;
 
-      .tag-name{
+      .tag-info{
         @extend .is-pulled-left;
+        .tag-name{
+          font-weight: 300;
+          font-size: 18px;
+        }
+        .tag-description{
+          font-weight: 500;
+          font-size: 13px;
+        }
       }
 
       .tag-action{
@@ -59,15 +56,6 @@
         height: 15px;
         width: 100%;
         margin-top: 50px;
-      }
-
-      .user-list{
-        .user-item{
-          background-color: map_get($colors, navbar-background);
-          padding: 5px;
-          margin-top: 5px;
-          border-radius: 4px;
-        }
       }
     }
 
