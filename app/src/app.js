@@ -1,6 +1,6 @@
 /*jshint strict:false */
 "use strinct";
-angular.module('MyApp', ['ui.router', 'satellizer', 'autocomplete'])
+angular.module('MyApp', ['ui.router', 'satellizer'])
     .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
 
         $stateProvider

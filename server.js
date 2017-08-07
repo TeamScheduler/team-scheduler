@@ -25,10 +25,10 @@ var teamController = require('./controllers/team');
 
 var app = express();
 
-// function dropDB() {
-//     console.log("drop DB");
-//     mongoose.connection.db.dropDatabase();
-// }
+ //function dropDB() {
+ //    console.log("drop DB");
+ //    mongoose.connection.db.dropDatabase();
+ //}
 
 mongoose.connect(process.env.MONGODB, function () {
     //dropDB();
