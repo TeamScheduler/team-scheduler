@@ -5,6 +5,7 @@ var nodemailer = require('nodemailer');
 var request = require('request');
 var mongoose = require('mongoose');
 var authController = require('./auth');
+var hourContorller = require('./hour');
 var User = require('../models/User');
 var Team = require('../models/Team');
 
@@ -232,3 +233,57 @@ exports.resetPost = function(req, res, next) {
         }
     ]);
 };
+
+/**
+ * GET /user/hours
+ */
+exports.getUserHours = function(req, res, next) {
+    var user = req.user;
+
+    User.findOne({_id:user._id}).populate('hours').exec(function(err, user){
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+        return res.status(200).send(user.hours);
+    });
+}
+
+/**
+ * PATCH /user/hours
+ */
+exports.editUserHours = function(req, res, next) {
+    var user = req.user;
+    var action = req.body.action;
+
+    if(action === 'add') {
+        var bodyHour = req.body.hour;
+        bodyHour.member = user._id;
+        hourContorller.createHour(req.body.hour, function(err, hour){
+            if (err) {
+                return res.status(400).send({error: err});
+            }
+            User.findOneAndUpdate({_id: user._id}, {$addToSet:{hours: hour._id}}, {safe: true, new: true})
+                .populate('hours')
+                .exec(function(err, user) {
+                return res.status(200).send(user.hours);
+            });
+
+        });
+    }else if(action === 'remove') {
+        var hourId = req.body.hourId;
+        hourContorller.deleteHour(hourId, function(err){
+            if (err) {
+                return res.status(400).send({error: err});
+            }
+
+            User.findOneAndUpdate({_id: user._id}, {$pull:{hours: hourId}}, {safe: true, new: true})
+                .populate('hours')
+                .exec(function(err, user) {
+                    return res.status(200).send(user.hours);
+                });
+
+        });
+    }else {
+        return res.status(400).send({msg: "Invalid action."});
+    }
+}

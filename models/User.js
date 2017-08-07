@@ -17,6 +17,7 @@ var userSchema = new mongoose.Schema(
     password: String,
     isAdmin: { type: Boolean, default: false },
     team: { type: mongoose.Schema.Types.ObjectId, ref: "Team" },
+    hours: [{type: mongoose.Schema.Types.ObjectId, ref: "Hour"}],
     passwordResetToken: String,
     passwordResetExpires: Date
   },

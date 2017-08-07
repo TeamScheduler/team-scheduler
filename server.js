@@ -81,6 +81,8 @@ app.post('/team/tag', authController.ensureAuthenticated, teamController.postTea
 app.get('/team/tags', authController.ensureAuthenticated, teamController.getTeamTags);
 app.patch('/team/tag', authController.ensureAuthenticated, teamController.patchTeamTagMembers);
 app.get('/team/:id', teamController.getTeamById);
+app.patch('/user/hours', authController.ensureAuthenticated, userController.editUserHours);
+app.get('/user/hours', authController.ensureAuthenticated, userController.getUserHours);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
 app.post('/signup', userController.signupPost);
