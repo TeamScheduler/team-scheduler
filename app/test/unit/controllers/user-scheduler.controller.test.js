@@ -5,7 +5,9 @@ describe("UserScheduleController", function() {
 
   beforeEach(
     inject(function($controller) {
-      scope = {};
+      scope = {
+        isEditMode: true
+      };
       controller = $controller("UserScheduleController", {
         $scope: scope
       });
