@@ -1,7 +1,7 @@
 <section class="hero is-fullheight">
   <div class="hero-body">
 
-    <div class="team-info__component">
+    <div class="join-confirm__component">
       <div class="card">
 
         <div class="card-content">
@@ -16,17 +16,14 @@
           </div>
 
           <br>
-          <h2 class="title has-text-centered">Time Criado com Sucesso!</h2>
+          <h2 class="title has-text-centered">Você se inscreveu com sucesso no time!</h2>
           <br>
-          <br>
-
-          <p>Nome do time: {{team.name}}</p>
-          <p>ID do time: {{team.id}}</p>
+          <p class="subtitle has-text-centered">Aguarde a aprovação do administrador do time.</p>
 
           <br>
           <br>
 
-          <a class="button is-fullwidth ts-confirm-btn" ng-click="goToLogin(team.id)">Logar no time</a>
+          <a class="button is-fullwidth ts-confirm-btn" ng-click="goToFindTeam()">Retornar a tela incial</a>
         </div>
       </div>
     </div>

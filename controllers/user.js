@@ -36,7 +36,7 @@ exports.signupPost = function(req, res, next) {
     var errors = req.validationErrors();
 
     if (errors) {
-        return res.status(400).send(err);
+        return res.status(400).send(errors);
     }
 
     if(! mongoose.Types.ObjectId.isValid(req.body.team)){

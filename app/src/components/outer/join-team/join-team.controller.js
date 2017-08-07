@@ -20,11 +20,14 @@ angular.module('MyApp').controller('JoinTeamController', function($scope, $state
         function success(response){
             //exibe mensagem de sucesso para o usuario
             console.log(response);
-            $state.go('login');
+            $state.go('join-confirm');
         }
 
         function err(response) {
             //exibe mensagem de erro para o usuario
+            $scope.messages = {
+                error:  Array.isArray(response.data) ? response.data : [response.data]
+            };
             console.log(response);
         }
     };

@@ -6,6 +6,16 @@
 
         <div class="card-content">
 
+          <div ng-if="messages.error" role="alert" class="text-danger" ng-click="messages.error = false">
+            <div class="sweet-modal-icon sweet-modal-error animateErrorIcon">
+				<span class="sweet-modal-x-mark animateXMark">
+					<span class="sweet-modal-line sweet-modal-left "></span>
+					<span class="sweet-modal-line sweet-modal-right"></span>
+				</span>
+            </div>
+            <p class="has-text-centered" ng-repeat="error in messages.error">{{error.msg}}</p>
+          </div>
+
           <br>
           <h2 class="title has-text-centered">Inscrever-se em {{team.name}}</h2>
           <br>
@@ -35,12 +45,12 @@
 
             <p class="ts-label">CONFIRMAR SENHA</p>
             <p class="control">
-              <input class="input ts-input" type="password">
+              <input class="input ts-input" type="password" ng-model="confirmPassword">
             </p>
 
             <br>
 
-            <a class="button is-fullwidth ts-confirm-btn" ng-click="submit(user)">Cadastrar-se</a>
+            <a class="button is-fullwidth ts-confirm-btn" ng-class="{'is-static': !user.email || !user.name || !user.password || user.password != confirmPassword}" ng-click="submit(user)">Cadastrar-se</a>
 
           </div>
 

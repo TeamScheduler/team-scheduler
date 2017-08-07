@@ -19,6 +19,13 @@ angular.module('MyApp', ['ui.router', 'satellizer', 'autocomplete'])
             })
 
             .state({
+                name: 'join-confirm',
+                url: '/join-confirm',
+                controller: 'JoinConfirmController',
+                templateUrl: 'components/outer/join-confirm/join-confirm.html'
+            })
+
+            .state({
                 name: 'team-info',
                 url: '/team-info',
                 controller: 'TeamInfoController',
