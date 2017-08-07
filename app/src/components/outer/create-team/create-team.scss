@@ -11,15 +11,4 @@
   .card {
     border-radius: 8px;
   }
-
-  .field{
-
-    .button {
-      @extend .ts-confirm-btn;
-    }
-
-    input{
-      @extend .ts-input;
-    }
-  }
 }

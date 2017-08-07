@@ -16,6 +16,9 @@ angular.module('MyApp').controller('CreateTeamController', function($scope, $sta
 
         function err(response) {
             //exibe mensagem de erro para o usuario
+            $scope.messages = {
+                error:  Array.isArray(response.data) ? response.data : [response.data]
+            };
             console.log(response);
         }
     };
