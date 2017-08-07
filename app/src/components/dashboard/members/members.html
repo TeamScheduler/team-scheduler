@@ -1,38 +1,4 @@
 <div id="members__component">
-    <!--Filter bar-->
-    <div class="search-filter-bar has-text-centered">
-        <div class="columns">
-            <div class="column is-1">
-                <i class="lnr lnr-magnifier"></i>
-            </div>
-
-            <div class="column is-7">
-                <div class="field">
-                    <p class="control">
-                        <input class="input" type="text">
-                    </p>
-                </div>
-            </div>
-
-            <div class="column is-1">
-                <i class="lnr lnr-funnel"></i>
-            </div>
-
-            <div class="column is-3">
-                <div class="select is-fullwidth">
-                    <select>
-                        <option>Tag</option>
-                        <option>Tag1</option>
-                        <option>Tag2</option>
-                        <option>Tag3</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <br>
 
     <!--Cards Section-->
     <div class="cards-section ">
@@ -42,7 +8,7 @@
                 <p class="member-name">{{members[$index].name}}</p>
                 <p class="member-email"><strong>email:</strong>{{members[$index].email}}</p>
                 <div class="tag-line is-pulled-right">
-                    <p class="tag" ng-repeat="tag in members[$index].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                    <p class="tag" ng-repeat="tag in getMemberTags(tags, members[$index]._id)" style="background-color: {{tag.color}}">{{tag.name}}</p>
                 </div>
             </div>
 
@@ -54,7 +20,7 @@
                 <p class="member-name">{{members[$index+1].name}}</p>
                 <p class="member-email"><strong>email:</strong>{{members[$index+1].email}}</p>
                 <div class="tag-line is-pulled-right">
-                    <p class="tag" ng-repeat="tag in members[$index+1].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                    <p class="tag" ng-repeat="tag in getMemberTags(tags, members[$index+1]._id)" style="background-color: {{tag.color}}">{{tag.name}}</p>
                 </div>
             </div>
 

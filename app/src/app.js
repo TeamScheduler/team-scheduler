@@ -144,7 +144,8 @@ angular.module('MyApp', ['ui.router', 'satellizer'])
             .state({
                 name: 'dashboard.config',
                 url: '/config',
-                templateUrl: 'components/dashboard/config/config.html'
+                templateUrl: 'components/dashboard/config/config.html',
+                controller: 'ConfigController'
             });
 
             $urlRouterProvider.otherwise('/find-team');

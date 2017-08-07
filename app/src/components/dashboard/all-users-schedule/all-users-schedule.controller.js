@@ -1,6 +1,19 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('AllUsersScheduleController', function($scope) {
+angular.module('MyApp').controller('AllUsersScheduleController', function($scope, $rootScope, TeamService) {
+
+    (function main() {
+        TeamService.getTeamTags().then(
+            function success(tags) {
+                $scope.tags = tags;
+            },
+            function err(err) {
+                //TODO: tratar erros
+            }
+        )
+    })();
+
+    $scope.toggleTags = false;
 
     //Columns
     $scope.days = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'];
@@ -13,7 +26,7 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
     $scope.hours =[
         {
             hour: '5:30',
-            mon: ['Matheus', 'Gustavo'],
+            mon: [{name: 'matheus', id: $rootScope.currentUser._id}],
             tue: ['Vinicius', 'Daniyel'],
             wed: [],
             thu: [],
@@ -102,4 +115,31 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             sun: []
         }
     ];
+
+    var checkMemberInTag = function (tag, memberId){
+        var isMemberInTag = false;
+        var tagMembers = tag.members;
+        tagMembers.forEach(function(tagMember){
+            if(tagMember._id === memberId){
+                isMemberInTag = true;
+            }
+        });
+        return isMemberInTag;
+    };
+
+    $scope.getMemberTags = function (tags, memberId) {
+
+        if(!tags || !memberId){
+            return [];
+        }
+
+        console.log(memberId);
+        console.log(tags);
+        var memberTags = tags.filter( function( tag, index, array ) {
+            console.log("TAG: ",  tag);
+            return checkMemberInTag(tag, memberId);
+        });
+        console.log(memberTags);
+        return memberTags;
+    };
 });

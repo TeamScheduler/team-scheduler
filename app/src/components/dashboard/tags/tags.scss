@@ -7,26 +7,35 @@
 
 
   .search-filter-bar {
-    background-color: map_get($colors, card-background);
+    background-color: #333741;
     width: 100%;
     height: 50px;
-    padding: 6px;
+    padding: 7px;
     border-radius: 8px;
 
     input {
-      box-shadow: map_get($input-defs, input-box-shadow);
-      border-color: map_get($input-defs, input-border-color);
-      border-radius: map_get($input-defs, input-border-radius);
+      border-color: map_get($colors, nav-itens-color);
+      color: #FFF;
+      border-radius: 8px;
+      background-color: #333741;
+    }
+
+    select{
+      border-radius: 8px;
+      border-color: map_get($colors, nav-itens-color);
+      background-color: #333741;
+      color: #FFF;
     }
 
     i{
       font-size: 25px;
+      color: map_get($colors, nav-itens-color);
     }
   }
 
   .cards-section{
     .tags-card{
-      background-color: white;
+      background-color: #fcfcfc;
       border-radius: 8px;
       margin-bottom: 1%;
 
