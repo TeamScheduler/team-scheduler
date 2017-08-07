@@ -15,7 +15,17 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
             function err(err) {
                 //TODO: tratar erros
             }
-        )
+        );
+
+        TeamService.getTeamMembers().then(
+            function succecss(response) {
+                $scope.members = response;
+            },
+            function err(err) {
+                //TODO: tratar erro.
+                console.log(err);
+            }
+        );
     })();
 
     $scope.goToCreateTag = function () {

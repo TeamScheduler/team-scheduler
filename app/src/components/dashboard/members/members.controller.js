@@ -135,13 +135,10 @@ angular
               return [];
           }
 
-          console.log(memberId);
-          console.log(tags);
           var memberTags = tags.filter( function( tag, index, array ) {
-              console.log("TAG: ",  tag);
               return checkMemberInTag(tag, memberId);
           });
-          console.log(memberTags);
+
           return memberTags;
       };
   });
