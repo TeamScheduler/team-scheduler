@@ -6,17 +6,6 @@
 
         <div class="card-content">
 
-          <div ng-if="messages.success" role="alert" class="text-success" ng-click="messages.success = false">
-            <div class="sweet-modal-icon sweet-modal-success animate">
-              <span class="sweet-modal-line sweet-modal-tip animateSuccessTip"></span>
-              <span class="sweet-modal-line sweet-modal-long animateSuccessLong"></span>
-              <div class="sweet-modal-placeholder"></div>
-              <div class="sweet-modal-fix"></div>
-            </div>
-            <br>
-            <p class="has-text-centered" ng-repeat="success in messages.success">{{success.msg}}</p>
-          </div>
-
           <div ng-if="messages.error" role="alert" class="text-danger" ng-click="messages.error = false">
             <div class="sweet-modal-icon sweet-modal-error animateErrorIcon">
 				<span class="sweet-modal-x-mark animateXMark">
