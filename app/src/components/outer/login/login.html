@@ -3,13 +3,19 @@
 
     <div class="login__component">
 
-      <div ng-if="messages.error" role="alert" class="text-danger">
-        <div ng-repeat="error in messages.error">{{error.msg}}</div>
-      </div>
-
       <div class="card">
 
         <div class="card-content">
+
+          <div ng-if="messages.error" role="alert" class="text-danger" ng-click="messages.error = false">
+            <div class="sweet-modal-icon sweet-modal-error animateErrorIcon">
+				<span class="sweet-modal-x-mark animateXMark">
+					<span class="sweet-modal-line sweet-modal-left "></span>
+					<span class="sweet-modal-line sweet-modal-right"></span>
+				</span>
+            </div>
+            <p class="has-text-centered" ng-repeat="error in messages.error">{{error.msg}}</p>
+          </div>
 
           <br>
           <h2 class="title has-text-centered">{{team.name}}</h2>
@@ -36,7 +42,7 @@
 
             <div class="columns">
               <div class="column">
-                <button type="submit" class="button is-fullwidth ts-positive-btn">LOGAR</button>
+                <button ng-class="{'is-static': !user.email || !user.password}" type="submit" class="button is-fullwidth ts-positive-btn">LOGAR</button>
               </div>
             </div>
 

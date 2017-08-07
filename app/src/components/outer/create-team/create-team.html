@@ -6,6 +6,16 @@
 
         <div class="card-content">
 
+          <div ng-if="messages.error" role="alert" class="text-danger" ng-click="messages.error = false">
+            <div class="sweet-modal-icon sweet-modal-error animateErrorIcon">
+				<span class="sweet-modal-x-mark animateXMark">
+					<span class="sweet-modal-line sweet-modal-left "></span>
+					<span class="sweet-modal-line sweet-modal-right"></span>
+				</span>
+            </div>
+            <p class="has-text-centered" ng-repeat="error in messages.error">{{error.msg}}</p>
+          </div>
+
           <br>
           <h2 class="title has-text-centered">Criar time</h2>
           <br>
@@ -15,42 +25,42 @@
 
             <p class="ts-label">NOME DO TIME</p>
             <p class="control">
-              <input class="input" type="text" ng-model="team">
+              <input class="input ts-input" type="text" ng-model="team" required>
             </p>
 
             <br>
 
             <p class="ts-label">NOME DO USUÁRIO ADMIN</p>
             <p class="control">
-              <input class="input" type="text" ng-model="admin.name" placeholder="Nome pelo qual será chamado no time">
+              <input class="input ts-input" type="text" ng-model="admin.name" placeholder="Nome pelo qual será chamado no time" required>
             </p>
 
             <br>
 
             <p class="ts-label">EMAIL DO ADMIN</p>
             <p class="control">
-              <input class="input" type="email" ng-model="admin.email" placeholder="admin@email.com">
+              <input class="input ts-input" type="email" ng-model="admin.email" placeholder="admin@email.com" required>
             </p>
 
             <br>
 
             <p class="ts-label">SENHA</p>
             <p class="control">
-              <input class="input" type="password" ng-model="admin.password">
+              <input class="input ts-input" type="password" ng-model="admin.password" required>
             </p>
 
             <br>
 
             <p class="ts-label">CONFIRMAR SENHA</p>
             <p class="control">
-              <input class="input" type="password">
+              <input class="input ts-input" type="password" ng-model="passwordConfirm" required>
             </p>
 
             <br>
 
             <div class="columns">
               <div class="column">
-                <a class="button is-pulled-right" ng-click="submit(team, admin)">Criar</a>
+                <a class="button is-pulled-right ts-confirm-btn" ng-class="{'is-static': !team || !admin.name || !admin.email || !admin.password || admin.password != passwordConfirm}" ng-click="submit(team, admin)">Criar</a>
               </div>
             </div>
 
