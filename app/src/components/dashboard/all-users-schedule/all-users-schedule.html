@@ -21,10 +21,8 @@
             <div class="column is-3">
                 <div class="select is-fullwidth">
                     <select>
-                        <option>Tag</option>
-                        <option>Tag1</option>
-                        <option>Tag2</option>
-                        <option>Tag3</option>
+                        <option>selecione...</option>
+                        <option ng-repeat="tag in tags">{{tag.name}}</option>
                     </select>
                 </div>
             </div>
@@ -62,10 +60,15 @@
                         <tr ng-repeat="hour in hours">
                             <td class="headcol">{{hour.hour}}</td><!--Hour-->
                             <td>
-                                <div class="event" ng-repeat="user in hour.mon | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.mon | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line is-pulled-right" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user.id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Monday -->
                             <td>

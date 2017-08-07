@@ -1,11 +1,11 @@
 //Vendor
-@import 'normalize';
+@import 'vendor/normalize';
 
 //Bulma
 @import "../../../public/node_modules/bulma/bulma";
 
 //Definitions
-@import "variables";
+@import "modules/all";
 @import "global";
 @import "ts-elements/all";
 @import "../components/outer/team-info/team-info";

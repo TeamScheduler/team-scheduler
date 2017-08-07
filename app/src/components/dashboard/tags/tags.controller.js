@@ -63,14 +63,6 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
         $state.go('dashboard.tags-adm');
     };
 
-    $scope.membersAutocomplete = function(search){
-
-        if (search === ""){
-
-            $scope.completing = false;
-        }
-    };
-
     $scope.createTag  = function(tag) {
         TeamService.createTag(tag).then(
             function success() {

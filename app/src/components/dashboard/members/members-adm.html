@@ -21,57 +21,20 @@
     <br>
     <br>
     <br>
+    <br>
 
 
     <div class="members" ng-show="toggle">
-        <!--Filter bar-->
-        <div class="search-filter-bar has-text-centered">
-            <div class="columns">
-                <div class="column is-1">
-                    <i class="lnr lnr-magnifier"></i>
-                </div>
-
-                <div class="column is-8">
-                    <div class="field">
-                        <p class="control">
-                            <input class="input" type="text">
-                        </p>
-                    </div>
-                </div>
-
-                <div class="column is-1">
-                    <i class="lnr lnr-funnel"></i>
-                </div>
-
-                <div class="column is-2">
-                    <div class="select is-fullwidth">
-                        <select>
-                            <option>Tag</option>
-                            <option>Tag1</option>
-                            <option>Tag2</option>
-                            <option>Tag3</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <br>
-        <br>
 
         <!--Cards Section-->
         <div class="cards-section">
             <div class="columns is-centered" ng-repeat="member in members" ng-if="$index % 2 == 0">
 
                 <div class="member-card column is-5">
-                    <div class="top-actions is-pulled-right">
-                        <a class="remove-action">Remover</a>
-                    </div>
-                    <p class="member-name">{{members[$index].name}}</p>
-                    <p class="member-email"><strong>email:</strong>{{members[$index].email}}</p>
+                    <p class="member-name"><strong>Nome: </strong>{{members[$index].name}}</p>
+                    <p class="member-email"><strong>Email: </strong>{{members[$index].email}}</p>
                     <div class="tag-line is-pulled-right">
-                        <p class="tag" ng-repeat="tag in members[$index].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                        <p class="tag" ng-repeat="tag in getMemberTags(tags, members[$index]._id)" style="background-color: {{tag.color}}">{{tag.name}}</p>
                     </div>
                 </div>
 
@@ -80,13 +43,10 @@
 
                 <!-- Ng if is for avoid empty cards-->
                 <div class="member-card column is-5" ng-if="members.length > ($index + 1)">
-                    <div class="top-actions is-pulled-right">
-                        <a class="remove-action">Remover</a>
-                    </div>
-                    <p class="member-name">{{members[$index+1].name}}</p>
-                    <p class="member-email"><strong>email:</strong>{{members[$index+1].email}}</p>
+                    <p class="member-name"><strong>Nome: </strong>{{members[$index+1].name}}</p>
+                    <p class="member-email"><strong>Email: </strong>{{members[$index+1].email}}</p>
                     <div class="tag-line is-pulled-right">
-                        <p class="tag" ng-repeat="tag in members[$index+1].tags" style="background-color: {{tag.color}}">{{tag.name}}</p>
+                        <p class="tag" ng-repeat="tag in getMemberTags(tags, members[$index+1]._id)" style="background-color: {{tag.color}}">{{tag.name}}</p>
                     </div>
                 </div>
 
@@ -99,8 +59,15 @@
 
     <!--User Requests-->
     <div class="requests-section" ng-hide="toggle">
-        <div class="columns is-centered" ng-repeat="request in requests" ng-if="$index % 2 == 0">
 
+        <div class="info-text nav-center"  ng-if="requests.length() === 0">
+            <i class="lnr lnr-warning is-pulled-left" style="font-size: 50px; margin-right: 30px; color: white;"></i>
+            <p class="title" style="color: #FFF; font-size: 20px; font-weight: bold; margin-top: 15px">
+                Não existem solicitações
+            </p>
+        </div>
+
+        <div class="columns is-centered" ng-repeat="request in requests" ng-if="$index % 2 == 0">
             <div class="request-card column is-5">
                 <p class="member-name">Nova Solicitação</p>
                 <p class="member-email"><strong>email:</strong>{{requests[$index].email}}</p>

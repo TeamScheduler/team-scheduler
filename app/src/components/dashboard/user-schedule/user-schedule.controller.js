@@ -8,8 +8,58 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
 
     //Lines
     $scope.hours =[
+        {
+            hour: '0:00',
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+            sat: false,
+            sun: false
+        },
+        {
+            hour: '1:00',
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+            sat: false,
+            sun: false
+        },
+        {
+            hour: '2:00',
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+            sat: false,
+            sun: false
+        },
+        {
+            hour: '3:00',
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+            sat: false,
+            sun: false
+        },
+        {
+            hour: '4:00',
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+            sat: false,
+            sun: false
+        },
          {
-             hour: '5:30',
+             hour: '5:00',
              mon: false,
              tue: false,
              wed: false,
@@ -29,27 +79,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '6:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '7:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '7:30',
             mon: false,
             tue: false,
             wed: false,
@@ -69,27 +99,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '8:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '9:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '9:30',
             mon: false,
             tue: false,
             wed: false,
@@ -109,27 +119,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '10:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '11:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '11:30',
             mon: false,
             tue: false,
             wed: false,
@@ -149,27 +139,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '12:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '13:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '13:30',
             mon: false,
             tue: false,
             wed: false,
@@ -189,27 +159,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '14:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '15:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '15:30',
             mon: false,
             tue: false,
             wed: false,
@@ -229,27 +179,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '16:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '17:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '17:30',
             mon: false,
             tue: false,
             wed: false,
@@ -269,27 +199,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '18:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '19:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '19:30',
             mon: false,
             tue: false,
             wed: false,
@@ -309,27 +219,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '20:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '21:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '21:30',
             mon: false,
             tue: false,
             wed: false,
@@ -349,48 +239,7 @@ angular.module('MyApp').controller('UserScheduleController', function($scope, $r
             sun: false
         },
         {
-            hour: '22:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
             hour: '23:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '23:30',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-        {
-            hour: '00:00',
-            mon: false,
-            tue: false,
-            wed: false,
-            thu: false,
-            fri: false,
-            sat: false,
-            sun: false
-        },
-
-        {
-            hour: '1:00',
             mon: false,
             tue: false,
             wed: false,
