@@ -265,7 +265,7 @@ exports.editUserHours = function(req, res, next) {
             User.findOneAndUpdate({_id: user._id}, {$addToSet:{hours: hour._id}}, {safe: true, new: true})
                 .populate('hours')
                 .exec(function(err, user) {
-                return res.status(200).send(user);
+                return res.status(200).send(user.hours);
             });
 
         });
@@ -279,7 +279,7 @@ exports.editUserHours = function(req, res, next) {
             User.findOneAndUpdate({_id: user._id}, {$pull:{hours: hourId}}, {safe: true, new: true})
                 .populate('hours')
                 .exec(function(err, user) {
-                    return res.status(200).send(user);
+                    return res.status(200).send(user.hours);
                 });
 
         });
