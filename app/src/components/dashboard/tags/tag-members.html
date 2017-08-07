@@ -21,11 +21,11 @@
                     <div class="column is-10">
                         <p class="ts-label">EMAIL DO MEMBRO</p>
                         <p class="control">
-                            <input class="input ts-input" type="text" ng-model="member.name">
+                            <autocomplete attr-input-class="is-fullwidth" ng-model="result" attr-placeholder="Digite o email do membro" data="members" render="render" on-select="selectMember"></autocomplete>
                         </p>
                     </div>
                     <div class="column is-2">
-                        <a class="button ts-confirm-btn is-fullwidth" style="margin-top: 13px">Adicionar Membro</a>
+                        <a class="button ts-confirm-btn is-fullwidth" style="margin-top: 13px" ng-click="addMemberToTag(member, currentTag)">Adicionar Membro</a>
                     </div>
                 </div>
             </div>
