@@ -1,0 +1,77 @@
+<div id="tags__component">
+
+    <div class="card card-tag-members" style="background-color: #fcfcfc">
+
+        <div class="card-content">
+
+            <div class="columns nav-left">
+                <div class="column is-1">
+                    <a class="button is-fullwidth" ng-click="goBackToTags()">Voltar</a>
+                </div>
+                <div class="column is-10 has-text-centered">
+                    <h1 class="title">{{currentTag.name}}</h1>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div ng-if="currentUser.isAdmin" class="field" style="margin-bottom: 30px">
+
+                <div class="columns">
+                    <div class="column is-10">
+                        <p class="ts-label">EMAIL DO MEMBRO</p>
+                        <p class="control">
+                            <input class="input ts-input" type="text" ng-model="member.name">
+                        </p>
+                    </div>
+                    <div class="column is-2">
+                        <a class="button ts-confirm-btn is-fullwidth" style="margin-top: 13px">Adicionar Membro</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="user-list">
+                <p class="user-item" ng-repeat="member in currentTag.members">{{member.email}}</p>
+                <p class="has-text-centered" ng-show="currentTag.members.length == 0">Ainda não foram alocado membros nesta tag.</p>
+            </div>
+
+
+            <!--
+
+
+                    <div class="column">
+                        <p class="ts-label">COR</p>
+                        <p class="control">
+                            <input class="input ts-input" type="text" placeholder="Exemplo: #FFFFFF" ng-model="tag.color">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <p class="ts-label">DESCRIÇÃO DA TAG</p>
+                        <p class="control">
+                            <input class="input ts-input" type="text" ng-model="tag.description">
+                        </p>
+                    </div>
+                </div>
+
+
+                <br>
+
+                <div class="columns nav-right">
+                    <div class="column is-1">
+                        <a class="button ts-confirm-btn is-fullwidth" ng-click="createTag(tag)">Salvar</a>
+                    </div>
+                </div>
+
+            </div>-->
+
+        </div>
+    </div>
+
+</div>

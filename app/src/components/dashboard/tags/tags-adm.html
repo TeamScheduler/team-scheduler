@@ -1,26 +1,9 @@
 <div id="tags__component">
-    <!--Filter bar-->
-    <div class="search-filter-bar has-text-centered">
-        <div class="columns">
-            <div class="column is-1">
-                <i class="lnr lnr-magnifier"></i>
-            </div>
 
-            <div class="column is-10">
-                <div class="field">
-                    <p class="control">
-                        <input class="input" type="text" ng-model="searchName">
-                    </p>
-                </div>
-            </div>
+    <a ng-click="goToCreateTag()" class="button ts-confirm-btn is-pulled-right">Criar Tag</a>
 
-            <div class="column is-1">
-                <a ng-click="goToCreateTag()" class="button is-fullwidth ts-confirm-btn">Criar Tag</a>
-            </div>
-        </div>
-
-    </div>
-
+    <br>
+    <br>
     <br>
     <br>
 
@@ -28,33 +11,29 @@
     <div class="cards-section ">
         <div class="columns is-centered" ng-repeat="tag in tags" ng-if="$index % 2 == 0">
 
-            <div class="tags-card column is-5">
-                <div class="tag-action is-pulled-right">
-                    <a ng-click="showUsers = !showUsers"><i class="lnr lnr-users"></i></a>
-                </div>
-
-                <p class="tag-name">{{tags[$index].name}}</p>
+            <div class="tags-card column is-5" ng-click="goToTagMembers(tags[$index])">
+                <p class="tag-info">
+                    <span class="tag-name">{{tags[$index].name}}</span>
+                    <br>
+                    <span class="tag-description">Descrição: {{tags[$index].description}}</span>
+                </p>
+                <br>
                 <div class="tag-color" style="background-color: {{tags[$index].color}}"></div>
-
-                <div ng-if="showUsers" class="user-list" ng-repeat="user in tags[$index].members">
-                    <p class="user-item">{{user.email}}</p>
-                </div>
             </div>
 
             <!-- Align adjust-->
             <div class="column is-1"></div>
 
             <!-- Ng if is for avoid empty cards-->
-            <div class="tags-card column is-5" ng-if="tags.length > ($index + 1)">
-                <div class="tag-action is-pulled-right">
-                    <a ng-click="showUsers1 = !showUsers1"><i class="lnr lnr-users"></i></a>
-                </div>
-                <p class="tag-name">{{tags[$index+1].name}}</p>
-                <div class="tag-color" style="background-color: {{tags[$index+1].color}}">
-                </div>
+            <div class="tags-card column is-5" ng-if="tags.length > ($index + 1)" ng-click="goToTagMembers(tags[$index+1])">
+                <p class="tag-info">
+                    <span class="tag-name">{{tags[$index+1].name}}</span>
+                    <br>
+                    <span class="tag-description">Descrição: {{tags[$index+1].description}}</span>
+                </p>
 
-                <div ng-if="showUsers1" class="user-list" ng-repeat="user in tags[$index+1].members">
-                    <p class="user-item">{{user.email}}</p>
+                <br>
+                <div class="tag-color" style="background-color: {{tags[$index+1].color}}">
                 </div>
             </div>
 
