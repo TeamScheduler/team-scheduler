@@ -25,7 +25,9 @@ exports.deleteTag = function(tagId, callback) {
 
 
 exports.addMember = function(tagId, memberId, callback) {
-    Tag.findOneAndUpdate({_id:tagId}, { $addToSet:{members : memberId}}, {safe: true, new:true}, function(err, tag){
+    Tag.findOneAndUpdate({_id:tagId}, { $addToSet:{members : memberId}}, {safe: true, new:true})
+        .populate('members')
+        .exec(function(err, tag){
         callback(err, tag);
     });
 }

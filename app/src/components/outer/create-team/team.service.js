@@ -126,9 +126,13 @@
             return deferred.promise;
         }
 
-        function addMemberOnTag(body) {
+        function addMemberOnTag(tagId, memberId) {
             var deferred = $q.defer();
-
+            var body = {
+                action : "add",
+                memberId : memberId,
+                tagId : tagId
+            }
             $http.patch(API + '/tag', body).then(
                 function success(response) {
                     var tags = response.data;

@@ -55,4 +55,27 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
         $rootScope.currentTag = tag;
         $state.go('dashboard.tag-members');
     };
+
+    $scope.selectMember = function(member){
+        $scope.member = member;
+    }
+
+    $scope.render = function (member) {
+        return member.email;
+    }
+
+    $scope.addMemberToTag = function(member, tag) {
+        if(member) {
+            TeamService.addMemberOnTag(tag._id, member._id).then(
+                function success(responseTag) {
+                    $scope.currentTag = responseTag;
+                },
+                function err(tags){
+                    //TODO: tratar erro.
+                }
+            )
+        }
+    }
+
+
 });
