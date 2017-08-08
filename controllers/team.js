@@ -3,6 +3,7 @@ var Team = require('../models/Team');
 var userController = require('./user');
 var tagController = require('./tag');
 var User = require('../models/User');
+var Feedback = require('../models/Feedback');
 var mongoose = require('mongoose');
 
 /**
@@ -337,5 +338,18 @@ exports.patchTeamTagMembers = function(req, res, next) {
         }else{
             return res.status(400).send({msg: "Invalid action"});
         }
+    });
+}
+
+exports.createFeedback = function (req, res, next) {
+    var user = req.user;
+    req.body.user = user._id;
+    var feedback = new Feedback(req.body);
+    feedback.save(req.body, function(err, feedback){
+        if (err) {
+            return res.status(400).send({error: err});
+        }
+
+        return res.status(200).send(feedback);
     });
 }

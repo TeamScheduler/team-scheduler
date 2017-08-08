@@ -19,6 +19,7 @@
         service.createTag = createTag;
         service.getTeamTags  = getTeamTags;
         service.addMemberOnTag = addMemberOnTag;
+        service.createFeedback = createFeedback;
 
         return service;
 
@@ -149,6 +150,20 @@
             var deferred = $q.defer();
 
             $http.get(API + '/tags').then(
+                function success(response) {
+                    var tags = response.data;
+                    deferred.resolve(tags);
+                },
+                function err(response) {
+                    deferred.reject(response);
+                }
+            );
+            return deferred.promise;
+        }
+
+        function createFeedback(feedback) {
+            var deferred = $q.defer();
+            $http.post('/feedback', {feedback: feedback}).then(
                 function success(response) {
                     var tags = response.data;
                     deferred.resolve(tags);
