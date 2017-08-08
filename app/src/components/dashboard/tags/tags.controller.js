@@ -2,8 +2,19 @@
 
 angular.module('MyApp').controller('TagsController', function($scope, $rootScope, $state, TeamService) {
 
+    $scope.goBackToTags = function () {
+        if($rootScope.currentUser.isAdmin){
+            $state.go('dashboard.tags-adm');
+        }else{
+            $state.go('dashboard.tags');
+        }
+    };
 
     (function main() {
+
+        if(!$rootScope.currentTag){
+            $scope.goBackToTags();
+        }
 
         $scope.currentTag = $rootScope.currentTag;
         $scope.currentUser = $rootScope.currentUser;
@@ -30,14 +41,6 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
 
     $scope.goToCreateTag = function () {
         $state.go('dashboard.create-tag');
-    };
-
-    $scope.goBackToTags = function () {
-        if($rootScope.currentUser.isAdmin){
-            $state.go('dashboard.tags-adm');
-        }else{
-            $state.go('dashboard.tags');
-        }
     };
 
     $scope.createTag  = function(tag) {

@@ -283,7 +283,7 @@ app.directive('autocomplete', function() {
             class="{{ attrs.inputclass }}"\
             id="{{ attrs.inputid }}"\
             ng-required="{{ autocompleteRequired }}" />\
-          <ul ng-show="completing && (wrappedSuggestions | myFilter:searchFilter).length > 0">\
+          <ul ng-show="completing && (wrappedSuggestions | myFilter:searchFilter).length > 0"\
             <li\
               suggestion\
               ng-repeat="wrappedSuggestion in wrappedSuggestions | myFilter:searchFilter"\
