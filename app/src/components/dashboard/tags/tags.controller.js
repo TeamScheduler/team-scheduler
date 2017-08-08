@@ -2,8 +2,19 @@
 
 angular.module('MyApp').controller('TagsController', function($scope, $rootScope, $state, TeamService) {
 
+    $scope.goBackToTags = function () {
+        if($rootScope.currentUser.isAdmin){
+            $state.go('dashboard.tags-adm');
+        }else{
+            $state.go('dashboard.tags');
+        }
+    };
 
     (function main() {
+
+        if(!$rootScope.currentTag){
+            $scope.goBackToTags();
+        }
 
         $scope.currentTag = $rootScope.currentTag;
         $scope.currentUser = $rootScope.currentUser;
@@ -28,16 +39,50 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
         );
     })();
 
-    $scope.goToCreateTag = function () {
-        $state.go('dashboard.create-tag');
-    };
+    /*$scope.tags = [
+        {
+            name: 'DEV',
+            color: '#212121',
+            users: [
+                {
+                    email: 'vinicius@email.com'
+                },
+                {
+                    email: 'maia@email.com'
+                },
+                {
+                    email: 'matheus@email.com'
+                },
+                {
+                    email: 'gustavo@email.com'
+                }
+            ]
+        },
 
-    $scope.goBackToTags = function () {
-        if($rootScope.currentUser.isAdmin){
-            $state.go('dashboard.tags-adm');
-        }else{
-            $state.go('dashboard.tags');
+        {
+            name: 'UX',
+            color: '#4179F4',
+            users: [
+                {
+                    email: 'matheus@email.com'
+                }
+            ]
+        },
+
+        {
+            name: 'QA',
+            color: '#F4424E',
+            users: [
+                {
+                    email: 'gustavo@email.com'
+                }
+            ]
         }
+    ];*/
+
+    $scope.goToCreateTag = function () {
+        $rootScope.currentTag = "NOT_NEEDED";
+        $state.go('dashboard.create-tag');
     };
 
     $scope.createTag  = function(tag) {
@@ -48,7 +93,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
             function err() {
                 //TODO: tratar erro.
             }
-        )
+        );
     };
 
     $scope.goToTagMembers = function(tag) {

@@ -51,6 +51,6 @@ describe("JoinTeamController", function() {
     var spy = sinon.spy(state, "go");
     scope.submit(user);
     backend.flush();
-    assert(spy.calledWith('login'));
+    assert(spy.calledWith('join-confirm'));
   });
 });

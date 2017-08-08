@@ -21,7 +21,7 @@ exports.deleteTag = function(tagId, callback) {
     Tag.remove({_id:tagId}, function(err) {
         callback(err);
     });
-}
+};
 
 
 exports.addMember = function(tagId, memberId, callback) {
@@ -30,4 +30,4 @@ exports.addMember = function(tagId, memberId, callback) {
         .exec(function(err, tag){
         callback(err, tag);
     });
-}
+};

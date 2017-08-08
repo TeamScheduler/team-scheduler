@@ -32,15 +32,15 @@ describe("MembersController", function() {
       });
 
       backend
-        .whenGET("/team/597fe34b776f5610f713e09a/members")
+        .whenGET("/team/members")
         .respond(200, [fake]);
 
       backend
-        .whenGET("/team/597fe34b776f5610f713e09a/pending-members")
+        .whenGET("/team/pending-members")
         .respond(200, [fake]);
 
       backend
-        .whenPATCH("/team/597fe34b776f5610f713e09a/pending-members")
+        .whenPATCH("/team/pending-members")
         .respond(200, [fake]);
     })
   );
@@ -77,11 +77,11 @@ describe("MembersController", function() {
     assert.equal(JSON.stringify(scope.requests), JSON.stringify([fake]));
   });
 
-  it("should load pending members", function() {
+  it("should load pending members 2", function() {
     backend.flush();
     scope.resolvePendingMembers(undefined, undefined);
     backend.flush();
-    expect(scope.members).to.be.ok;
-    assert.equal(JSON.stringify(scope.members), JSON.stringify([fake]));
+    expect(scope.requests).to.be.ok;
+    assert.equal(JSON.stringify(scope.requests), JSON.stringify([fake]));
   });
 });

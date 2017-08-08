@@ -5,8 +5,6 @@
 
     var API = '/user';
 
-    var team;
-
     function Service($http, $q) {
         var service = {};
 
@@ -22,7 +20,7 @@
             var body = {
                 action: 'add',
                 hour: hour
-            }
+            };
             $http.patch(API+'/hours', body).then(
                 function success(response){
                     deferred.resolve(hoursMapper(response.data));
@@ -40,7 +38,7 @@
             var body = {
                 action: 'remove',
                 hourId: hourId
-            }
+            };
             $http.patch(API+'/hours', body).then(
                 function success(response){
                     deferred.resolve(hoursMapper(response.data));
@@ -57,7 +55,7 @@
             var deferred = $q.defer();
             var body = {
                 userId : userId
-            }
+            };
             $http.get(API + '/hours', body).then(
                 function success(response) {
                     deferred.resolve(hoursMapper(response.data));

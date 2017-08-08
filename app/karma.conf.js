@@ -35,7 +35,6 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
 
         preprocessors: {
-            'src/app.js': ['coverage'],
             'src/controllers/*.js': ['coverage'],
             'src/components/dashboard/**/*.controller.js': ['coverage'],
             'src/components/dashboard/**/*.service.js': ['coverage'],

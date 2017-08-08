@@ -20,6 +20,21 @@
   }
 }
 
+.add-hover{
+  td:hover:after {
+    content: "+";
+    vertical-align: middle;
+    top: 0px;
+    bottom: 10%;
+    font-size: 1.875rem;
+    font-weight: 100;
+    color: #FFF;
+    position: absolute;
+    cursor: pointer;
+  }
+}
+
+
 .schedule-table {
 
   padding-top: 30px;
@@ -163,18 +178,6 @@
     height: 100%;
   }
 
-  td:hover:after {
-    content: "+";
-    z-index: 1;
-    vertical-align: middle;
-    top: 0px;
-    bottom: 10%;
-    font-size: 1.875rem;
-    font-weight: 100;
-    color: #FFF;
-    position: absolute;
-  }
-
   .icon {
     font-size: 1.5rem;
     margin: 0 1rem;
@@ -189,4 +192,3 @@
     color: red;
   }
 }
-
