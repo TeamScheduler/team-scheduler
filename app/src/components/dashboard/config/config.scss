@@ -1,18 +1,31 @@
 #config__component{
-
   height: 86vh;
   margin-top: 5vh;
   margin-left: 5%;
   margin-right: 5%;
 
-
   .card{
+    width: 100%;
     margin: auto;
     border-radius: 8px;
     background-color: #fcfcfc;
+
+    h4{
+    }
   }
 
   input{
     background-color: #fcfcfc;
+  }
+
+  .team-info{
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .config-title{
+    font-weight: 300;
+    font-size: 22px;
   }
 }

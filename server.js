@@ -85,6 +85,7 @@ app.patch('/user/hours', authController.ensureAuthenticated, userController.edit
 app.get('/user/hours', authController.ensureAuthenticated, userController.getUserHours);
 app.put('/account', authController.ensureAuthenticated, userController.accountPut);
 app.delete('/account', authController.ensureAuthenticated, userController.accountDelete);
+app.post('/feedback', authController.ensureAuthenticated, teamController.createFeedback);
 app.post('/signup', userController.signupPost);
 app.post('/login', authController.loginPost);
 app.post('/forgot', userController.forgotPost);

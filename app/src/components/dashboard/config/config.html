@@ -27,7 +27,7 @@
 
             <br>
 
-            <h4>Informações do Perfil</h4>
+            <h4 class="config-title">Informações do Perfil</h4>
             <br>
             <form ng-submit="updateProfile()" class="field">
                 <div class="columns">
@@ -45,27 +45,25 @@
 
             <br>
             <br>
-            <br>
 
-            <h4>Trocar a Senha</h4>
-            <br>
-            <form ng-submit="changePassword()" class="field">
-                <div class="columns">
-                    <div class="column">
-                        <p for="password" class="ts-label">NOVA SENHA</p>
-                        <input class="input ts-input" type="password" name="password" id="password" ng-model="profile.password">
-                    </div>
-                    <div class="column">
-                        <p for="confirm" class="ts-label">CONFIRMAR SENHA</p>
-                        <input class="input ts-input" type="password" name="confirm" id="confirm" ng-model="profile.confirm">
-                    </div>
+            <div class="columns">
+                <div class="column">
+                    <h4 class="config-title">Informações do time</h4>
+                    <br>
+                    <p class="team-info"><strong>Nome do time:</strong> {{team.name}}</p>
+                    <p class="team-info"><strong>Criado em:</strong> {{team.createdAt | date}}</p>
+                    <p class="team-info"><strong>Id:</strong> {{team.id}}</p>
                 </div>
-                <button class="button ts-confirm-btn is-pulled-right" type="submit">Atualizar Senha</button>
-            </form>
+                <div class="column">
+                    <h4 class="config-title">Feedback</h4>
+
+                        <textarea class="textarea ts-input" rows="4" ng-model="feedback"> </textarea>
+                        <a class="button ts-confirm-btn is-pulled-right" ng-click="createFeedback(feedback)">Enviar feedback</a>
+
+                </div>
+            </div>
 
             <br>
-            <br>
-
         </div>
     </div>
 
