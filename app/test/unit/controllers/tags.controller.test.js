@@ -1,12 +1,14 @@
 /*jshint strict:false */
 describe("TagsController", function() {
-  var scope, controller, backend;
+  var scope, controller, backend, state, teamService;
   beforeEach(module("MyApp"));
 
   beforeEach(
-    inject(function($controller, $httpBackend) {
+    inject(function($controller, $httpBackend, $state, TeamService) {
       scope = {};
       backend = $httpBackend;
+      state = $state;
+      teamService = TeamService;
       controller = $controller("TagsController", {
         $scope: scope
       });
@@ -41,5 +43,11 @@ describe("TagsController", function() {
   it("should exist an tags attribute", function() {
     backend.flush();
     expect(scope.tags).to.be.ok;
+  });
+
+  it('should go to member tags state', function() {
+    var spy = sinon.spy(state, 'go');
+    scope.goToTagMembers();
+    assert(spy.calledWith('dashboard.tag-members'));
   });
 });
