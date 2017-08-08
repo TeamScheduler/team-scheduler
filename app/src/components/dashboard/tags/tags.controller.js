@@ -40,6 +40,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
     })();
 
     $scope.goToCreateTag = function () {
+        $rootScope.currentTag = "NOT_NEEDED";
         $state.go('dashboard.create-tag');
     };
 
