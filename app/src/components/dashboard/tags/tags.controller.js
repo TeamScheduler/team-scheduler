@@ -11,7 +11,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
             function err(err) {
                 //TODO: tratar erros
             }
-        )
+        );
     })();
 
     /*$scope.tags = [
@@ -79,6 +79,6 @@ angular.module('MyApp').controller('TagsController', function($scope, $state, Te
             function err() {
                 //TODO: tratar erro.
             }
-        )
-    }
+        );
+    };
 });

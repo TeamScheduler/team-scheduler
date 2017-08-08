@@ -21,11 +21,11 @@ exports.deleteTag = function(tagId, callback) {
     Tag.remove({_id:tagId}, function(err) {
         callback(err);
     });
-}
+};
 
 
 exports.addMember = function(tagId, memberId, callback) {
     Tag.findOneAndUpdate({_id:tagId}, { $addToSet:{members : memberId}}, {safe: true, new:true}, function(err, tag){
         callback(err, tag);
     });
-}
+};
