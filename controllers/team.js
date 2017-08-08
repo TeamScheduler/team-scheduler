@@ -107,9 +107,7 @@ exports.getTeamMembers = function (req, res, next) {
     if (!mongoose.Types.ObjectId.isValid(teamId)) {
         return res.status(400).send({error: "Team id is not valid."});
     }
-
-    Team.findOne({_id: teamId}).populate('members').exec(function (err, team) {
-
+    Team.findOne({_id: teamId}).populate({path: 'members', populate: {path: 'hours'}}).exec(function (err, team) {
         if (err) {
             return res.status(400).send({error: err});
         }
@@ -340,5 +338,4 @@ exports.patchTeamTagMembers = function(req, res, next) {
             return res.status(400).send({msg: "Invalid action"});
         }
     });
-
 }

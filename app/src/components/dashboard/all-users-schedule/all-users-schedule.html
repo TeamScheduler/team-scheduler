@@ -6,7 +6,7 @@
                 <i class="lnr lnr-magnifier"></i>
             </div>
 
-            <div class="column is-7">
+            <div class="column is-11">
                 <div class="field">
                     <p class="control">
                         <input class="input" type="text" ng-model="searchName">
@@ -14,18 +14,6 @@
                 </div>
             </div>
 
-            <div class="column is-1">
-                <i class="lnr lnr-funnel"></i>
-            </div>
-
-            <div class="column is-3">
-                <div class="select is-fullwidth">
-                    <select>
-                        <option>selecione...</option>
-                        <option ng-repeat="tag in tags">{{tag.name}}</option>
-                    </select>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -66,51 +54,81 @@
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
                                     {{user.name}}
-                                    <div style="padding-top: 5px" class="tag-line is-pulled-right" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user.id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Monday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.tue | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.tue | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Tuesday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.wed | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.wed | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Wednesday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.thu | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.thu | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Thursday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.fri | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.fri | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Friday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.sat | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.sat | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Saturday -->
                             <td>
-                                <div class="event" ng-repeat="user in hour.sun | filter:searchName">
+                                <div class="event" ng-repeat="user in hour.sun | filter:searchName" ng-click="toggleTags = !toggleTags">
+                                    <i ng-hide="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-down is-pulled-right"></i>
+                                    <i ng-show="toggleTags" style="color: white; padding-top: 5px; font-size: 10px" class="lnr lnr-chevron-up is-pulled-right"></i>
                                     <input id="check" type="checkbox" class="checkbox" />
                                     <label for="check"></label>
-                                    {{user}}
+                                    {{user.name}}
+                                    <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                    </div>
                                 </div>
                             </td><!-- Sunday -->
                         </tr>

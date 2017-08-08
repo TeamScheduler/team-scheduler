@@ -1,6 +1,6 @@
 /*jshint strict:false */
 
-angular.module('MyApp').controller('AllUsersScheduleController', function($scope, $rootScope, TeamService) {
+angular.module('MyApp').controller('AllUsersScheduleController', function($scope, $rootScope, TeamService, TeamScheduleService) {
 
     (function main() {
         TeamService.getTeamTags().then(
@@ -9,6 +9,11 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             },
             function err(err) {
                 //TODO: tratar erros
+            }
+        )
+        TeamScheduleService.getUserHours($rootScope.currentUser._id).then(
+            function (hours) {
+                $scope.hours = hours;
             }
         )
     })();
@@ -23,7 +28,7 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
      '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30',
      '17:00', '17:30', '18:00', '18:30', '19:00'];*/
 
-    $scope.hours =[
+    /*$scope.hours =[
         {
             hour: '5:30',
             mon: [{name: 'matheus', id: $rootScope.currentUser._id}],
@@ -115,7 +120,7 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             sun: []
         }
     ];
-
+*/
     var checkMemberInTag = function (tag, memberId){
         var isMemberInTag = false;
         var tagMembers = tag.members;
@@ -133,13 +138,10 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             return [];
         }
 
-        console.log(memberId);
-        console.log(tags);
         var memberTags = tags.filter( function( tag, index, array ) {
-            console.log("TAG: ",  tag);
             return checkMemberInTag(tag, memberId);
         });
-        console.log(memberTags);
+
         return memberTags;
     };
 });
