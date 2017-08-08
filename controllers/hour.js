@@ -9,7 +9,7 @@ exports.createHour = function (hour, callback) {
     newHour.save(function(err){
         callback(err, newHour);
     });
-}
+};
 
 /**
  *
@@ -18,4 +18,4 @@ exports.deleteHour = function(hourId, callback) {
     Hour.remove({_id:hourId}, function(err) {
         callback(err);
     });
-}
+};

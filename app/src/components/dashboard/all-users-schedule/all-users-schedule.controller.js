@@ -10,7 +10,7 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
             function err(err) {
                 //TODO: tratar erros
             }
-        )
+        );
     })();
 
     $scope.toggleTags = false;

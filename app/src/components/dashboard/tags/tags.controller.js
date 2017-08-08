@@ -28,6 +28,47 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
         );
     })();
 
+    /*$scope.tags = [
+        {
+            name: 'DEV',
+            color: '#212121',
+            users: [
+                {
+                    email: 'vinicius@email.com'
+                },
+                {
+                    email: 'maia@email.com'
+                },
+                {
+                    email: 'matheus@email.com'
+                },
+                {
+                    email: 'gustavo@email.com'
+                }
+            ]
+        },
+
+        {
+            name: 'UX',
+            color: '#4179F4',
+            users: [
+                {
+                    email: 'matheus@email.com'
+                }
+            ]
+        },
+
+        {
+            name: 'QA',
+            color: '#F4424E',
+            users: [
+                {
+                    email: 'gustavo@email.com'
+                }
+            ]
+        }
+    ];*/
+
     $scope.goToCreateTag = function () {
         $state.go('dashboard.create-tag');
     };
@@ -48,7 +89,7 @@ angular.module('MyApp').controller('TagsController', function($scope, $rootScope
             function err() {
                 //TODO: tratar erro.
             }
-        )
+        );
     };
 
     $scope.goToTagMembers = function(tag) {

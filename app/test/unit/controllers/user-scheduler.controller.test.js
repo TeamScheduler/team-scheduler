@@ -5,7 +5,9 @@ describe("UserScheduleController", function() {
 
   beforeEach(
     inject(function($controller) {
-      scope = {};
+      scope = {
+        isEditMode: true
+      };
       controller = $controller("UserScheduleController", {
         $scope: scope
       });
@@ -18,9 +20,5 @@ describe("UserScheduleController", function() {
 
   it("should exist an days attribute", function() {
     expect(scope.days).to.be.ok;
-  });
-
-  it("should exist an hours attibute", function() {
-    expect(scope.hours).to.be.ok;
   });
 });
