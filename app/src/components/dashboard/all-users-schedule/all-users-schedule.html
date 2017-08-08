@@ -23,28 +23,17 @@
                 <!--Days of week-->
                 <table>
                     <thead>
-                    <tr>
-                        <th class="headcol"></th>
-                        <th ng-repeat="day in days">{{day}}</th>
-                    </tr>
+                        <tr>
+                            <th class="headcol"></th>
+                            <th ng-repeat="day in days">{{day}}</th>
+                        </tr>
                     </thead>
                 </table>
 
                 <div class="wrap">
                     <table class="offset">
                         <tbody>
-
-                        <tr>
-                            <td class="headcol"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                        <div style="height: 20px; width: 100%; background-color: #333741"></div>
                         <tr ng-repeat="hour in hours">
                             <td class="headcol">{{hour.hour}}</td><!--Hour-->
                             <td>
