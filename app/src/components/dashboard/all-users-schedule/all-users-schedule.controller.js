@@ -11,6 +11,34 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
                 //TODO: tratar erros
             }
         )
+
+        $scope.hours = [
+            { hour: '00:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '01:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '02:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '03:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '04:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '05:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '06:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '07:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '08:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '09:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '10:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '11:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '12:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '13:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '14:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '15:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '16:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '17:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '18:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '19:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '20:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '21:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '22:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] },
+            { hour: '23:00', mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] }
+        ];
+
         TeamScheduleService.getUserHours($rootScope.currentUser._id).then(
             function (hours) {
                 $scope.hours = hours;
@@ -20,107 +48,8 @@ angular.module('MyApp').controller('AllUsersScheduleController', function($scope
 
     $scope.toggleTags = false;
 
-    //Columns
     $scope.days = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'];
 
-    //Lines
-    /*$scope.hours = ['5:30', '6:00', '6:30', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30',
-     '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30',
-     '17:00', '17:30', '18:00', '18:30', '19:00'];*/
-
-    /*$scope.hours =[
-        {
-            hour: '5:30',
-            mon: [{name: 'matheus', id: $rootScope.currentUser._id}],
-            tue: ['Vinicius', 'Daniyel'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '6:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Maia', 'Igor'],
-            wed: [],
-            thu: ['Luis'],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '6:30',
-            mon: ['Maia', 'Luis'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '7:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '7:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '8:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '8:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '9:00',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        },
-        {
-            hour: '9:30',
-            mon: ['Maia', 'Gustavo'],
-            tue: ['Vinicius', 'Igor'],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: ['Vinicius', 'Matheus'],
-            sun: []
-        }
-    ];
-*/
     var checkMemberInTag = function (tag, memberId){
         var isMemberInTag = false;
         var tagMembers = tag.members;
