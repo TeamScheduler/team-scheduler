@@ -2,7 +2,7 @@
 
 Team Schedule is an free application made by students in order to help teams to manage their members schedule in a simple and fast way.
 
-#Members
+# Members
 * Daniyel Rocha
 * Gustavo Diniz
 * Igor Pinheiro
