@@ -5,18 +5,22 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-
   font-family: "DINPro", "Helvetica Neue", sans-serif;
-  padding: 3rem;
   height: 100%;
+  padding-top: 7%;
+  background-color: #333741;
 
-  .tutorial-text{
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    line-height: 1;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 20px 40px;
+  .search-filter-bar {
+    background-color: #333741;
+    width: 100%;
+    height: 50px;
+    padding: 7px;
+    position: fixed;
+    top: 52px;
+    z-index: 3;
+    a{
+      border: none;
+    }
   }
 }
 
@@ -36,32 +40,32 @@
 
 
 .schedule-table {
-
-  padding-top: 30px;
-
-  .outer {
-    position:relative;
-  }
+  position: absolute;
+  top: 94px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   .calendar {
-    max-width: 1920px;
+    max-width: 100%;
     min-width: 500px;
-    margin-bottom: 50px;
   }
 
   .wrap {
+    padding-top: 55px;
     overflow-x: hidden;
-    overflow-y: hidden;
-    max-width: 1920px;
+    overflow-y: scroll;
+    max-width: 100%;
   }
 
   thead {
     z-index: 2;
     background: #212121;
+    position: fixed;
 
     & th{
       text-align: center;
-      width: 100%;
+      width: 14%;
       font-size: 1rem;
       font-weight: bold;
       color: map_get($colors, nav-itens-color);

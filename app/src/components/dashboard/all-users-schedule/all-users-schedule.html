@@ -23,28 +23,17 @@
                 <!--Days of week-->
                 <table>
                     <thead>
-                    <tr>
-                        <th class="headcol"></th>
-                        <th ng-repeat="day in days">{{day}}</th>
-                    </tr>
+                        <tr>
+                            <th class="headcol"></th>
+                            <th ng-repeat="day in days">{{day}}</th>
+                        </tr>
                     </thead>
                 </table>
 
-                <div class="wrap">
+                <div class="wrap" style="overflow: hidden">
                     <table class="offset">
                         <tbody>
-
-                        <tr>
-                            <td class="headcol"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                        <div style="height: 20px; width: 100%; background-color: #333741"></div>
                         <tr ng-repeat="hour in hours">
                             <td class="headcol">{{hour.hour}}</td><!--Hour-->
                             <td>
@@ -55,7 +44,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Monday -->
@@ -67,7 +56,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Tuesday -->
@@ -79,7 +68,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Wednesday -->
@@ -91,7 +80,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Thursday -->
@@ -103,7 +92,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Friday -->
@@ -115,7 +104,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Saturday -->
@@ -127,7 +116,7 @@
                                     <label for="check"></label>
                                     {{user.name}}
                                     <div style="padding-top: 5px" class="tag-line" ng-show="toggleTags">
-                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #9E9E9E; margin-right: 1px">{{tag.name}}</p>
+                                        <p class="tag" ng-repeat="tag in getMemberTags(tags, user._id)" style="background-color: {{tag.color}}; color: #FFF; margin-right: 1px">{{tag.name}}</p>
                                     </div>
                                 </div>
                             </td><!-- Sunday -->

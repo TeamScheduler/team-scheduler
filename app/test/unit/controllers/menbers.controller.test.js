@@ -12,6 +12,19 @@ describe("MembersController", function() {
     __v: 0
   };
 
+  var tags = [
+    {
+      name: "DEV",
+      color: "#212121",
+      members: [fake]
+    },
+    {
+      name: "QA",
+      color: "#F4424E",
+      members: []
+    }
+  ];
+
   beforeEach(module("MyApp"));
 
   beforeEach(
@@ -31,17 +44,11 @@ describe("MembersController", function() {
         TeamService: teamService
       });
 
-      backend
-        .whenGET("/team/members")
-        .respond(200, [fake]);
+      backend.whenGET("/team/members").respond(200, [fake]);
 
-      backend
-        .whenGET("/team/pending-members")
-        .respond(200, [fake]);
+      backend.whenGET("/team/pending-members").respond(200, [fake]);
 
-      backend
-        .whenPATCH("/team/pending-members")
-        .respond(200, [fake]);
+      backend.whenPATCH("/team/pending-members").respond(200, [fake]);
     })
   );
 
@@ -83,5 +90,9 @@ describe("MembersController", function() {
     backend.flush();
     expect(scope.requests).to.be.ok;
     assert.equal(JSON.stringify(scope.requests), JSON.stringify([fake]));
+  });
+
+  it("should get members tag", function() {
+    expect(scope.getMemberTags(tags, fake._id)).to.be.ok;
   });
 });

@@ -96,7 +96,7 @@ angular.module('MyApp', ['ui.router', 'satellizer', 'autocomplete'])
                 name: 'dashboard',
                 url: '/dashboard',
                 templateUrl: 'components/dashboard/root/root.html',
-                //resolve: { loginRequired: loginRequired }
+                resolve: { loginRequired: loginRequired }
             })
 
             .state({

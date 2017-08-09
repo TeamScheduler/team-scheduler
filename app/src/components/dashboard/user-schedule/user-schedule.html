@@ -1,25 +1,22 @@
 
 <div id="user-schedule__component">
 
-
-    <div class="columns" style="width: 100%">
-        <div class="column is-7">
-            <div class="tutorial-text"  ng-show="isEditMode">
-                <i class="lnr lnr-magic-wand is-pulled-left" style="font-size: 50px; margin-right: 30px; color: white"></i>
-                <p class="title" style="color: #FFF; font-size: 20px; font-weight: bold">
+    <!-- FILTER BAR -->
+    <div class="search-filter-bar has-text-centered">
+        <div class="columns">
+            <div class="column is-10">
+                <p ng-show="isEditMode" class="title has-text-centered" style="color: #FFF; font-size: 20px;">
                     Clique em um campo vazio para adicionar um horário,
                     ou em um campo já preenchido para removê-lo.
                 </p>
             </div>
-        </div>
 
-        <div class="column is-3"></div>
-
-        <div class="column is-2 ">
-            <a class="button ts-confirm-btn is-fullwidth is-pulled-right" ng-click="isEditMode = !isEditMode" ng-class="{'ts-alert-btn': isEditMode}">
-                <p ng-show="isEditMode">Finalizar Edição</p>
-                <p ng-hide="isEditMode">Editar Horários</p>
-            </a>
+            <div class="column is-2">
+                <a class="button ts-positive-btn is-fullwidth is-pulled-right" ng-click="isEditMode = !isEditMode" ng-class="{'ts-alert-btn': isEditMode}">
+                    <p ng-show="isEditMode">Finalizar Edição</p>
+                    <p ng-hide="isEditMode">Editar Horários</p>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -36,21 +33,10 @@
                     </tr>
                     </thead>
                 </table>
-                <div class="wrap">
+                <div class="wrap" style="overflow: hidden">
                     <table class="offset">
                         <tbody>
-
-                        <tr>
-                            <td class="headcol"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                        <div style="height: 20px; width: 100%; background-color: #333741"></div>
                         <tr ng-repeat="hour in hours">
 
                             <!--Hour-->
